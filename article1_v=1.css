@@ -1,0 +1,620 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+nav{
+    height: 12vh;
+    min-height: 115px;
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 0 2%;
+}
+
+#navImg{
+    width:90px;
+    height:46px;
+}
+
+#navLogo{
+    margin-top: 0;
+}
+
+#navLogo::after{
+    display: none;
+}
+
+.navList{
+    list-style: none;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.navItem{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin: 0 10px;
+    z-index: -1;
+    float: left;
+    font-weight: 400;
+    font-size: 18px;
+    /* border: 1px solid red; */
+    margin-top:10px;
+    cursor: pointer;
+}
+
+.navItem a{
+    text-decoration: none;
+    color: black;
+}
+
+.navItem::after{
+    content: '';
+    position: relative;
+    display: inline-block;
+    width: 1%;
+    top: -14px;
+    border: 1px solid transparent;
+    transition: all .3s ease-out;
+}
+
+.navItem:hover::after{
+    width: 55%;
+    border-color: #FFC200;
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    /* padding-top: 40vh; */
+    background-image: url("images/park-troopers-ACv87kYooQQ-unsplash.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: black;
+    transition: 1s ease-in-out background-image;
+    /* background-attachment */
+    /* position: relative; */
+}
+
+.main .social{
+    position: absolute;
+    /* border: 1px solid red; */
+    /* height: 200px; */
+    /* width: 100px; */
+    bottom: 50%;
+    transform: translateY(50%);
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    margin-right: 5%;
+}
+
+.main .social i{
+    position: relative;
+    font-size: 25px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: white;
+    transition: .3s all ease-out;
+
+}
+
+.main .social i:hover{
+    color: #FFC200;
+}
+
+#downA{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* border: 1px solid red; */
+    padding: 5px 8px;
+}
+
+.catchContainer{
+    position: relative;
+    max-width: 1275px;
+    /* border: 1px solid white; */
+    width: 75%;
+    margin-left: 8%;
+    /* height: 450px; */
+    /* bottom: 120px; */
+    transition: 0.8s top ease-in-out;
+    top: 60%;
+}
+
+.catchArticle .about{
+    font-size: 1.1em;
+    color: #FFC200;
+    display: inline-block;
+    letter-spacing: 1px;
+    line-height: 1.2em;
+}
+
+.catchArticle #readTime{
+    color: #FFFFFF;
+    opacity: .3;
+    font-size: 1em;
+    line-height: 1.2em;
+    vertical-align: center;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.catchArticle .date{
+    color: #FFFFFF;
+    opacity: .5;
+    font-size: 1em;
+}
+
+.catchArticle .headline{
+    color: #FFFFFF;
+    font-size: 4.5em;
+    text-transform: uppercase;
+}
+
+.articleBody{
+    margin: 0 8%;
+}
+
+.articleBody h3{
+    font-size: 1.4em;
+    color: #242423;
+    letter-spacing: 1.1px;
+    margin-top: 50px;
+    opacity: .8;
+}
+
+.articleBody p{
+    margin-top: 40px;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+    font-family: 'Merriweather';
+    line-height: 35px;
+    color: #242423;
+    opacity: .8;
+}
+
+.articleBody .imageContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    margin: 80px 0px;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.articleBody .imageContainer .image{
+    width: 90%;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.articleBody .imageContainer #img1{
+    position: relative;
+    left:-50%;
+    transform: translateX(50%);
+    background-image: url("images/disney+.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.articleBody .imageContainer #img2{
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+    background-image: url("images/disneyImg.jfif");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.recent{
+    width:100%;
+    height: 100vh;
+    min-height: 1000px;
+}
+
+.recent h3{
+    font-size: 1.4em;
+    font-weight: 800;
+    position: relative;
+    left: 10%;
+    padding-top: 80px;
+}
+
+.recent .cardLayout{
+    display: grid;
+    grid-template-columns: repeat(3, 27%);
+    grid-gap: 10px;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 0 10%;
+}
+
+.recent .cardLayout .restrict{
+    max-height: 280px;
+    /* border: 1px solid blue; */
+    overflow-y:hidden;
+}
+
+.recent .cardLayout .card{
+    min-height: 650px;
+    height:650px;
+    position: relative;
+    border: 1px solid lightgrey;
+    transition: all .3s ease-in-out;
+}
+
+.recent .cardLayout .card:hover{
+    border: 1px solid darkgrey;
+    /* box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.5); */
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.recent .cardLayout .card .cardImage{
+    background-image: url("https://source.unsplash.com/random/200x200");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height:45%;
+    width:100%;
+}
+
+.recent .cardLayout .card:nth-child(1) .cardImage{
+    background-image: url("images/annie-spratt-MChSQHxGZrQ-unsplash.png");
+}
+
+.recent .cardLayout .card:nth-child(2) .cardImage{
+    background-image: url("images/adam-wilson-6ZZh8kOyW-4-unsplash.png");
+}
+
+.recent .cardLayout .card:nth-child(3) .cardImage{
+    background-image: url("images/blake-wisz-q3o_8MteFM0-unsplash.png");
+}
+
+.recent .cardLayout .card .cardContent{
+    padding: 20px;
+}
+
+.recent .cardLayout .card .cardContent h4{
+    font-size:1.4em;
+    font-weight: 800;
+}
+
+.recent .cardLayout .card .cardContent p{
+    line-height: 1.5em;
+    color: rgb(168, 168, 168);
+    padding-top: 10px;
+    padding-bottom: 15px;
+    /* border: 1px solid red; */
+}
+
+.recent .cardLayout .card .cardContent .cardReadMore{
+    border: none;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9em;
+    position: absolute;
+    bottom: 15px;
+    float: left;
+}
+
+.recent .cardLayout .card .cardContent .cardReadTime{
+    font-weight: bold;
+    font-size: 0.9em;
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    padding: 0;
+}
+
+.recent .cardLayout .card .cardContent .cardReadMore i{
+    padding-left: 8px;
+    font-size: 1.1em;
+}
+
+/* .relatedArticles{
+    width:100%;
+    height: 100vh;
+    position: relative;
+    margin-top: 40px;
+}
+
+.relatedArticles::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("images/fingerPrintBackground.png");
+    z-index: -1;
+    opacity: .5;
+  }
+
+.relatedArticles h3{
+    font-size: 1.4em;
+    font-weight: 800;
+    position: relative;
+    left: 10%;
+    padding-top: 80px;
+}
+
+.relatedArticles .cardLayout{
+    display: grid;
+    grid-template-columns: repeat(3, 420px);
+    grid-gap: 10px;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 0 10%;
+}
+
+.relatedArticles .cardLayout .card{
+    min-height: 650px;
+    height:650px;
+    position: relative;
+    border: 1px solid lightgrey;
+    background-color: white;
+}
+
+.relatedArticles .cardLayout .card:hover{
+    border: 1px solid darkgrey;
+}
+
+.relatedArticles .cardLayout .card .cardImage{
+    background-image: url("https://source.unsplash.com/random/200x200");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 45%;
+    width:100%;
+}
+
+.relatedArticles .cardLayout .card:nth-child(1) .cardImage{
+    background-image: url("images/annie-spratt-MChSQHxGZrQ-unsplash.png");
+}
+
+.relatedArticles .cardLayout .card:nth-child(2) .cardImage{
+    background-image: url("images/adam-wilson-6ZZh8kOyW-4-unsplash.png");
+}
+
+.relatedArticles .cardLayout .card:nth-child(3) .cardImage{
+    background-image: url("images/blake-wisz-q3o_8MteFM0-unsplash.png");
+}
+
+.relatedArticles .cardLayout .card .cardContent{
+    padding: 20px;
+}
+
+.relatedArticles .cardLayout .card .cardContent h4{
+    font-size:1.4em;
+    font-weight: 800;
+}
+
+.relatedArticles .cardLayout .card .cardContent p{
+    line-height: 1.5em;
+    color: rgb(168, 168, 168);
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.relatedArticles .cardLayout .card .cardContent .cardReadMore{
+    border: none;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9em;
+    position: absolute;
+    bottom: 15px;
+    float: left;
+}
+
+.relatedArticles .cardLayout .card .cardContent .cardReadTime{
+    font-weight: bold;
+    font-size: 0.9em;
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    padding: 0;
+}
+
+.relatedArticles .cardLayout .card .cardContent .cardReadMore i{
+    padding-left: 8px;
+    font-size: 1.1em;
+} */
+
+footer{
+    width:100%;
+    height:40vh;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+footer img{
+    height: 46px;
+    width: 90px;
+    margin-top: 70px;
+}
+
+footer .navList{
+    list-style: none;
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+footer .navItem{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 0 10px;
+    z-index: -1;
+    float: left;
+    font-weight: 400;
+    /* border: 1px solid red; */
+    margin-top:10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+footer .navItem:nth-child(2)
+{
+    font-weight: bold;
+}
+
+footer .navItem:nth-child(2)::after{
+    width: 1%;
+    border-color: transparent;
+}
+
+footer .navItem::after{
+    content: '';
+    position: relative;
+    display: inline-block;
+    width: 1%;
+    top: -11px;
+    border: 1px solid transparent;
+    transition: all .3s ease-out;
+}
+
+footer .navItem:hover::after{
+    width: 55%;
+    border-color: #FFC200;
+}
+
+footer .social i{
+    font-size: 2em;
+    color: rgb(121, 121, 121);
+    margin: 0 15px;
+    transition: .3s all ease-out;
+}
+
+footer .social i:hover{
+    color: #FFC200;
+}
+
+.lineBreak{
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid rgb(228, 228, 228);
+}
+
+@media (max-width: 1600px){
+    .recent .cardLayout{
+        grid-template-columns: repeat(3, 30%);
+    }
+}
+
+@media (max-width: 1100px){
+    .catchContainer{
+        /* border-color: red; */
+        top: 50%;
+    }
+    .catchContainer .headline{
+        font-size: 3.5em;
+    }
+    .articleBody .imageContainer{
+        /* border: 1px solid red; */
+        height: 300px;
+        /* grid-template-columns: repeat(2, 40%); */
+    }
+    .articleBody .imageContainer #img1{
+        /* width: 100%; */
+        /* background-size: cover; */
+        height: 300px;
+    }
+    .articleBody .imageContainer #img2{
+        /* width: 40%; */
+        height: 300px;
+    }
+    .recent{
+        height: 2300px;
+    }
+    .recent h3{
+        width: 420px;
+        margin: auto;        
+        /* border: 1px solid red; */
+        left: 0;
+        padding-top: 50px;
+    }
+    .recent .cardLayout{
+        grid-template-columns: repeat(1,1fr);
+        /* grid-template-rows: repeat(3, 100vh); */
+    }
+    .recent .cardLayout .card{
+        width: 420px;
+        margin: auto;
+        /* margin-left: -4%; */
+        /* margin-right: 0; */
+        /* padding: 0; */
+        margin-bottom: 5%;
+    }
+}
+
+@media (max-width: 750px){
+    .catchContainer{
+        /* border-color: blue; */
+        top: 40%;
+    }
+    .catchContainer .headline{
+
+    }
+    .articleBody .imageContainer{
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 20px;
+        height: 620px;
+        overflow: hidden;
+    }
+    .articleBody .imageContainer #img1{
+        /* width: 100%; */
+        /* background-size: cover; */
+        transform: none;
+        left: 0;
+        right: 0;
+    }
+    .articleBody .imageContainer #img2{
+        /* width: 40%; */
+        height: 300px;
+        transform: none;
+        left: 0;
+        right: 0;
+
+    }
+
+}
+
+@media (max-width: 550px){
+    .catchContainer{
+        /* border-color: green; */
+    }
+    .main .social a{
+        display: none;
+    }
+}
+

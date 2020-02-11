@@ -1,0 +1,714 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    max-width: 2200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+nav{
+    height: 12vh;
+    min-height: 115px;
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 0 2%;
+    overflow: hidden;
+    z-index: 100000000000;
+    max-width: 2100px;
+    margin: 0 auto;
+    max-height: 120px;
+}
+
+.navDisplay{
+    height: 100vh;
+    min-height: 900px;
+    width: 0;
+    background-color: rgb(31, 30, 30);
+    opacity: 0.90;
+    z-index: 100000000;
+    position: absolute;    
+    /* transform: translateX(-100%); */
+    left: -120%;
+    /* transition: 0.5s ease-in-out all; */
+    overflow: hidden;
+    /* display: none; */
+}
+
+.navDisplay .navList-display{
+    list-style: none;
+    text-align: center;
+    position: relative;
+    opacity: 1.0;
+    top: 15vh;
+    width: 200px;
+    margin: auto;
+    /* border: 1px solid red; */
+    /* color: white; */
+    overflow: hidden;
+}
+
+.navDisplay .navList-display li{
+    padding: 10px 20px;    
+}
+
+.navDisplay .navItem-display{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin: 0 10px;
+    z-index: -1;
+    /* float: left; */
+    font-weight: 400;
+    font-size: 18px;
+    /* border: 1px solid red; */
+    margin-top:10px;
+    cursor: pointer;
+}
+
+.navDisplay .navItem-display::after{
+    content: '';
+    position: relative;
+    display: inline-block;
+    width: 1%;
+    top: -12px;
+    border: 1px solid transparent;
+    transition: all .3s ease-out;
+}
+
+.navDisplay .navItem-display:hover::after{
+    width: 55%;
+    border-color: #FFC200;
+}
+
+.navDisplay .navList-display li a{
+    text-decoration: none;
+    color: white;
+}
+
+#navImg{
+    width:90px;
+    height:46px;
+}
+
+#navLogo{
+    margin-top: 0;
+}
+
+#navLogo::after{
+    display: none;
+}
+
+nav .navList{
+    list-style: none;
+    display: inline-block;
+    /* margin-top: 20px; */
+    text-align: center;
+    /* border: 1px solid red; */
+    width: 98%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+
+.navItem{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin: 0 10px;
+    z-index: -1;
+    float: left;
+    font-weight: 400;
+    font-size: 18px;
+    /* border: 1px solid red; */
+    margin-top:10px;
+    cursor: pointer;
+}
+
+.navItem a{
+    text-decoration: none;
+    color: black;
+}
+
+.navItem:nth-child(5)
+{
+    font-weight: bold;
+}
+
+.navItem:nth-child(5)::after{
+    width: 55%;
+    border-color: #FFC200;
+}
+
+.navItem::after{
+    content: '';
+    position: relative;
+    display: inline-block;
+    width: 1%;
+    top: -14px;
+    border: 1px solid transparent;
+    transition: all .3s ease-out;
+}
+
+.navItem:hover::after{
+    width: 55%;
+    border-color: #FFC200;
+}
+
+#bars{
+    display: none;
+    font-size: 1.4em;
+    position: absolute;
+    right: 0;
+    /* transition: 1s ease-in-out display; */
+}
+
+#cancel{
+    display: none;
+    font-size: 1.4em;
+    position: absolute;
+    right: 0;
+}
+
+#bars:hover{
+    /* color: white; */
+    /* font-size: 1.7em; */
+    color: #FFC200;
+}
+
+#cancel:hover{
+    /* color: white; */
+    /* font-size: 1.7em; */
+    color: #FFC200;
+}
+
+#bars:hover::after{
+    width: 1%;
+    border-color: transparent;
+    /* display: none; */
+}
+
+#cancel:hover::after{
+    width: 1%;
+    border-color: transparent;
+    /* display: none; */
+}
+
+.main{
+    width:100%;
+    height:100vh;
+    min-height: 900px;
+    position: relative;
+    /* border: 1px solid red; */
+    /* position: relative; */
+    /* background-image: url("images/joshua-ness--bEZ_OfWu3Y-unsplash.png") */
+    /* z-index: -1; */
+    min-height: 900px;
+    max-height: 1000px;
+}
+
+.main::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("images/joshua-ness--bEZ_OfWu3Y-unsplash.png");
+    /* filter: grayscale(100%); */
+    background-color: #242423;
+    /* background-color: black; */
+    filter: brightness(75%);
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    /* filter: brightness(30%); */
+    z-index: -1;
+    opacity: 1;
+    /* opacity: .5; */
+  }
+
+.main .letsTalk{
+    position: absolute;
+    bottom: 150px;
+    max-width:65%;
+    /* border: 1px solid rgb(73, 72, 72); */
+    color:white;
+    margin: 0 5%;
+}
+
+.main .letsTalk h2{
+    font-size:5em;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.main .letsTalk p{
+    color: white;
+    opacity: .4;
+    font-family: 'Merriweather';
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.main i{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#downA{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* border: 1px solid red; */
+    padding: 5px 8px;
+    cursor: pointer;
+    /* z-index: 2; */
+}
+
+.contactInfo{
+    width:100%;
+    height:100vh;
+    max-height: 800px;
+    min-height: 800px;
+    position: relative;
+    /* border:1px solid blue; */
+}
+
+.contactInfo .contactLayout{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 0 10%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    /* height: 100%; */
+    /* place-items: center; */
+    /* align-content: center; */
+    /* transform: translateY(-50%); */
+    /* margin-top:10%; */
+}
+
+.contactInfo .contactLayout div{
+    /* border: 1px solid red; */
+}
+
+.contactInfo .contactLayout div p a, .contactInfo .contactLayout div p a:visited, .contactInfo .contactLayout div p a:hover, .contactInfo .contactLayout div p a:active {
+    color: #0000FF;
+  }
+
+.contactInfo .contactLayout div h3{
+    font-size: 2.4em;
+    color: #242423;
+    margin-bottom:35px;
+}
+
+.contactInfo .contactLayout div p{
+    font-size: 1.8em;
+    font-family: "Merriweather";
+    color: #242423;
+    opacity: .5;
+    line-height: 1.4em;
+}
+
+.socials{
+    min-height: 225px;
+}
+
+.map{
+    width:100%;
+    height:90vh;
+    min-height: 900px;
+    max-height: 900px;
+    background-color: grey;
+    background-image: url("images/henry-perks-BJXAxQ1L7dI-unsplash.png");
+    background-position: center center;
+}
+
+/* #gMap{
+    width: 100%;
+    height:90vh;
+    min-height: 900px;
+    max-height: 900px;
+} */
+
+.contactForm{
+    width:100%;
+    height:100vh;
+    /* border:1px solid purple; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    position: relative;
+    padding: 0% 10%;
+    min-height: 900px;
+    max-height: 900px;
+    overflow: hidden;
+}
+
+.contactForm::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("images/fingerPrintBackground.png");
+    /* filter: grayscale(100%); */
+    z-index: -1;
+    opacity: .5;
+  }
+
+  .contactForm input, textarea{
+      outline: none;
+  }
+
+
+.contactForm div{
+    /* border: 1px solid red; */
+}
+
+.contactForm .form{
+    width: 75%;
+    height: 75%;
+    /* border: 1px solid red; */
+    /* left: 50%;
+    position: relative;
+    transform: translateX(-50%); */
+    overflow: hidden;
+}
+
+.contactForm .form h3{
+    font-size: 2.7em;
+    height: 15%;
+}
+
+.contactForm .form form input, textarea{
+    background-color: white;
+    padding: 5px 10px;
+    border: none;
+    border: 1px solid black;
+    font-size: 1.2em;
+    font-family: 'Merriweather';
+}
+
+.contactForm .form form{
+    /* border: 1px solid red; */
+    height: 85%;
+    overflow: hidden;
+}
+
+.contactForm .form form input{
+    width: 49%;
+    height: 50px;
+}
+
+.contactForm .form form input:nth-child(1){
+    /* margin-right: 3%; */
+}
+
+.contactForm .form form input:nth-child(2){
+    float: right;
+}
+.contactForm .form form textarea{
+    width: 100%;
+    height: 65%;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-family: 'Merriweather';
+    padding: 10px;
+}
+
+.contactForm .image{
+    background-image: url("images/undraw_contact_us_15o2.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 620px;
+    height:410px;
+    /* margin-top: 20px; */
+}
+
+/* ************************ */
+
+.contactForm .form form button{
+    width: 170px;
+    height: 35px;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    padding: 5px 10px;
+    padding-left: 15px;
+    text-align: left;
+    color: white;
+    border: none;
+    background-color: #FFC200;
+    bottom: 0px;
+    letter-spacing: .8px;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.contactForm .form form button i{
+    padding-left: 10px;
+    margin-right: 15px;
+    /* position */
+    font-size: 1.4em;
+    color: white;
+    display: inline-block;
+}
+
+/* *************************** */
+
+footer{
+    width:100%;
+    height:40vh;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    min-height: 400px;
+}
+
+footer img{
+    height: 46px;
+    width: 90px;
+    margin-top: 70px;
+}
+
+footer .navList{
+    list-style: none;
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+footer .navItem{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 0 10px;
+    z-index: -1;
+    float: left;
+    font-weight: 400;
+    /* border: 1px solid red; */
+    margin-top:10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+footer .navItem:nth-child(2)
+{
+    font-weight: bold;
+}
+
+footer .navItem:nth-child(2)::after{
+    width: 1%;
+    border-color: transparent;
+}
+
+footer .navItem::after{
+    content: '';
+    position: relative;
+    display: inline-block;
+    width: 1%;
+    top: -11px;
+    border: 1px solid transparent;
+    transition: all .3s ease-out;
+}
+
+footer .navItem:hover::after{
+    width: 55%;
+    border-color: #FFC200;
+}
+
+footer .social i{
+    font-size: 2em;
+    color: rgb(121, 121, 121);
+    margin: 0 15px;
+    transition: .3s all ease-out;
+}
+
+footer .social i:hover{
+    color: #FFC200;
+}
+
+.lineBreak{
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid rgb(228, 228, 228);
+}
+
+@media (max-width: 1100px){
+    .contactInfo .contactLayout{
+        /* background-color: blue; */
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);   
+        height: 90%;
+        /* margin-top: 5%;      */
+    }
+    .contactInfo .contactLayout .socials{
+        background-size: contain;
+    }
+    .contactForm{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 70% 30%;
+    }
+    .contactForm .image{
+        /* display: none; */
+        width: 100px;
+        height: 100px;
+        transform: translateY(-50px);
+    }
+}
+
+@media (max-width: 1500px){
+    .contactForm{
+        /* background-color: yellow; */
+    }
+    .contactForm .form{
+        width: 100%;
+    }
+    .contactForm .image{
+        width: 400px;
+        height: 280px;
+        background-size: contain;
+    }
+
+    nav .navList .navItem{
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 700px){
+    nav{
+        /* background-color: cyan; */
+    }
+    .main .letsTalk h2{
+        font-size: 3.5em;
+    }
+
+    .contactInfo .contactLayout{
+        /* background-color: lightblue; */
+    }
+
+    .contactInfo .contactLayout div h3{
+        font-size: 2rem;
+    }
+
+    .contactInfo .contactLayout div p{
+        font-size: 1.2rem;
+    }
+
+    .contactInfo{
+        min-height: 700px;
+        max-height: 700px;
+        height: 700;
+
+    }
+}
+
+@media (max-width: 625px){
+    nav .navMain{
+        display: none;
+    }
+
+    .navList #bars{
+        display: block;
+    }
+}
+
+@media (max-width: 550px){
+    .main .letsTalk h2{
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 525px){
+    footer .navList{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 30px;
+        z-index: 9;
+    }
+
+    footer .navList .navItem{
+        z-index: 10;
+    }
+
+    footer .navList .navItem:hover{
+        color: #FFC200;
+    }
+    
+    footer .navList .navItem::after{
+        display: none;
+    }
+
+    footer .navList .navItem::after:hover{
+        display: none;
+    }
+
+    .contactInfo .contactLayout .address{
+        /* margin-bottom: 20px; */
+    }
+
+    .contactForm .image{
+        /* display: none; */
+        width: 100%;
+        margin: 0 auto;
+        /* height: 100px; */
+        transform: none;
+    }
+
+    .contactForm{
+        min-height: 800px;
+        max-height: 800px;
+        height: 800px;
+    }
+
+    .map{
+
+        min-height: 600px;
+    max-height: 600px;
+    height: 600px;
+    }
+}
+
+@media (max-width: 400px){
+    .contactInfo .contactLayout div h3{
+        font-size: 1.8rem;
+    }
+
+    .contactInfo .contactLayout div p{
+        font-size: 1rem;
+    }
+
+    .contactInfo{
+        min-height: 650px;
+        max-height: 650px;
+        height: 650px;
+
+    }
+}

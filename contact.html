@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact WBR</title>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1">
+    <link rel="stylesheet" href="contact.css" text = "style/css">
+    <link rel = "icon" type = "image/png" href = "/images/wbr-short-logo.png">
+    <script src="https://kit.fontawesome.com/503e23e4b6.js"></script>
+    <script src="contact.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="wrapper">
+
+        <nav>
+
+            <ul class = "navList">
+                <li class = "navItem" id = "navLogo"><a href="index.html"><img src="images/wbr long logo.svg" alt="WBR Logo" id = "navImg"></a></li>
+                <li class = "navItem navMain"><a href="index.html">Home</a></li>
+                <li class = "navItem navMain"><a href="about.html">About Us</a></li>
+                <li class = "navItem navMain"><a href="ourTeam.html">Our Team</a></li>
+                <li class = "navItem navMain"><a href="contact.html">Contact</a></li>
+                <li class = "navItem" id = "bars"><i class="fas fa-bars"></i></li>
+            <li class = "navItem" id = "cancel"><i class="fas fa-times"></i></li>
+                <!-- <li class = "search navItem"><div class = "searchBox"><input type="text"><i class="fas fa-search"></i></div></li> -->
+            </ul>
+
+        </nav>
+    
+        <div class="navDisplay">
+            <ul class = "navList-display">
+                <li class = "navItem-display navMain-display"><a href="index.html">Home</a></li>
+                <li class = "navItem-display navMain-display"><a href="about.html">About Us</a></li>
+                <li class = "navItem-display navMain-display"><a href="ourTeam.html">Our Team</a></li>
+                <li class = "navItem-display navMain-display"><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    
+        <div class="main">
+    
+            <div class="letsTalk">
+    
+                <h2>Let's Talk</h2>
+                <p>We love hearing from our readers. Connect with us on social media to stay updated with new articles, or send us an e-mail!</p>
+    
+            </div>
+    
+            <!-- <div class="social">
+    
+                <i class="fab fa-twitter socialLogo" id = "twitterLogo"></i>
+                <i class="fab fa-facebook-square socialLogo" id = "facebookLogo"></i>
+                <i class="fab fa-instagram socialLogo" id = "instagramLogo"></i>
+                <i class="fab fa-linkedin socialLogo" id = "linkedlnLogo"></i>
+    
+            </div> -->
+    
+            <a href="#contactTrigger"><i id = "downA" class="fas fa-chevron-down"></i></a>
+    
+        </div>
+
+        <section class="contactInfo" id = "contactTrigger">
+
+            <div class="contactLayout">
+
+                <div class="email">
+                    <h3>Email</h3>
+                    <p><a href="mailto:waterloobusinessreview@gmail.com">waterloobusinessreview@gmail.com</a></p>
+                </div>
+
+                <div class="phone">
+                    <h3>Phone</h3>
+                    <p>416-709-1262</p>
+                </div>
+
+                <div class="address">
+                    <h3>Address</h3>
+                    <p>200 University Ave W, Waterloo, ON N2L 3G1</p>
+                </div>
+
+                <div class="socials">
+                    <h3>Socials</h3>
+                    <p>Facebook: <a href="https://www.facebook.com/waterloobr/" target="_blank">uwaterloobr</a></p>
+                    <p>Instagram: <a href="https://www.instagram.com/uwaterloobr/" target = "_blank">uwaterloobr</a></p>
+                    <p>Twitter: <a href="https://twitter.com/uwaterloobr" target = "_blank">uwaterloobr</a></p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="map" id = "gMap"></div>
+
+        <section class="contactForm">
+
+            <div class="form">
+
+                <h3>Contact</h3>
+
+              <form action="mailto:waterloobusinessreview@gmail.com?subject=Website Feedback" method = "POST" enctype = "text/plain">
+
+                    <input type="text" name = "First Name" id = "fName" placeholder="First Name">
+                    <input type="text" name = "Last Name" id = "lName" placeholder="Last Name">
+                    <textarea name="message" id="Message" cols="30" rows="10" placeholder="Message"></textarea>
+                    <button type = "submit" id = "msgButton">Send Message    <i class="fas fa-arrow-right"></i></button>
+
+                </form>
+
+            </div>
+
+            <div class="image"></div>
+
+        </section>
+
+        <hr class = "lineBreak">
+
+        <footer>
+
+             <!-- logo -->
+
+             <a href="index.html"><img src="images/wbr long logo.svg" alt="WBR Logo"></a>
+
+            <!-- home/about/contact -->
+
+            <ul class = "navList">
+                <li class = "navItem "><a href="index.html">Home</a></li>
+                <li class = "navItem"><a href="about.html">About Us</a></li>
+                <li class = "navItem"><a href="ourTeam.html">Our Team</a></li>
+                <li class = "navItem"><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <!-- social buttons -->
+            
+            <div class="social">
+
+                <a href="https://www.facebook.com/waterloobr/" target = "_blank"><i class="fab fa-facebook-square socialLogo" id = "facebookLogo"></i></a>
+                <a href="https://www.instagram.com/uwaterloobr/" target="_blank"><i class="fab fa-instagram socialLogo" id = "instagramLogo"></i></a>            
+                <a href="https://twitter.com/uwaterloobr" target = "_blank"><i class="fab fa-twitter socialLogo" id = "twitterLogo"></i></a>
+                <a href="https://www.linkedin.com/company/waterloo-business-review/about/" target = "_blank"><i class="fab fa-linkedin socialLogo" id = "linkedlnLogo"></i></a>
+    
+            </div>
+    
+        </footer>
+    
+        <!-- end of wrapper -->
+
+
+
+
+    </div>
+
+    <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAANgpZ0ZzvuxGsmVfozm-QtOIB9ZZvpss&callback=initMap">
+    </script> -->
+
+    <!-- <script>
+        // Initialize and add the map
+        function initMap() {
+          // The location of WBR
+          var wbr = {lat: 43.467812, lng: -80.538304};
+          // The map, centered at Uluru
+          var map = new google.maps.Map(
+              document.getElementById('gMap'), {zoom: 4, center: wbr});
+          // The marker, positioned at Uluru
+          var marker = new google.maps.Marker({position: wbr, map: map});
+        }
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJQ7wZB--CQd0Afqg_pbaN0oDx3KLVgY8&callback=initMap">
+        </script> -->
+
+
+</body>
+</html>
