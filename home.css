@@ -543,7 +543,46 @@ nav .navList{
     font-size: 1.1em;
 }
 
+.filler-card{
+    display: none;
+}
+
 /* COPY SECTION FOR READ MORE */
+
+#gAffairs::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("images/fingerPrintBackground.png");
+    /* filter: grayscale(100%); */
+    z-index: -1;
+    opacity: .5;
+  }
+
+  #entre::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("images/fingerPrintBackground.png");
+    /* filter: grayscale(100%); */
+    z-index: -1;
+    opacity: .5;
+  }
+
+  #gAffairs .card{
+      background-color: white;
+  }
+
+  #gAffairs{
+      min-height: 1600px;
+      max-height: 2000px;
+  }
+
+  #gAffairs .cardLayout{
+      row-gap: 40px;
+  }
 
 .feature{
     width:100%;
@@ -554,6 +593,7 @@ nav .navList{
     min-height: 900px;
     /* border: 1px solid red; */
     max-height: 1000px;
+    display: none;
 
 }
 
@@ -867,6 +907,15 @@ button{
     max-height: 1000px;
 }
 
+#entre{
+    width:100%;
+    height:100vh;
+    position: relative;
+    min-height: 1600px;
+    max-height: 2000px;
+    /* border: 1px solid red; */
+}
+
 .network::before {
     content: "";
     position: absolute;
@@ -890,6 +939,7 @@ button{
     display: grid;
     grid-template-columns: repeat(3, 27%);
     grid-gap: 10px;
+    row-gap: 40px;
     justify-content: space-between;
     margin-top: 50px;
     padding: 0 10%;
@@ -1053,6 +1103,70 @@ button{
 
 .resources .cardLayout .card:nth-child(3) .cardImage{
     background-image: url("images/disney\ plus\ .png");
+}
+
+#gAffairs .cardLayout .card:nth-child(1) .cardImage{
+    background-image: url("images/china-background.png");
+}
+
+#gAffairs .cardLayout .card:nth-child(2) .cardImage{
+    background-image: url("images/olympics-background.png");
+}
+
+#gAffairs .cardLayout .card:nth-child(3) .cardImage{
+    background-image: url("images/btb-background.png");
+}
+
+#gAffairs .cardLayout .card:nth-child(4) .cardImage{
+    background-image: url("images/ME_Cover.PNG");
+}
+
+#gAffairs .cardLayout .card:nth-child(5) .cardImage{
+    background-image: url("images/coming-soon.jpg");
+}
+
+#gAffairs .cardLayout .card:nth-child(6) .cardImage{
+    background-image: url("images/coming-soon.jpg");
+}
+
+#tech .cardLayout .card:nth-child(1) .cardImage{
+    background-image: url("images/ai-background.png");
+}
+
+#tech .cardLayout .card:nth-child(2) .cardImage{
+    background-image: url("images/mika-baumeister-gwWkv06WYFY-unsplash.jpg");
+}
+
+#tech .cardLayout .card:nth-child(3) .cardImage{
+    background-image: url("images/coming-soon.jpg");
+}
+
+#entre .cardLayout .card:nth-child(1) .cardImage{
+    background-image: url("images/moazan-background.png");
+}
+
+#entre .cardLayout .card:nth-child(2) .cardImage{
+    background-image: url("images//keith-background.png");
+}
+
+#entre .cardLayout .card:nth-child(3) .cardImage{
+    background-image: url("images/pasted.png");
+}
+
+#entre .cardLayout .card:nth-child(4) .cardImage{
+    background-image: url("images/1\ -\ cover.png");
+}
+
+#entre .cardLayout .card:nth-child(5) .cardImage{
+    background-image: url("images/coming-soon.jpg");
+}
+
+#entre .cardLayout .card:nth-child(6) .cardImage{
+    background-image: url("images/coming-soon.jpg");
+}
+
+.filler-card .cardImage{
+    background-image: url("images/coming-soon.jpg") !important;
 }
 
 .resources .cardLayout .card .cardContent{
@@ -1440,6 +1554,33 @@ footer .social i:hover{
     }
     .network{
         min-height: 1200px;
+        /* background-color: red; */
+    }
+
+    #entre .filler-card{
+        display: none;
+    }
+
+    #tech .filler-card{
+        display: none;
+    }
+
+    #gAffairs .filler-card{
+        display: none;
+    }
+
+    #gAffairs{
+        min-height: 1600px;
+    }
+
+    #tech{
+        min-height: 850px;
+        height: 850px;
+        /* background-color: green; */
+    }
+
+    #entre{
+        min-height: 1600px;
     }
     .network h3{
         width: 420px;
