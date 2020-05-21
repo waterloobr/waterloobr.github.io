@@ -398,6 +398,55 @@ nav .navList{
     margin-top: 20px;
 }
 
+/* **** */
+
+.articleBody #timeline{
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.articleBody #dam{
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.articleBody #incomeGraph{
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.articleBody #beijingChart{
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: -50px;
+}
+
+.articleBody #rioChart{
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: -60px;
+}
+
+.articleBody #stadium{
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+
+
+
 .articleBody a, .articleBody a:visited{
     color: #0000EE;
 }

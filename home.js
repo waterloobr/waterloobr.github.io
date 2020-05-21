@@ -238,7 +238,7 @@ function checkLabels() {
     var articles = document.querySelectorAll('.catchArticle');
     var catchContainer = document.querySelector('.articleSlider .catchContainer');
     var slideHeight = articles[0].clientHeight;
-    var backgroundImages = ["images/disneyDark.png", "images/svfDark.png", "images/5gDark.png"]
+    var backgroundImages = ["images/ai-cover-main.png", "images/china-cover-main.png", "images/btb-cover-main.png"]
     var main = document.querySelector('.main');
 
     for (var i = 0; i < boxes.length; i++) {
