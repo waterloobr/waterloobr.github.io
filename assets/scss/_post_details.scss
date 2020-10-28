@@ -1,0 +1,29 @@
+.about-details-cap{
+    h2{
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-bottom: 35px;
+        @media #{$sm}{
+            font-size: 27px;
+        }
+        @media #{$xs}{
+            font-size: 20px;
+        }
+    }
+    h3{
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-bottom: 30px;
+        @media #{$xs}{
+            font-size: 19px;
+        }
+    }
+    p{
+
+    }
+
+}
+
+

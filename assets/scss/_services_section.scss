@@ -1,0 +1,185 @@
+.categories-area {
+    .single-cat{
+        @include transition(.4s);
+        z-index: 1;
+        @media #{$xs}{
+            padding: 30px 22px;
+        }
+        @media #{$sm}{
+            padding: 30px 18px;
+        }
+        .cat-icon{
+            img{
+                margin-bottom: 30px;
+                display: block;
+            }
+        }
+        .cat-cap{
+            h5{
+             & > a{
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 21px;
+                display: block;
+                @include transition(.2s);
+                @media #{$sm}{
+                    font-size: 21px;
+                }
+                @media #{$xs}{
+                    font-size: 23px;
+                }
+              }
+            }
+            p{
+                margin-bottom: 36px;
+                color: #57667e;
+                font-size: 16px;
+                @include transition(.2s);
+                @media #{$sm}{
+                    font-size: 15px;
+
+                }
+            }
+            a{
+                color: #1c165c;
+                font-size: 16px;
+                font-weight: 600;
+                @include transition(.2s);
+            }
+        }
+
+
+        // Hover Effect In single 
+        &:hover{
+            .cat-cap{
+                h5{
+                    color: #000;
+                }
+
+            }
+       }
+    }
+}
+
+// Services
+.service-area {
+    padding-top: 260px;
+    @media #{$xs}{
+        padding-top: 100px;
+    }
+    @media #{$sm}{
+        padding-top: 100px;
+    }
+    @media #{$md}{
+        padding-top: 150px;
+    }
+    .single-main{
+        @media #{$md}{
+           margin-bottom: 30px;
+        }
+        @media #{$sm}{
+           margin-bottom: 30px;
+        }
+        @media #{$xs}{
+           margin-bottom: 30px;
+        }
+        .single-wrapper{
+            @include transition(.2s);
+            .single-services{
+                box-shadow: 0px 22px 57px 0px rgba(34,41,72,0.05);
+                padding: 34px 31px 20px 29px;
+                @include transition(.4s);
+                background: #fff;
+                @media #{$sm}{
+                    padding: 16px 40px;
+                }
+                span{
+                font-size: 19px;
+                margin-bottom: 20px;
+                display: block;
+                font-weight: 300;
+                }
+                h4{
+                font-size: 24px;
+                display: block;
+                font-weight: 800;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                }
+                p{
+                    
+                }
+            }
+            .services-btn{
+                a{
+                    cursor: pointer;
+                    padding: 36px 0;
+                    background: #FF3514;
+                    line-height: 1;
+                    width: 100%;
+                    display: block;
+                    text-align: center;
+                    font-size: 22px;
+                }
+            }   
+            &.active{
+                opacity: 1;
+                visibility: visible;
+            }
+            &.hide{
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        // Btn hide
+        .transparrent-btn{
+            cursor: pointer;
+            padding: 36px 0;
+            background: rgba(20,12,64,0.2);
+            line-height: 1;
+            width: 100%;
+            display: block;
+            text-align: center;
+            font-size: 22px;
+            bottom: 0;
+            left: 0;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 700;
+            @include transition(.2s);
+            &.active{
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        // Hove Effect
+        &:hover{
+            .single-wrapper{
+                &.hide{
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                }
+            }
+            .transparrent-btn{
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        &:hover{
+            .single-wrapper .active{
+                &.active{
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                }
+            }
+            .transparrent-btn{
+                &.active{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+ }
+
+ 
