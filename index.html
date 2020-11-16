@@ -23,7 +23,14 @@
 	<link rel="stylesheet" href="assets/css/themify-icons.css">
 	<link rel="stylesheet" href="assets/css/slick.css">
 	<link rel="stylesheet" href="assets/css/nice-select.css">
-	<link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="text/javascript" src="javascript/external/jquery.min.1.7.js"></script>
+    <script type="text/javascript" src="javascript/external/modernizr.2.5.3.min.js"></script>
+    <script type="text/javascript" src="javascript/external/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="javascript/core/hash.js"></script>
+    <script type="text/javascript" src="javascript/core/magazine.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/magazine.css"></link>
+
 </head>
 <body>
     <!-- ? Preloader Start -->
@@ -87,9 +94,7 @@
                                         <ul id="navigation">            
                                             <li><a href="category.html">Alumni Insights</a></li>                                                                                                                         
                                             <li><a href="business-strategy.html">Business Strategy</a></li>
-                                            <li><a href="category.html">Entrepeneurship</a></li>
-                                            <li><a href="category.html">Global Affairs</a></li>
-                                            <li><a href="category.html">Technology</a></li>
+                                            <li><a href="Entrepreneurship.html">Entrepeneurship</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -185,43 +190,296 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="section-tittle mb-35">
-                            <h2>Recent Posts</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-lg-between">
-                    <div class="col-lg-8 col-md-8">
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                    <a href="Talha_Siddiqui.html"><img src="assets/img/logo/Talha.PNG" alt="" width="200" height="200"></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Alumni Insights</span>
-                                    <a href="Talha_Siddiqui.html"><h4>Talha Siddiqui</h4></a>
-                                    <p>Waterloo Business Review had the privilege of sitting down with alumnus Talha Siddiqui over the summer to speak to him about...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items">
-                                <div class="company-img">
-                                  <a href="Ismail_Mian.html"><img src="assets/img/logo/Ismail.PNG" alt="" width="200" height="200"></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <span>Alumni Insights</span>
-                                    <a href="Ismail_Mian.html"><h4>Ismail Mian</h4></a>
-                                    <p>Waterloo Business Review had the opportunity to sit down with alumnus Ismail Mian over the summer to speak to him about...</p>
-                                </div>
-                            </div>
+                            <h2>Spring 2020 Issue</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Top Posts End -->
+		<script type="text/javascript">
+
+			function loadApp() {
+				
+				$('#all').fadeIn(1000);
+				
+				// Create the flipbook
+				$('.magazine').turn({
+					
+					// Magazine width
+					width: 922,
+
+					// Magazine height
+					height: 600,
+
+					// Elevation will move the peeling corner this number of pixels by default
+					elevation: 50,
+						
+					// Hardware acceleration
+					acceleration: !isChrome(),
+
+					// Enables gradients
+					gradients: true,
+						
+					// Auto center this flipbook
+					autoCenter: true,
+
+					// The number of pages
+					pages: 66,
+
+					// Events
+					when: {
+
+						turning: function(event, page, view) {
+							
+							var book = $(this),
+							currentPage = book.turn('page'),
+							pages = book.turn('pages');
+					
+							// Update the current URI
+							Hash.go('page/' + page).update();
+
+							// Show and hide navigation buttons
+							disableControls(page);
+
+							$('.thumbnails .page-'+currentPage).
+								parent().
+								removeClass('current');
+
+							$('.thumbnails .page-'+page).
+								parent().
+								addClass('current');
+						},
+
+						turned: function(event, page, view) {
+
+							disableControls(page);
+
+							$(this).turn('center');
+
+							if (page==1) { 
+								$(this).turn('peel', 'br');
+							}
+						},
+
+						missing: function (event, pages) {
+
+							// Add pages that aren't in the magazine
+							for (var i = 0; i < pages.length; i++)
+								addPage(pages[i], $(this));
+						}
+					}
+				});
+
+				// Zoom.js
+				$('.magazine-viewport').zoom({
+
+					flipbook: $('.magazine'),
+					
+					max: function() { 
+						return largeMagazineWidth()/$('.magazine').width();
+					},
+					
+					when: {
+					
+						tap: function(event) {
+
+							if ($(this).zoom('value')==1) {
+								$('.magazine').
+									removeClass('animated').
+									addClass('zoom-in');
+								$(this).zoom('zoomIn', event);
+							} else {
+								$(this).zoom('zoomOut');
+							}
+						},
+
+						resize: function(event, scale, page, pageElement) {
+
+							if (scale==1)
+								loadSmallPage(page, pageElement);
+							else
+								loadLargePage(page, pageElement);
+						},
+
+						zoomIn: function () {
+							
+							$('.thumbnails').hide();
+							$('.made').hide();
+							$('.magazine').addClass('zoom-in');
+
+							if (!window.escTip && !$.isTouch) {
+								escTip = true;
+
+								$('<div />', {'class': 'esc'}).
+									html('<div>Press ESC to exit</div>').
+										appendTo($('body')).
+										delay(2000).
+										animate({opacity:0}, 500, function() {
+											$(this).remove();
+										});
+							}
+						},
+
+						zoomOut: function () {
+
+							$('.esc').hide();
+							$('.thumbnails').fadeIn();
+							$('.made').fadeIn();
+
+							setTimeout(function(){
+								$('.magazine').addClass('animated').removeClass('zoom-in');
+								resizeViewport();
+							}, 0);
+						},
+
+						swipeLeft: function() {
+							$('.magazine').turn('next');
+						},
+
+						swipeRight: function() {
+							$('.magazine').turn('previous');
+						}
+					}
+				});
+
+				// Using arrow keys to turn the page
+				$(document).keydown(function(e){
+
+					var previous = 37, next = 39, esc = 27;
+
+					switch (e.keyCode) {
+						case previous:
+							// left arrow
+							$('.magazine').turn('previous');
+							e.preventDefault();
+						break;
+						case next:
+							//right arrow
+							$('.magazine').turn('next');
+							e.preventDefault();
+						break;
+						case esc:
+							$('.magazine-viewport').zoom('zoomOut');	
+							e.preventDefault();
+						break;
+					}
+				});
+
+				// URIs - Format #/page/1 
+				Hash.on('^page\/([0-5]*)$', {
+					yep: function(path, parts) {
+						var page = parts[1];
+						if (page!==undefined) {
+							if ($('.magazine').turn('is'))
+								$('.magazine').turn('page', page);
+						}
+
+					},
+					nop: function(path) {
+						if ($('.magazine').turn('is'))
+							$('.magazine').turn('page', 1);
+					}
+				});
+
+				$(window).resize(function() {
+					resizeViewport();
+				}).bind('orientationchange', function() {
+					resizeViewport();
+				});
+
+				// Events for thumbnails
+				$('.thumbnails').click(function(event) {
+					var page;
+					if (event.target && (page=/page-([0-5]+)/.exec($(event.target).attr('class'))) ) {
+						$('.magazine').turn('page', page[1]);
+					}
+				});
+
+				$('.thumbnails li').
+					bind($.mouseEvents.over, function() {
+						$(this).addClass('thumb-hover');
+					}).bind($.mouseEvents.out, function() {
+						$(this).removeClass('thumb-hover');
+					});
+
+				if ($.isTouch) {
+					$('.thumbnails').
+						addClass('thumbanils-touch').
+						bind($.mouseEvents.move, function(event) {
+							event.preventDefault();
+						});
+				} else {
+					$('.thumbnails ul').mouseover(function() {
+						$('.thumbnails').addClass('thumbnails-hover');
+					}).mousedown(function() {
+						return false;
+					}).mouseout(function() {
+						$('.thumbnails').removeClass('thumbnails-hover');
+					});
+				}
+
+				// Regions
+				if ($.isTouch) {
+					$('.magazine').bind('touchstart', regionClick);
+				} else {
+					$('.magazine').click(regionClick);
+				}
+
+				// Events for the next button
+				$('.next-button').bind($.mouseEvents.over, function() {
+					$(this).addClass('next-button-hover');
+				}).bind($.mouseEvents.out, function() {
+					$(this).removeClass('next-button-hover');
+				}).bind($.mouseEvents.down, function() {
+					$(this).addClass('next-button-down');
+				}).bind($.mouseEvents.up, function() {
+					$(this).removeClass('next-button-down');
+				}).click(function() {
+					$('.magazine').turn('next');
+				});
+
+				// Events for the next button
+				$('.previous-button').bind($.mouseEvents.over, function() {
+					$(this).addClass('previous-button-hover');
+				}).bind($.mouseEvents.out, function() {
+					$(this).removeClass('previous-button-hover');
+				}).bind($.mouseEvents.down, function() {
+					$(this).addClass('previous-button-down');
+				}).bind($.mouseEvents.up, function() {
+					$(this).removeClass('previous-button-down');
+				}).click(function() {
+					$('.magazine').turn('previous');
+				});
+
+				resizeViewport();
+				$('.magazine').addClass('animated');
+			}
+
+			 $('#all').hide();
+
+			// Load the HTML4 version if there's not CSS transform
+
+			yepnope({
+				test : Modernizr.csstransforms,
+				yep: ['javascript/core/turn.min.js'],
+				nope: ['javascript/core/turn.html4.min.js'],
+				both: ['javascript/core/zoom.min.js'],
+				complete: loadApp
+			});
+
+        </script>
+        		<!-- Magazine Viewport -->
+		<div class="magazine-viewport">
+			<div class="container">
+				<div class="magazine">
+					<!-- Next button -->
+					<div ignore="1" class="next-button"></div>
+					<!-- Previous button -->
+					<div ignore="1" class="previous-button"></div>
+				</div>
+			</div>
+		</div>
     <footer>
         <!-- footer-bottom area -->
         <div class="footer-bottom-area">
