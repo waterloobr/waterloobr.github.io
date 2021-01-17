@@ -60,8 +60,8 @@
                                 </div>
                                 <div class="header-info-right d-flex align-items-center">
                                    <ul>                                          
-                                       <li><a href="About.html">About</a></li>
-                                       <li><a href="Team.html">Team</a></li>
+                                       <li><a href="about.html">About</a></li>
+                                       <li><a href="team.html">Team</a></li>
                                        <li><a href="contact.html">Contact</a></li>
                                    </ul>
                                    <!-- Social -->
@@ -85,16 +85,14 @@
                                     <a href="index.html"><img src="assets/img/logo/wbr-logo-small.svg" alt=""></a>
                                 </div> 
                                 <!-- logo 3 -->
-                                <div class="logo3 d-block d-sm-none">
-                                    <a href="index.html"><img src="assets/img/logo/wbr-logo-small.svg" alt=""></a>
-                                </div> 
                                 <!-- Main-menu -->
                                 <div class="main-menu text-center d-none d-lg-block">
                                     <nav>                                                
                                         <ul id="navigation">            
-                                            <li><a href="category.html">Alumni Insights</a></li>                                                                                                                         
-                                            <li><a href="business-strategy.html">Business Strategy</a></li>
-                                            <li><a href="Entrepreneurship.html">Entrepeneurship</a></li>
+                                            <li><a href="alumni_insights.html">Alumni Insights</a></li>                                                                                                                         
+                                            <li><a href="business_strategy.html">Business Strategy</a></li>
+                                            <li><a href="entrepreneurship.html">Entrepeneurship</a></li>
+                                            <li><a href="technology.html">Technology</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -119,11 +117,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <img src="assets/img/logo/Covers-02.png" alt="">
+                                    <img src="assets/img/logo/6-AI - Cover Page.png" alt="">
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="The_Streaming_Wars.html">The Streaming Wars</a></h3>
+                                    <h3><a href="the_streaming_wars.html">The Hardware Bottleneck for Artificial Intelligence</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -132,11 +130,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <img src="assets/img/logo/Covers-03.png" alt="">
+                                    <img src="assets/img/logo/14-Space Cover.png" alt="">
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                   <h3><a href="Alternative_Credit_Analytics.html">Alternate Credit Analytics</a></h3>
+                                   <h3><a href="alternative_credit_analytics.html">Business Models That Are Out of This World</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -145,11 +143,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <img src="assets/img/logo/Covers-05.png" alt="">
+                                    <img src="assets/img/logo/26-Gig Cover.png" alt="">
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="Tesla.html">Tesla And Its Electric Bubble</a></h3>
+                                    <h3><a href="tesla.html">Has the Gig Economy Stopped Calling?</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -158,11 +156,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <img src="assets/img/logo/Covers-06.png" alt="">
+                                    <img src="assets/img/logo/32-TikTok Cover.png" alt="">
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="Esports.html">A New Era Of Sports</a></h3>
+                                    <h3><a href="esports.html">TikTok's Time Is Ticking<br></a></h3>
                                 </div>
                             </div>
                         </div>
@@ -171,11 +169,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <img src="assets/img/logo/Covers-08.png" alt="">
+                                    <img src="assets/img/logo/alumni-insights.png" alt="">
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="category.html">Alumni Insights</a></h3>
+                                    <h3><a href="alumni_insights.html">Alumni Insights</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -190,7 +188,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="section-tittle mb-35">
-                            <h2>Spring 2020 Issue</h2>
+                            <h2>Fall 2020 Issue</h2>
                         </div>
                     </div>
                 </div>
@@ -225,7 +223,7 @@
 					autoCenter: true,
 
 					// The number of pages
-					pages: 66,
+					pages: 58,
 
 					// Events
 					when: {
@@ -266,7 +264,7 @@
 
 							// Add pages that aren't in the magazine
 							for (var i = 0; i < pages.length; i++)
-								addPage(pages[i], $(this));
+								addPage(pages[i], $(this), 'Fall 2020');
 						}
 					}
 				});
@@ -297,7 +295,7 @@
 						resize: function(event, scale, page, pageElement) {
 
 							if (scale==1)
-								loadSmallPage(page, pageElement);
+								loadSmallPage(page, pageElement, 'Fall 2020');
 							else
 								loadLargePage(page, pageElement);
 						},
@@ -488,7 +486,7 @@
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xl-9 col-lg-8">
                             <div class="footer-copy-right text-center">
-                                <p>Waterloo Business Review © 2020</p>
+                                <p>Waterloo Business Review © 2021</p>
                             </div>
                         </div>
                     </div>

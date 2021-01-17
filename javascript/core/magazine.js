@@ -2,7 +2,7 @@
  * Magazine sample
 */
 
-function addPage(page, book) {
+function addPage(page, book, folderName) {
 
 	var id, pages = book.turn('pages');
 
@@ -17,12 +17,12 @@ function addPage(page, book) {
 		element.html('<div class="gradient"></div><div class="loader"></div>');
 
 		// Load the page
-		loadPage(page, element);
+		loadPage(page, element, folderName);
 	}
 
 }
 
-function loadPage(page, pageElement) {
+function loadPage(page, pageElement, folderName) {
 
 	// Create an image element
 
@@ -48,7 +48,7 @@ function loadPage(page, pageElement) {
 
 	// Load the page
 
-	img.attr('src', 'images/medium/' +  page + '.jpg');
+	img.attr('src', 'images/medium/' + folderName + '/' +  page + '.jpg');
 
 	loadRegions(page, pageElement);
 
@@ -152,7 +152,7 @@ function loadLargePage(page, pageElement) {
 
 // Load small page
 
-function loadSmallPage(page, pageElement) {
+function loadSmallPage(page, pageElement, folderName) {
 	
 	var img = pageElement.find('img');
 
@@ -161,7 +161,7 @@ function loadSmallPage(page, pageElement) {
 	img.unbind('load');
 	// Loadnew page
 
-	img.attr('src', 'images/medium/' +  page + '.jpg');
+	img.attr('src', 'images/medium/' + folderName + '/' +  page + '.jpg');
 }
 
 // http://code.google.com/p/chromium/issues/detail?id=128488
