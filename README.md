@@ -3,6 +3,8 @@ Website at **[waterloobusinessreview.com](http://waterloobusinessreview.com/)**
 
 ## file navigation (a work in progress)
 Changes will be continually made to make the repository more maintainable as it grows. Currently, the repository organizational structure is as follows: 
+
+```
     .
     ├── articles                   # termly articles 
     │   ├── fall-2020      
@@ -20,6 +22,7 @@ Changes will be continually made to make the repository more maintainable as it 
         about.html, 
         team.html, 
         contact.html 
+```
 
 To be changed:
 - separate graphics by term, take out of logo folder 
