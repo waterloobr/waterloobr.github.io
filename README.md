@@ -1,5 +1,5 @@
 # Waterloo Business Review
-Website at **[waterloobusinessreview.com](http://waterloobusinessreview.com/)**
+A SAF Student-Run Initiative, WBR provides insights into business strategy, global affairs, and entrepreneurship. Website at **[waterloobusinessreview.com](http://waterloobusinessreview.com/)**
 
 ## file navigation (a work in progress)
 Changes will be continually made to make the repository more maintainable as it grows. Currently, the repository organizational structure is as follows: 
@@ -26,7 +26,8 @@ Changes will be continually made to make the repository more maintainable as it 
 
 To be changed:
 - separate graphics by term, take out of logo folder 
-- consolidate the css/js/etc files in assets, and the ones in parent directory 
+- also fix graphics names 
+- consolidate the css/js/etc files in assets and the ones in parent directory into single folders
 
 ## to-do list
 #### content
@@ -35,3 +36,4 @@ To be changed:
 #### structure 
 - make site responsive 
 - find location for multiple e-books 
+
