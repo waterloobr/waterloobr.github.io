@@ -12,6 +12,7 @@ Changes will be continually made to make the repository more maintainable as it 
     ├── assets                     
     │   ├── img
     │       ├── logo               # all article graphics are stored here 
+    │       ├── winter-2021-covers # NEW DIRECTORY  
     │   |...                       # other styling/js/etc 
     ├── css                        
     ├── images                     # icons & pages for interactive view
