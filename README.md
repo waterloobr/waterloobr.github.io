@@ -15,6 +15,7 @@ Changes will be continually made to make the repository more maintainable as it 
     │       ├── winter-2021        # NEW DIRECTORY  
     │           ├── covers
     │           ├── articles       # within here are folders for each article its respective graphics
+    │       ├── team               # team photos
     │   |...                       # other styling/js/etc 
     ├── css                        
     ├── images                     # icons & pages for interactive view
