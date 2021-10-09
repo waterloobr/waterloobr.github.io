@@ -201,7 +201,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="section-tittle mb-35">
-                            <h2>Winter 2021 Issue</h2>
+                            <h2>Spring 2021 Issue</h2>
                         </div>
                     </div>
                 </div>
@@ -236,7 +236,7 @@
 					autoCenter: true,
 
 					// The number of pages
-					pages: 73,
+					pages: 74,
 
 					// Events
 					when: {
@@ -277,7 +277,7 @@
 
 							// Add pages that aren't in the magazine
 							for (var i = 0; i < pages.length; i++)
-								addPage(pages[i], $(this), 'Winter 2021');
+								addPage(pages[i], $(this), 'Spring 2021');
 						}
 					}
 				});
@@ -308,7 +308,7 @@
 						resize: function(event, scale, page, pageElement) {
 
 							if (scale==1)
-								loadSmallPage(page, pageElement, 'Winter 2021');
+								loadSmallPage(page, pageElement, 'Spring 2021');
 							else
 								loadLargePage(page, pageElement);
 						},
