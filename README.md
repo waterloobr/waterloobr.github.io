@@ -33,7 +33,14 @@ To be changed:
 - also fix graphics names 
 - consolidate the css/js/etc files in assets and the ones in parent directory into single folders
 
-## to-do list
+## to-do list (2023)
+#### general
+- migrate away from jquery
+- responsiveness
+- update team page
+- add publications page
+
+## to-do list (legacy)
 #### content
 - upload winter 2020, fall 2019 articles 
 - get images for previous issues for their respective e-books 
