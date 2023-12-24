@@ -1,0 +1,34 @@
+/* Style for each headshot container */
+.headshot {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 15rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.headshot-image img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    vertical-align: middle; /* Align the image vertically in the middle */
+    display: inline-block; /* Make the image an inline block */
+}
+
+/* Additional styling for layout responsiveness */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.headshot-name{
+    margin: auto;
+}
+
+.margin-bottom{
+    margin-bottom: 6rem;
+}
