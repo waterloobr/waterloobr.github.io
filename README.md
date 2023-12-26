@@ -35,10 +35,12 @@ To be changed:
 
 ## to-do list (2023)
 #### general
-- migrate away from jquery
 - responsiveness
 - update team page
-- add publications page
+- add publications page 
+- refactor redundant code
+    - header
+    - footer   
 
 ## to-do list (legacy)
 #### content

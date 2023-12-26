@@ -28,6 +28,10 @@
     color: #140C40;
 }
 
+a:hover {
+    color: #5992ba;
+}
+
 /* Media query for screens with a maximum width of 767px */
 @media (max-width: 767px) {
     .publication-item {
