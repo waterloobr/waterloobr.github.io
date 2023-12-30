@@ -41,7 +41,7 @@
     <!-- Preloader Start-->
     <header>
         <!-- Header Start -->
-       <div class="header-area">
+       <div id="navigation_header" class="header-area">
             <div class="main-header ">
                 <div class="header-top ">
                    <div class="container-fluid">
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="header-info-right d-flex align-items-center">
-                                   <ul>                                          
+                                   <ul id="top_navigation">                                          
                                        <li><a href="about.html">About</a></li>
                                        <li><a href="team.html">Team</a></li>
                                        <li><a href="contact.html">Contact</a></li>
@@ -75,14 +75,10 @@
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <div class="col-12">
-                                <!-- logo 2 -->
-                                <!-- TODO why was this included here initially?-->
-                                <!-- <div class="logo2">
-                                    <a href="index.html"><img src="assets/img/logo/wbr-logo-small.svg" alt=""></a>
-                                </div>  -->
                                 <!-- Main-menu -->
                                 <div class="main-menu text-center d-none d-lg-block">
-                                    <nav>                                                
+                                    <nav>    
+                                        <!-- 2023 Note: items in this list are what shows up in the mobile menu...-->                                            
                                         <ul id="navigation">            
                                             <li><a href="topics/alumni_insights.html">Alumni Insights</a></li>                                                                                                                         
                                             <li><a href="topics/business_strategy.html">Business Strategy</a></li>
@@ -445,7 +441,6 @@ var ContentArticles = {
 
 var PublicationContent = {
     view: function (vnode) {
-        console.log(vnode.attrs.contents);
         return m("div", { class: "publication-info" }, [
             m("a", {class: "subtitle", href: vnode.attrs.path}, vnode.attrs.term), // str
             m("ul", m(ContentArticles, { contents: vnode.attrs.contents }))
