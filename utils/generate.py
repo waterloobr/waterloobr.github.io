@@ -1,6 +1,71 @@
 # spit out a txt of html code to insert
 
 
+# Fall 2023
+# pegasus, cashless-society, tech-gap, foreign-investment, japan, novo-nordisk, space-privitization
+pegasus = {
+    'edition':'fall-2023',
+    'title':'Pegasus: The Silent Threat to Digital Democracy',
+    'sh':'p', # shorthand 
+    'img_dir':'pegasus',
+    'content':[
+        ("p", ""),
+    ],
+}
+
+tech = {
+    'edition':'fall-2023',
+    'title':'The Widening Tech Gap: Reshaping Canada’s Tech Future',
+    'sh':'tg', # shorthand 
+    'img_dir':'tech-gap',
+    'content':[],
+}
+
+foreign = {
+    'edition':'fall-2023',
+    'title':'The Double-Edged Sword of Foreign Investment: Unveiling the Cynicism of Economic Rebuilding',
+    'sh':'f', # shorthand 
+    'img_dir':'foreign',
+    'content':[],
+}
+
+japan = {
+    'edition':'fall-2023',
+    'title':'Japan’s Corporations: A Path to Prosperity',
+    'sh':'cs', # shorthand 
+    'img_dir':'japan',
+    'content':[],
+}
+
+
+cashless = {
+    'edition':'fall-2023',
+    'title':'From Dollars to Digits: Navigating the Shadows of a Cashless Society',
+    'sh':'cs', # shorthand 
+    'img_dir':'cashless',
+    'content':[],
+}
+
+novo = {
+    'edition':'fall-2023',
+    'title':'GLP-1: Novo Nordisk’s Gain, Denmark’s Risk',
+    'sh':'nn', # shorthand 
+    'img_dir':'novo-nordisk',
+    'content':[],
+}
+
+space = {
+    'edition':'fall-2023',
+    'title':'Space: The Misguided Promise of Privatization',
+    'sh':'sp', # shorthand 
+    'img_dir':'space',
+    'content':[],
+}
+
+
+
+# Fall 2022
+
 crisis = {
     'edition':'fall-2022',
     'title':'The Crisis of Greed: Behind the Scenes of the Russian-Ukrainian War',
