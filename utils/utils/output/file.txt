@@ -1,0 +1,109 @@
+<!-- Post Details Stat -->
+<div class="post-details pb-80">
+<div class="container">
+<div class="row">
+<div class="col-lg-8">
+<div class="about-details-cap">
+<h2>GLP-1: Novo Nordisk’s Gain, Denmark’s Risk</h2>
+</div>
+</div>
+<div class="col-lg-10">
+<div class="about-details-cap">
+<p class="mb-30"><b>Novo Nordisk’s Eruption may Eliminate an Entire Economy</b></p>
+<p class="mb-30">
+With the rise in popularity of using GLP-1 injections for fast and easy weight loss,  Novo Nordisk, a pharmaceutical company based in Denmark has had massive economic success. Market capitalization of the company is $428.99 billion, a 52.25% increase from the prior year. Their weight loss treatments continue to unsustainably bolster their growth, and the Danish economy is heavily reliant on this growth. The European Commission’s 2023 economic forecast for Denmark notes net exports for pharmaceutical products like Novo Nordisk’s being the driving force for the 1.2% increase in the country’s GDP, with a lagging domestic demand. This trend of reliance will cause Denmark to suffer from the economic phenomenon of Dutch disease, with increasing supply chain challenges, intensifying competition, and tightening regulations for Novo Nordisk arise. 
+</p>
+<p class="mb-30"><b>Introduction</b></p>
+<p class="mb-30">
+Amidst escalating global health concerns, the pervasive issue of obesity continues to drive the need for innovative solutions. In 2020, more than 988 million people globally were estimated to be obese. According to the World Obesity Atlas, this number is set to project to 1249 billion in 2025, indicating prevailing healthcare challenges within our global environments. With the continuous increase in public and personal health concerns regarding weight, there has been growing popularity in the use of GLP-1 injections for fast and easy weight loss. 
+</p>
+<div class="details-img">
+<img class="img-fluid mb-15" src="assets/img/fall-2023/articles/novo-nordisk/nn-1.svg" alt="" style="vertical-align:top;margin:10px 0px; max-height: 500px">
+</div>
+<p class="mb-30">
+Originally used to treat type 2 diabetes, GLP-1 injections like Ozempic works to improve blood sugar and reduce the risks of a stroke or heart attack. A side effect of taking this injection is the loss in appetite, as well as a slowdown of  food digestion time. This key side effect, popularized by celebrities like Elon Musk, has propelled Novo Nordisk, the company behind the injection to massive success within the weight loss market. 
+</p>
+<p class="mb-30"><b>Success of Novo Nordisk</b></p>
+<p class="mb-30">
+As the largest public company in the European market, Novo Nordisk is a pharmaceutical company, focused on the development, research, and manufacturing of insulin, GLP-1 treatments, and rare disease biopharmaceuticals.  
+</p>
+<p class="mb-30">
+A majority of Novo Nordisk’s sales in the past few years have come from Ozempic and Wegovy sold in the United States. Wegovy was a treatment made to be similar to the aforementioned Ozempic, however, its main purpose was marketed for weight loss. According to their Q3 financial reports, their obesity care sales grew by a whopping 174%, while their rare disease sales contracted by -18%, totaling to an overall 33% sales growth in the first 9 months of 2023. 
+</p>
+<p class="mb-30">
+With the explosion in popularity backed by strong financials for the company, it is easy to see why there has been positive sentiment surrounding Novo Nordisk. Ozempic and Wegovy have been at the forefront of many speculative articles that predict exaggerated and unrealistic impacts that these treatments will have on the global economy.
+</p>
+<p class="mb-30">
+As Novo Nordisk’s rise in popularity continues, sustained by remarkable financial success and breakthrough treatments, there is a looming threat—known as Dutch Disease that concerns Denmark’s long term prosperity.
+</p>
+<p class="mb-30"><b>Dutch Disease </b></p>
+<p class="mb-30">
+According to the International Monetary Fund, Dutch disease refers to an economic phenomenon where dramatic increases in a country’s income, due to an overreliance on one export, leads to negative effects on the country’s economy as a whole. An important indicator of Dutch Disease is a thriving export sector that becomes responsible for an increase in currency appreciation for the country. This results in the spending effect, where exports become more expensive, and therefore less competitive, decreasing exports in their traditional export sectors. At the same time, more capital and resources will be allocated to the growing sector, known as the resource movement effect. 
+</p>
+<div class="details-img">
+<img class="img-fluid mb-15" src="assets/img/fall-2023/articles/novo-nordisk/nn-2.svg" alt="" style="vertical-align:top;margin:10px 0px; max-height: 500px">
+</div>
+<p class="mb-30">
+As outlined by the characteristics of Dutch disease, the current economic success of Denmark can be attributed to the success of Novo Nordisk, Statistics Denmark recorded in the first half of 2023 indicated that including Novo Nordisk, the economy’s GDP grew by 1.7%. If excluded, the economy would have contracted by 0.3%. This overreliance is also evident in examining Denmark’s GDP with Novo Nordisk’s market capitalization. According to the International Monetary Fund, Denmark’s 2023 GDP is set to reach US $405.62 billion, while Novo Nordisk’s current market capitalization exceeds this figure at US $428.99 billion. In 2022, pharmaceutical products were Denmark’s largest export category at 15%, with a majority of these exports being attributed to Novo Nordisk’s US exports. According to Statistics Denmark, this sector’s exports have been steadily increasing year over year. However, this is an outlier in comparison to Denmark’s other exports. For example, their second biggest sector at 13% of exports is machinery and nuclear reactors, and from 2021 to 2022, they experienced a decline in exports. This is the case for many of their sectors like transportation, agriculture, and energy. These sectors dealt with a contraction due to a multitude of factors like the freight recession, geopolitical conflicts in Europe, and a decline in exports to China, Denmark’s 4th largest market for exports.
+</p>
+<p class="mb-30">
+The economy is heavily reliant on the success of Novo Nordisk, with many resources being allocated to help sustain the growth. 21,000 of approximately 60,000 total employees at Novo Nordisk are  from Denmark, with Novo Nordisk being the most widely held stock in Denmark. Any troubling developments like supply chain issues, intensifying competitions, and stricter regulations for the company have the potential to have catastrophic effects on Denmark’s financial health as outlined by the effects of Dutch Disease.
+</p>
+<div class="details-img">
+<img class="img-fluid mb-15" src="assets/img/fall-2023/articles/novo-nordisk/nn-3.svg" alt="" style="vertical-align:top;margin:10px 0px; max-height: 500px">
+</div>
+<p class="mb-30"><b>Supply Chain Issues</b></p>
+<p class="mb-30">
+As a consequence of the success of GLP-1 injections like Ozempic and WeGovy, Novo Nordisk has been struggling to keep up with the demand, specifically in the United States. With supply chain challenges like shortages arising, growing concern for these vulnerabilities makes the Denmark economy extremely volatile to changes in the market. Supply shortages are forecasted to last until March 2024, and diabetic patients who are in actual need of these treatments, are suffering with varying levels of blood sugar spikes. Without access to a steady supply of Ozempic, they are at high risk of experiencing heart disease, kidney disease, and stroke. This, in turn, forces patients to search for the treatment at various pharmacies, with limited luck, or pay premium prices to compete with users seeking the treatment for weight loss. In the case of Wegovy, although Novo Nordisk is actively producing all doses of the treatment, demand is simply outpacing the supply. This leaves gaps in the market for competition to increase their market share, leading to Novo Nordisk having a weaker market position due to more options available to consumers.  
+</p>
+<p class="mb-30">
+To curb this supply disruption, and to continue to prioritize current users, WeGovy shipments in the United States are being made in limited quantities to wholesalers for distribution at retail pharmacies. In order to increase production for key active ingredients like GLP-1 used in their treatments, the company is planning on spending over $42 billion Danish kroner to expand its production facilities in Kalundborg, Denmark, as well as $15.9 billion Danish kroner to expand another production facility in Hillerød, Denmark. These expansions are estimated to create over 1000 additional jobs for the Denmark economy. 
+</p>
+<div class="details-img">
+<img class="img-fluid mb-15" src="assets/img/fall-2023/articles/novo-nordisk/nn-4.svg" alt="" style="vertical-align:top;margin:10px 0px; max-height: 500px">
+</div>
+<p class="mb-30">
+These investments will be a double-edged sword for Denmark, as the increase in job creation will positively impact Denmark’s employment rate, but in turn, increase the reliance that Denmark has on Novo Nordisk.
+</p>
+<p class="mb-30"><b>Competition</b></p>
+<p class="mb-30">
+With Novo Nordisk unable to keep up with growing demand, similar pharmaceutical companies like Eli Lilly and Pfizer have been developing treatments akin to Ozempic and WeGovy to capitalize on this supply gap. With the rising costs of Ozempic and Wegovy due to supply challenges, competitors like Eli Lilly and Pfizer aim to price their treatments at a lower price and easier consumption. 
+</p>
+<p class="mb-30">
+Examining Eli Lilly further, on November 8, the pharmaceutical company received FDA approval to market their anticipated obesity drug under the name “Zepbound”, which will be cheaper than Novo Nordisk’s “Wegovvy” at list price. Eli Lilly’s “Zepbound” has a list price of $1,060 which is 20% cheaper compared to Novo Nordisk’s “Wegovvy” which has a list price of $1,349. This approach from Eli Lilly is representative of how they are willing to trade the price of the product for the volume of production even when demand for these obesity drugs is extremely high. Eli Lilly is also offering discounts on “Zepbound”, including a 50% off discount for consumers who don’t have coverage through their insurance providers. This means that consumers without insurance would be paying $550/month and consumers with insurance could be paying as low as $25/month. The president of diabetes and obesity at Eli Lilly, Mike Mason, stated that the company had set lower prices for “Zepbound” as a way to bring broader access to anti-obesity medication. 
+</p>
+<div class="details-img">
+<img class="img-fluid mb-15" src="assets/img/fall-2023/articles/novo-nordisk/nn-5.svg" alt="" style="vertical-align:top;margin:10px 0px; max-height: 500px">
+</div>
+<p class="mb-30">
+Eli Lilly is taking a different approach compared to Novo Nordisk as they are trying to cater to the millions of Americans who don’t have insurance coverage on anti-obesity medication, and is why they are entering a pricing battle with Novo Nordisk. It is reported that around 50 million Americans have some sort of insurance coverage on anti-obesity medication, even though over 100 million Americans suffer from obesity. By offering lower prices for their obesity medication, Eli Lilly is catering its drug to the millions of Americans without any sort of insurance coverage on anti-obesity medication. These lower prices could help Americans save roughly $3,470/year with “Zepbound”, as the annual cost for “Wegovy” is $16,188 and “Zepbound” is only $12,718.
+</p>
+<p class="mb-30">
+For the longest time, it was only Novo Nordisk operating in this space, but with big pharmaceutical companies entering now like Eli Lilly and Pfizer, it’s only a matter of time till Novo Nordisk’s market share starts to drop. Denmark’s economy is heavily reliant on the success of Novo Nordisk, and specifically their anti-obesity medication, as the pharmaceutical industry in Denmark has seen their exports nearly quadruple since 2019 (Novo Nordisk is by far the biggest player in Denmark’s pharmaceutical industry). This exponential growth in exports has created a very favourable trade balance for the Danish economy, but if more competitors are entering the space with cheaper and easier-to-use anti-obesity medication, it's only a matter of time till the demand for Novo Nordisk starts to drop. With the Danish economy so heavily reliant on Novo Nordisk continuing to find success, increased competition in the anti-obesity space could serve as a major blow to the Danish economy.
+</p>
+<p class="mb-30"><b>Regulation</b></p>
+<p class="mb-30">
+Another hidden cost of going viral is the looming uncertainty around the GLP-1 treatment's long-term functions on health. Many articles outline the addictive nature of Ozempic, as users develop a dependency on the treatment, as without it blood sugar will begin to rise and cravings will come back. Furthermore, in trying to get FDA approval for Ozempic for children as young as 6, many concerns have been raised on potential gastrointestinal and muscle loss issues linked with the semaglutide treatments. Thus, many governments around the world have tightened regulations to prevent drugs like Novo Nordisk’s “Ozempic” from being prescribed as a weight loss treatment. The FDA has only approved “Ozempic” to be prescribed as a diabetes treatment and is actively trying to prevent it from being prescribed as a weight loss drug. In April of 2023, we saw exports of Ozempic from British Columbia to the USA drop 99%. Many Americans were buying Ozempic for a cheaper price from BC pharmacies to help treat their obesity, which was decreasing the supply of Ozempic for users in BC who needed it to treat their diabetes. The BC government enacted regulations preventing this from happening and made sure that people with diabetes could get their dosage of Ozempic. Furthermore, a Texas-based doctor with a license to practice in Nova Scotia allegedly prescribed Ozempic to American residents. He was temporarily suspended after writing 17,000 prescriptions for the medication that was shipped to the U.S. 
+</p>
+<p class="mb-30">
+Many governments are following suit and are enacting regulations to prevent Ozempic from being prescribed as a weight loss drug to ensure people suffering from diabetes can get their dosages. For example, Britain recently imposed a strict regulation for clinics to only prescribe Ozempic and other GLP-1 treatments for only their licensed use, and not for weight loss. Similarly, Belgium announced a new law that banned doctors from prescribing Ozempic for weight loss if patients aren’t considered obese and have at least one underlying health concern. 
+</p>
+<p class="mb-30">
+The combined impact of the regulatory actions could result in lower Ozempic sales, which would pose a serious threat to Novo Nordisk’s overall revenue. In the event that governments around the world continue to enact more stringent regulations, Novo Nordisk faces the possibility of a prolonged downturn in Ozempic sales. This would be a major blow to the Danish economy, as it contracted 0.1% when there was a 10.6% decline in the pharmaceutical industry’s output, so a decline in Novo Nordisk's revenue could lead to contraction in the Danish economy. The cascading effects of regulatory constraints on Ozempic highlight not only the potential health risks but also the economic vulnerabilities associated with over-reliance on a single pharmaceutical company for Denmark.
+</p>
+<p class="mb-30"><b>Case Study: Finland and Nokia</b></p>
+<p class="mb-30">
+The story of Novo Nordisk and Denmark is not a new one, many decades ago Finland experienced a similar phenomenon with the phone company Nokia.  At one point, 4% of Finland’s GDP , 70% of Helsinki's stock market capital, 43% of corporate R&D, 21% of total exports, and 14% of corporate tax revenues were all made up by Nokia. The rise of Nokia was primarily due to it being the first to mass-produce a mobile GSM phone (similar to Novo Nordisk being the first to mass-produce anti-obesity injections). Nokia maintained dominance over the mobile phone industry until an industry giant we are now familiar with called Apple came and took the world by storm with its iPhone. Nokia saw its dominance disappear and its exports fell by half causing the country to enter a deficit and a decade-plus of economic stagnation began. Many Finnish people saw themselves lose jobs and the per capita income in Finland decreased. 
+</p>
+<p class="mb-30">
+Denmark risks itself becoming another example of Finland with Novo Nordisk, as they run the risk of putting all their eggs in one basket (Novo Nordisk). Much like Nokia with mobile phones, Novo Nordisk was the first company to start mass producing anti-obesity injections but with competitors like Eli Lilly and Pfizer offering cheaper and potentially better alternatives, the question of how long can Novo Nordisk hold its dominance over the industry is posed. With cheaper alternatives being offered, especially with such an expensive medicine, many consumers will shift their preference away from Novo Nordisk leaving the company exposed and in turn causing the exports of Denmark to decrease and causing harm to the economy of Denmark.
+</p>
+<p class="mb-30"><b>Conclusion</b></p>
+<p class="mb-30">
+In considering the various challenges Novo Nordisk will have to overcome, it’s safe to say that the Denmark economy will be extremely sensitive to the future outlook of Novo Nordisk. Their exponential growth has not only contributed substantially to Denmark’s GDP, but surpassed the size of the national economy itself. The success of the company draws many parallels to a traditional Dutch disease scenario, leading to growing concerns of Denmark’s over-dependence. It’s evident that, to avoid a situation akin to Finland and Nokia, collaborative efforts should be made between Danish policymakers, the government, and Novo Nordisk to focus on fostering sustainable growth, along with investing in Denmark’s lagging economic sectors.
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Post Details End -->
