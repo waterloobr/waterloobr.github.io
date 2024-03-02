@@ -295,9 +295,4 @@ function calculateBound(d) {
 	return bound;
 }
 
-function modifyBodyStyle() {
-	$('body').css('overflow-y', 'visible');
-}
-
-modifyBodyStyle();
 
