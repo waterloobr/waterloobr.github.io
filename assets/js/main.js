@@ -3,11 +3,18 @@
 
   /* 1. Proloder */
   $(window).on("load", function () {
-    $("#preloader-active").delay(450).fadeOut("slow");
-    $("body").delay(450).css({
-      overflow: "visible",
-    });
-  });
+		$("#preloader-active").delay(450).fadeOut("slow")
+
+		// check if the url contains publications
+		if (!(window.location.href.indexOf("publications") > -1)) {
+			$("body").delay(450).css({
+				overflow: "visible",
+			})
+		} else{ 
+      // if it does only make vertical overflow visible
+      $("body").delay(450).css("overflow-y", "visible")
+    }
+	});
 
   /* 2. sticky And Scroll UP */
   $(window).on("scroll", function () {
