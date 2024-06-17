@@ -1,5 +1,14 @@
 import os
 
+# issues:
+"""
+* no sorting, so no predictable order for what to input
+* seems to lose paragraphs?
+* how are multiple empty lines handles
+
+
+"""
+
 img_count = 1
 
 def generate_body():
@@ -18,6 +27,7 @@ def generate_body():
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 
+        print(f"now opening: {file_path}")
         edition = input("Enter edition: ") 
         img_dir = input("Enter image directory: ") 
         sh = input("Enter sh (shorthand): ")

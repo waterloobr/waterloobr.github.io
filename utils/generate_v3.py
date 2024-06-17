@@ -1,13 +1,5 @@
 import os
 
-# issues:
-"""
-* no sorting, so no predictable order for what to input
-* seems to lose paragraphs?
-* how are multiple empty lines handles
-* it seems to assume one tag per line?
-"""
-
 img_count = 1
 
 
@@ -169,7 +161,7 @@ def generate_body():
             f.write('<ol class="breadcrumb justify-content-center">\n')
             f.write('<li class="breadcrumb-item"><a href="index.html">Home</a></li>\n')
             f.write(f'<li class="breadcrumb-item"><a href="topics/{article_type_page}.html">{article_type_title}</a></li>\n')
-            f.write(f'<li class="breadcrumb-item"><a href="articles/{edition}/{html_file_name}.html"></a>{display_title}</li>\n')
+            f.write(f'<li class="breadcrumb-item"><a href="articles/{edition}/{html_file_name}.html">{display_title}</a></li>\n')
             f.write('</ol>\n')
             f.write('</nav>\n')
             f.write('</div>\n')
