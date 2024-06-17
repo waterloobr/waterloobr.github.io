@@ -168,7 +168,7 @@ def generate_body():
             f.write('<nav aria-label="breadcrumb">\n')
             f.write('<ol class="breadcrumb justify-content-center">\n')
             f.write('<li class="breadcrumb-item"><a href="index.html">Home</a></li>\n')
-            f.write(f'"<li class="breadcrumb-item"><a href="topics/{article_type_page}.html">{article_type_title}</a></li>\n')
+            f.write(f'<li class="breadcrumb-item"><a href="topics/{article_type_page}.html">{article_type_title}</a></li>\n')
             f.write(f'<li class="breadcrumb-item"><a href="articles/{edition}/{html_file_name}.html"></a>{display_title}</li>\n')
             f.write('</ol>\n')
             f.write('</nav>\n')
@@ -201,17 +201,17 @@ def generate_body():
                     f.write(f'<p class="mb-30"><b>{line.replace("[s]", "")}</b></p>\n')
                 elif '[i]' in line:
                     # split by the image tag and write paragraph
+                    # may not be one tag per paragraph
 
                     parts = line.split('[i]')
 
                     f.write(f'<p> {parts[0]} </p>\n')
-            
-                    f.write(f'<div class="details-img">\n')
-                    f.write(f'<img class="img-fluid mb-15" src="assets/img/{edition}/articles/{img_dir}/{sh}-{img_count}.svg" alt="" style="vertical-align:top;margin:10px 0px; max-height: 500px">\n')
-                    f.write(f'</div>\n')
-
-                    f.write(f'<p> {parts[1]} </p>\n')
-                    img_count += 1
+                    for part in parts[1:]:
+                        f.write(f'<div class="details-img">\n')
+                        f.write(f'<img class="img-fluid mb-15" src="assets/img/{edition}/articles/{img_dir}/{sh}-{img_count}.svg" alt="" style="vertical-align:top;margin:10px 0px; max-height: 500px">\n')
+                        f.write(f'</div>\n')
+                        img_count += 1
+                        f.write(f'<p> {part} </p>\n')
                 else:
                     f.write(f'<p> {line} </p>\n')
 
