@@ -4,6 +4,7 @@ img_count = 1
 
 
 EDITION = "winter-2024"
+
 ARTICLE_TYPES = {
     "1": ("Business Strategy", "business_strategy"),
     "2": ("Technology", "technology"),

@@ -59,7 +59,7 @@ W24_INPUT = {
     },
     5: {
         "topic": "Business Strategy",
-        "title": "",
+        "title": "Digital Banking: A Game of Thrones For The New Age",
         "short_title": "digital-banking",
         "abbreviation": "db",
         "article_page_path": "",
