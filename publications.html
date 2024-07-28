@@ -172,6 +172,12 @@
           
           */
 
+        let download = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="#85819C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7 10L12 15L17 10" stroke="#85819C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 15V3" stroke="#85819C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+
         var publicationData = [
         {
         info: {
@@ -204,6 +210,7 @@
         },
         publicationPage: "publications/winter-2024.html",
         publicationSrc: "images/medium/Winter 2024/1.jpg",
+        publicationPdf: "publications/pdfs/Winter_2024.pdf",
         },
         {
         info: {
@@ -240,6 +247,7 @@
         },
         publicationPage: "publications/fall-2023.html",
         publicationSrc: "images/medium/Fall 2023/1.jpg",
+        publicationPdf: "publications/pdfs/Fall_2023.pdf",
     },
     {
         info: {
@@ -268,6 +276,7 @@
         },
         publicationPage: "publications/fall-2022.html",
         publicationSrc: "images/medium/Fall 2022/1.jpg",
+        publicationPdf: "publications/pdfs/Fall_2022.pdf",
     },
     {
         info: {
@@ -293,6 +302,7 @@
         },
         publicationPage: "publications/fall-2021.html",
         publicationSrc: "images/medium/Fall 2021/1.jpg",
+        publicationPdf: "publications/pdfs/Fall_2021.pdf",
     },
     {
         info: {
@@ -334,6 +344,7 @@
         },
         publicationPage: "publications/spring-2021.html",
         publicationSrc: "images/medium/Spring 2021/1.jpg",
+        publicationPdf: "publications/pdfs/Spring_2021.pdf",
     },
     {
         info: {
@@ -379,6 +390,7 @@
         },
         publicationPage: "publications/winter-2021.html",
         publicationSrc: "images/medium/Winter 2021/1.jpg",
+        publicationPdf: "publications/pdfs/Winter_2021.pdf",
     },
     {
         info: {
@@ -416,6 +428,7 @@
         },
         publicationPage: "publications/fall-2020.html",
         publicationSrc: "images/medium/Fall 2020/1.jpg",
+        publicationPdf: "publications/pdfs/Fall_2020.pdf",
     },
     {
         info: {
@@ -459,6 +472,7 @@
         },
         publicationPage: "publications/spring-2020.html",
         publicationSrc: "images/medium/Spring 2020/1.jpg",
+        publicationPdf: "publications/pdfs/Spring_2020.pdf",
     },
     {
         info: {
@@ -493,6 +507,7 @@
         },
         publicationPage: "publications/winter-2020.html",
         publicationSrc: "images/medium/Winter 2020/1.jpg",
+        publicationPdf: "",
     },
 ];
 
@@ -510,7 +525,11 @@ var ContentArticles = {
 var PublicationContent = {
     view: function (vnode) {
         return m("div", { class: "publication-info" }, [
-            m("a", {class: "subtitle", href: vnode.attrs.path}, vnode.attrs.term), // str
+            m("div", { class: "subtitle" },[
+                m("a", {href: vnode.attrs.path}, vnode.attrs.term), // str
+                vnode.attrs.pdf != "" ? m("a", {href:vnode.attrs.pdf, download: vnode.attrs.term}, 
+                    m('.download-icon', m.trust(download))) : ""
+            ]),
             m("ul", m(ContentArticles, { contents: vnode.attrs.contents }))
         ]);
     },
@@ -518,14 +537,14 @@ var PublicationContent = {
 
 var Publication = {
     view: function (vnode) {
-        const { info, article, cover } = vnode.attrs;
+        const { info, article, cover, pdf } = vnode.attrs;
 
         return m("div", { class: "publication-item row" }, [
             m("div", { class: "publication-cover" }, [
                 m("a", { href: article }, [m("img", { src: cover })])
             ]),
             m("div", { class: "publication-info" }, [
-                m(PublicationContent, { term: info.term, contents: info.contents, path: article})
+                m(PublicationContent, { term: info.term, contents: info.contents, path: article, pdf: pdf})
             ])
         ]);
     },
@@ -538,6 +557,7 @@ var publicationList = {
                 info: item.info,
                 article: item.publicationPage,
                 cover: item.publicationSrc,
+                pdf: item.publicationPdf
             })
         });
     },

@@ -60,6 +60,12 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    display: flex;
+    gap: 1.3rem;
+}
+
+.download-icon {
+    margin-top: -0.2rem;
 }
 
 .table-of-contents{
