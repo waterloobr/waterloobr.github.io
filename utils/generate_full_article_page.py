@@ -3,7 +3,7 @@ import os
 img_count = 1
 
 
-EDITION = "winter-2024"
+EDITION = "spring-2024"
 
 ARTICLE_TYPES = {
     "1": ("Business Strategy", "business_strategy"),
