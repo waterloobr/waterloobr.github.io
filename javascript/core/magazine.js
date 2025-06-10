@@ -23,36 +23,39 @@ function addPage(page, book, folderName) {
 }
 
 function loadPage(page, pageElement, folderName) {
+    // Try loading .jpg first, then .png if not found
+    const basePath = 'images/medium/' + folderName + '/' + page;
+    const jpgPath = basePath + '.jpg';
+    const pngPath = basePath + '.png';
 
-	// Create an image element
+    const img = $('<img />');
 
-	var img = $('<img />');
+    img.mousedown(function(e) {
+        e.preventDefault();
+    });
 
-	img.mousedown(function(e) {
-		e.preventDefault();
-	});
+    img.load(function() {
+        $(this).css({width: '100%', height: '100%'});
+        $(this).appendTo(pageElement);
+        pageElement.find('.loader').remove();
+    });
 
-	img.load(function() {
-		
-		// Set the size
-		$(this).css({width: '100%', height: '100%'});
+    // First, try loading the JPG
+    $.ajax({
+        url: jpgPath,
+        type: 'HEAD',
+        success: function() {
+            img.attr('src', jpgPath);
+        },
+        error: function() {
+            // If JPG doesn't exist, try PNG
+            img.attr('src', pngPath);
+        }
+    });
 
-		// Add the image to the page after loaded
-
-		$(this).appendTo(pageElement);
-
-		// Remove the loader indicator
-		
-		pageElement.find('.loader').remove();
-	});
-
-	// Load the page
-
-	img.attr('src', 'images/medium/' + folderName + '/' +  page + '.jpg');
-
-	loadRegions(page, pageElement);
-
+    loadRegions(page, pageElement);
 }
+
 
 // Load regions
 
