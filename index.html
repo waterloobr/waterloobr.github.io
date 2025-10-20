@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Waterloo Business Review</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
@@ -30,6 +30,41 @@
     <script type="text/javascript" src="javascript/core/hash.js"></script>
     <script type="text/javascript" src="javascript/core/magazine.js"></script>
     <link type="text/css" rel="stylesheet" href="css/magazine.css"></link>
+    
+    <style>
+    /* Prevent unwanted mobile zoom and touch behaviors */
+    .magazine-viewport, .magazine {
+        touch-action: manipulation;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    /* Prevent double-tap zoom */
+    .magazine *, .magazine-viewport * {
+        touch-action: manipulation;
+    }
+    
+    /* Mobile responsive improvements */
+    @media screen and (max-width: 768px) {
+        #all {
+            overflow-x: hidden !important;
+        }
+        
+        .magazine-viewport .container {
+            position: relative !important;
+            width: 100% !important;
+            height: auto !important;
+            margin: 20px auto !important;
+        }
+        
+        .magazine-viewport .magazine {
+            width: 100% !important;
+            height: auto !important;
+            position: relative !important;
+        }
+    }
+    </style>
 
 </head>
 <body>
@@ -115,11 +150,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <a href="articles/winter-2025/openai.html"><img src="assets/img/winter-2025/covers/openai-cover.png" alt=""></a>
+                                    <a href="articles/spring-2025/a_and_r_playbook.html"><img src="assets/img/spring-2025/a_and_r_cover.png" alt=""></a>
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="articles/winter-2025/oepnai.html">'YC's Manhattan Project': OpenAI's Mission Gives Way to Profit</a></h3>
+                                    <h3><a href="articles/spring-2025/a_and_r_playbook.html">The New A&R Playbook: Algorithm Signs The Artist</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -128,11 +163,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <a href="articles/winter-2025/sports.html"><img src="assets/img/winter-2025/covers/betting-cover.png" alt=""></a>
+                                    <a href="articles/spring-2025/ipl.html"><img src="assets/img/spring-2025/ipl_cover.png" alt=""></a>
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="articles/winter-2025/sports.html">The Persuation Playbook: Tobacco & Sports Betting Marketing Strategies<br></a></h3>
+                                    <h3><a href="articles/spring-2025/ipl.html">Has IPL Reached Its Inflection Point?<br></a></h3>
                                 </div>
                             </div>
                         </div>
@@ -141,11 +176,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <a href="articles/winter-2025/disney.html"><img src="assets/img/winter-2025/covers/disney-cover.png" alt=""></a>
+                                    <a href="articles/spring-2025/fire.html"><img src="assets/img/spring-2025/fire_cover.png" alt=""></a>
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="articles/winter-2025/disney.html">When Imagination Runs Dry: The Cost of Disney's IP Overload<br></a></h3>
+                                    <h3><a href="articles/spring-2025/fire.html">Canada's Unsung Safety Net: How Firefighting Became the Nation's Most Effective Public Service<br></a></h3>
                                 </div>
                             </div>
                         </div>
@@ -154,11 +189,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <a href="articles/winter-2025/vr.html"><img src="assets/img/winter-2025/covers/vr-cover.png" alt=""></a>
+                                    <a href="articles/spring-2025/boringjobs.html"><img src="assets/img/spring-2025/boringjobs_cover.png" alt=""></a>
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="articles/winter-2025/vr.html">Why Virtual Reality's Growth Potential is Overestimated</a></h3>
+                                    <h3><a href="articles/spring-2025/boringjobs.html">Beyond AI Multiples: The Overlooked Value in Boring Businesses</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -167,11 +202,11 @@
                         <div class="single-baner-nw mb-30 text-center">
                             <div class="banner-img-cap">
                                 <div class="banner-img">
-                                    <a href="articles/winter-2025/apac.html"><img src="assets/img/winter-2025/covers/apac-cover.png" alt=""></a>
+                                    <a href="articles/spring-2025/cover_retail.html"><img src="assets/img/spring-2025/retail_cover.png" alt=""></a>
                                 </div>
                                 <div class="banner-cap">
                                     <p>Trending</p>
-                                    <h3><a href="articles/winter-2025/apac.html">From Soil to Silicon: Agtech's Next Frontier in APAC</a></h3>
+                                    <h3><a href="articles/spring-2025/cover_retail.html">Canada: The Fall of Mid-Tier Retail Stores and the Quiet Revolution</a></h3>
                                 </div>
                             </div>
                         </div>
@@ -199,7 +234,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="section-tittle mb-35">
-                            <h2>Winter 2025 Issue</h2>
+                            <h2>Spring 2025 Issue</h2>
                         </div>
                     </div>
                 </div>
@@ -234,7 +269,7 @@
 					autoCenter: true,
 
 					// The number of pages -> UPDATE THIS
-					pages: 52,
+					pages: 35,
 
 					// Events
 					when: {
@@ -275,7 +310,7 @@
 
 							// Add pages that aren't in the magazine
 							for (var i = 0; i < pages.length; i++)
-								addPage(pages[i], $(this), 'Winter 2025');
+								addPage(pages[i], $(this), 'Spring 2025 Fixed');
 						}
 					}
 				});
@@ -306,7 +341,7 @@
 						resize: function(event, scale, page, pageElement) {
 
 							if (scale==1)
-								loadSmallPage(page, pageElement, 'Spring 2024');
+								loadSmallPage(page, pageElement, 'Spring 2025 Fixed');
 							else
 								loadLargePage(page, pageElement);
 						},

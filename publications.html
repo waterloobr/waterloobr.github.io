@@ -183,7 +183,60 @@
         <path d="M12 15V3" stroke="#85819C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>`;
 
+        /* 
+        ██████╗ ██╗   ██╗     ██████╗ █████╗ ███████╗ ██████╗ █████╗ ██████╗ ███████╗
+        ██╔══██╗╚██╗ ██╔╝    ██╔════╝██╔══██╗██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝
+        ██████╔╝ ╚████╔╝     ██║     ███████║███████╗██║     ███████║██║  ██║█████╗  
+        ██╔══██╗  ╚██╔╝      ██║     ██╔══██║╚════██║██║     ██╔══██║██║  ██║██╔══╝  
+        ██████╔╝   ██║       ╚██████╗██║  ██║███████║╚██████╗██║  ██║██████╔╝███████╗
+        ╚═════╝    ╚═╝        ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═════╝ ╚══════╝
+        
+        SPRING 2025 SECTION ADDED BY CASCADE AI ASSISTANT
+        
+        PUBLICATION DATA STRUCTURE:
+        - Each publication has: info, publicationPage, publicationSrc, publicationPdf
+        - info contains: term (issue name) and contents (array of articles)
+        - Each article has: title and link
+        
+        TO CUSTOMIZE:
+        - Update article titles in the "title" fields
+        - Update article links in the "link" fields (must match actual file names)
+        - Update publicationPage path if you rename the publication HTML file
+        - Update publicationSrc path if you move/rename the cover image
+        - Update publicationPdf path when you add the actual PDF
+        */
+        
         var publicationData = [
+            // CASCADE CREATED: Spring 2025 Issue
+            {
+                info: {
+                    term: "Spring 2025", // CUSTOMIZE: Issue name displayed on website
+                    contents: [{
+                        title: "The New A&R Playbook: Algorithm Signs The Artist", // CUSTOMIZE: Article title
+                        link: "articles/spring-2025/a_and_r_playbook.html", // CUSTOMIZE: Path to article file
+                    },
+                    {
+                        title: "Has IPL Reached Its Inflection Point?", // CHANGE: Article title
+                        link: "articles/spring-2025/ipl.html", // CHANGE: File path
+                    },
+                    {
+                        title: "Canada's Unsung Safety Net: How Firefighting Became the Nation's Most Effective Public Service", // CHANGE: Article title
+                        link: "articles/spring-2025/fire.html", // CHANGE: File path
+                    },
+                    {
+                        title: "Beyond AI Multiples: The Overlooked Value in Boring Businesses", // CHANGE: Article title
+                        link: "articles/spring-2025/boringjobs.html", // CHANGE: File path
+                    },
+                    {
+                        title: "Canada: The Fall of Mid-Tier Retail Stores and the Quiet Revolution", // CHANGE: Article title
+                        link: "articles/spring-2025/cover_retail.html", // CHANGE: File path
+                    }
+                    ],
+                },
+                publicationPage: "publications/spring-2025.html", // CUSTOMIZE: Path to publication page
+                publicationSrc: "images/medium/Spring 2025 Fixed/1.png", // CUSTOMIZE: Path to cover image
+                publicationPdf: "publications/pdfs/Spring_2025.pdf", // CUSTOMIZE: Path to PDF (create this file)
+            },
             {
                 info: {
                     term: "Winter 2025",
