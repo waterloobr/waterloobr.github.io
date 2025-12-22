@@ -35,40 +35,7 @@
 	<link type="text/css" rel="stylesheet" href="css/magazine.css">
 	</link>
 
-    <style>
-    /* Prevent unwanted mobile zoom and touch behaviors */
-    .magazine-viewport, .magazine {
-        touch-action: manipulation;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        user-select: none;
-    }
-    
-    /* Prevent double-tap zoom */
-    .magazine *, .magazine-viewport * {
-        touch-action: manipulation;
-    }
-    
-    /* Mobile responsive improvements */
-    @media screen and (max-width: 768px) {
-        #all {
-            overflow-x: hidden !important;
-        }
-        
-        .magazine-viewport .container {
-            position: relative !important;
-            width: 100% !important;
-            height: auto !important;
-            margin: 20px auto !important;
-        }
-        
-        .magazine-viewport .magazine {
-            width: 100% !important;
-            height: auto !important;
-            position: relative !important;
-        }
-    }
-    </style></head>
+</head>
 
 <body>
 
@@ -209,7 +176,7 @@
 					autoCenter: true,
 
 					// The number of pages
-					pages: 35,
+					pages: 41,
 
 					// Events
 					when: {
@@ -405,23 +372,10 @@
 
 				// Regions
 				if ($.isTouch) {
-					$('.magazine').bind('touchstart touchend', function(event) {
-						// Prevent default to avoid double-firing on mobile
-						if (event.type === 'touchend') {
-							event.preventDefault();
-							regionClick(event);
-						}
-					});
+					$('.magazine').bind('touchstart', regionClick);
 				} else {
 					$('.magazine').click(regionClick);
 				}
-				
-				// Add universal click/touch support for better mobile compatibility
-				$('.magazine').on('click touchend', function(event) {
-					if (event.type === 'touchend') {
-						event.preventDefault();
-					}
-				});
 
 				// Events for the next button
 				$('.next-button').bind($.mouseEvents.over, function () {
@@ -467,7 +421,6 @@
 
 		</script>
 		<!-- Magazine Viewport -->
-		<div id="all" style="display: none;">
 		<div class="magazine-viewport">
 			<div class="container">
 				<div class="magazine">
@@ -478,7 +431,7 @@
 				</div>
 			</div>
 		</div>
-	</div>		<footer>
+		<footer>
 			<!-- footer-bottom area -->
 			<div class="footer-bottom-area">
 				<div class="container">
