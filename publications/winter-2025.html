@@ -222,77 +222,78 @@
 					}
 				});
 
+				// Zoom was here
 				// Zoom.js
-				$('.magazine-viewport').zoom({
+				// $('.magazine-viewport').zoom({
 
-					flipbook: $('.magazine'),
+				// 	flipbook: $('.magazine'),
 
-					max: function () {
-						return largeMagazineWidth() / $('.magazine').width();
-					},
+				// 	max: function () {
+				// 		return largeMagazineWidth() / $('.magazine').width();
+				// 	},
 
-					when: {
+				// 	when: {
 
-						tap: function (event) {
+				// 		tap: function (event) {
 
-							if ($(this).zoom('value') == 1) {
-								$('.magazine').
-									removeClass('animated').
-									addClass('zoom-in');
-								$(this).zoom('zoomIn', event);
-							} else {
-								$(this).zoom('zoomOut');
-							}
-						},
+				// 			if ($(this).zoom('value') == 1) {
+				// 				$('.magazine').
+				// 					removeClass('animated').
+				// 					addClass('zoom-in');
+				// 				$(this).zoom('zoomIn', event);
+				// 			} else {
+				// 				$(this).zoom('zoomOut');
+				// 			}
+				// 		},
 
-						resize: function (event, scale, page, pageElement) {
+				// 		resize: function (event, scale, page, pageElement) {
 
-							if (scale == 1)
-								loadSmallPage(page, pageElement, 'Winter 2025');
-							else
-								loadLargePage(page, pageElement);
-						},
+				// 			if (scale == 1)
+				// 				loadSmallPage(page, pageElement, 'Winter 2025');
+				// 			else
+				// 				loadLargePage(page, pageElement);
+				// 		},
 
-						zoomIn: function () {
+				// 		zoomIn: function () {
 
-							$('.thumbnails').hide();
-							$('.made').hide();
-							$('.magazine').addClass('zoom-in');
+				// 			$('.thumbnails').hide();
+				// 			$('.made').hide();
+				// 			$('.magazine').addClass('zoom-in');
 
-							if (!window.escTip && !$.isTouch) {
-								escTip = true;
+				// 			if (!window.escTip && !$.isTouch) {
+				// 				escTip = true;
 
-								$('<div />', { 'class': 'esc' }).
-									html('<div>Press ESC to exit</div>').
-									appendTo($('body')).
-									delay(2000).
-									animate({ opacity: 0 }, 500, function () {
-										$(this).remove();
-									});
-							}
-						},
+				// 				$('<div />', { 'class': 'esc' }).
+				// 					html('<div>Press ESC to exit</div>').
+				// 					appendTo($('body')).
+				// 					delay(2000).
+				// 					animate({ opacity: 0 }, 500, function () {
+				// 						$(this).remove();
+				// 					});
+				// 			}
+				// 		},
 
-						zoomOut: function () {
+				// 		zoomOut: function () {
 
-							$('.esc').hide();
-							$('.thumbnails').fadeIn();
-							$('.made').fadeIn();
+				// 			$('.esc').hide();
+				// 			$('.thumbnails').fadeIn();
+				// 			$('.made').fadeIn();
 
-							setTimeout(function () {
-								$('.magazine').addClass('animated').removeClass('zoom-in');
-								resizeViewport();
-							}, 0);
-						},
+				// 			setTimeout(function () {
+				// 				$('.magazine').addClass('animated').removeClass('zoom-in');
+				// 				resizeViewport();
+				// 			}, 0);
+				// 		},
 
-						swipeLeft: function () {
-							$('.magazine').turn('next');
-						},
+				// 		swipeLeft: function () {
+				// 			$('.magazine').turn('next');
+				// 		},
 
-						swipeRight: function () {
-							$('.magazine').turn('previous');
-						}
-					}
-				});
+				// 		swipeRight: function () {
+				// 			$('.magazine').turn('previous');
+				// 		}
+				// 	}
+				// });
 
 				// Using arrow keys to turn the page
 				$(document).keydown(function (e) {
