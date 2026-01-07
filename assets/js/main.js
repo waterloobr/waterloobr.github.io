@@ -179,7 +179,7 @@
   }
 
   /* 6. Nice Selectorp  */
-  var nice_Select = $("select");
+  var nice_Select = $("select").not(".publication-select");
   if (nice_Select.length) {
     nice_Select.niceSelect();
   }
