@@ -127,18 +127,13 @@
         </section>
 
         <section class="publications-section">
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-10">
-
-                    <div id="publication-list"></div>
-
-
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <div id="publication-root"></div>
+                    </div>
                 </div>
-                <div class="col-1"></div>
             </div>
-
-
         </section>
 
         <!-- Contact Area End -->
@@ -235,7 +230,7 @@
                     ],
                 },
                 publicationPage: "publications/spring-2025.html", // CUSTOMIZE: Path to publication page
-                publicationSrc: "images/medium/Spring 2025/1-Cover (R)-1.png", // CUSTOMIZE: Path to cover image
+                publicationSrc: "images/medium/Spring 2025/1.png", // CUSTOMIZE: Path to cover image
                 publicationPdf: "publications/pdfs/Spring_2025.pdf", // CUSTOMIZE: Path to PDF (create this file)
             },
             {
@@ -477,7 +472,7 @@
                         },
                         {
                             title: "Exclusive Interview: Filling the Hacker Niche: Marium Kirmani and StarterHacks",
-                            link: "articles/inter-2021/starter_hacks.html",
+                            link: "articles/winter-2021/starter_hacks.html",
                         },
                         {
                             title: "Are Businesses Being Valued Properly?",
@@ -628,6 +623,169 @@
             },
         ];
 
+        var topicLinks = {
+            "Business Strategy": [
+                "articles/fall-2020/business_model.html",
+                "articles/fall-2020/gig_economy.html",
+                "articles/fall-2020/tik_tok.html",
+                "articles/fall-2021/private_equity.html",
+                "articles/fall-2021/roblox.html",
+                "articles/fall-2022/crisis.html",
+                "articles/fall-2022/dd.html",
+                "articles/fall-2022/tesla.html",
+                "articles/fall-2023/foreign.html",
+                "articles/fall-2023/japan.html",
+                "articles/fall-2023/novo-nordisk.html",
+                "articles/fall-2023/space.html",
+                "articles/fall-2023/tech-gap.html",
+                "articles/spring-2020/alternative_credit_analytics.html",
+                "articles/spring-2020/bitcoin.html",
+                "articles/spring-2020/esports.html",
+                "articles/spring-2020/tesla.html",
+                "articles/spring-2020/the_streaming_wars.html",
+                "articles/spring-2021/bigtech.html",
+                "articles/spring-2021/esg.html",
+                "articles/spring-2021/hacking.html",
+                "articles/spring-2021/india.html",
+                "articles/spring-2024/celebrity-vc-pipeline.html",
+                "articles/spring-2024/esports-future.html",
+                "articles/spring-2024/mcdonalds-fall.html",
+                "articles/spring-2025/a_and_r_playbook.html",
+                "articles/spring-2025/boringjobs.html",
+                "articles/spring-2025/cover_retail.html",
+                "articles/spring-2025/fire.html",
+                "articles/spring-2025/ipl.html",
+                "articles/winter-2021/SPAC.html",
+                "articles/winter-2021/african_renaissance.html",
+                "articles/winter-2021/blackberry.html",
+                "articles/winter-2021/psychedelics.html",
+                "articles/winter-2024/bnpl.html",
+                "articles/winter-2024/budget-airlines.html",
+                "articles/winter-2024/european-energy.html",
+                "articles/winter-2024/f1.html",
+                "articles/winter-2024/us-dependency.html",
+                "articles/winter-2025/disney.html",
+                "articles/winter-2025/sports.html",
+            ],
+            "Technology": [
+                "articles/fall-2020/artificial_intelligence.html",
+                "articles/fall-2021/lab_grown_meat.html",
+                "articles/fall-2021/machine_learning.html",
+                "articles/fall-2022/dr.html",
+                "articles/fall-2022/meta.html",
+                "articles/fall-2023/cashless.html",
+                "articles/fall-2023/pegasus.html",
+                "articles/spring-2021/nft.html",
+                "articles/spring-2021/walmart.html",
+                "articles/spring-2024/ai-journalism.html",
+                "articles/spring-2024/digital-economy.html",
+                "articles/winter-2021/business_value.html",
+                "articles/winter-2024/digital-banking.html",
+                "articles/winter-2025/apac.html",
+                "articles/winter-2025/openai.html",
+                "articles/winter-2025/vr.html",
+            ],
+            "Entrepreneurship": [
+                "articles/fall-2020/aaron_paul.html",
+                "articles/fall-2020/lumaki_labs.html",
+                "articles/spring-2020/kuba_soltysiak.html",
+                "articles/winter-2021/starter_hacks.html",
+            ],
+            "Alumni Insights": [
+                "articles/fall-2020/nitish_sharma.html",
+                "articles/spring-2020/ismail_mian.html",
+                "articles/spring-2020/talha_siddiqui.html",
+                "articles/spring-2021/mike_hejmej.html",
+                "articles/spring-2021/stephanie_han.html",
+            ],
+        };
+
+        var topicByLink = {};
+        Object.keys(topicLinks).forEach(function (topic) {
+            topicLinks[topic].forEach(function (link) {
+                topicByLink[link] = topic;
+            });
+        });
+
+        function normalizeText(value) {
+            return (value || "").toLowerCase().trim();
+        }
+
+        function getSeason(term) {
+            var normalized = normalizeText(term);
+            var parts = normalized.split(/\s+/);
+            return parts[0] || "";
+        }
+
+        var filterState = {
+            query: "",
+            topic: "All",
+            season: "all",
+        };
+
+        var topicOrder = ["Business Strategy", "Technology", "Entrepreneurship", "Alumni Insights"];
+        var topicOptions = ["All"].concat(topicOrder.filter(function (topic) {
+            return topicLinks[topic];
+        }));
+
+        var seasonLabels = {
+            spring: "Spring",
+            summer: "Summer",
+            fall: "Fall",
+            winter: "Winter",
+        };
+        var seasonOrder = ["spring", "summer", "fall", "winter"];
+        var seasonSet = {};
+        publicationData.forEach(function (item) {
+            var season = getSeason(item.info.term);
+            if (season) {
+                seasonSet[season] = true;
+            }
+        });
+        var seasonOptions = [{ value: "all", label: "All seasons" }].concat(
+            seasonOrder.filter(function (season) {
+                return seasonSet[season];
+            }).map(function (season) {
+                return { value: season, label: seasonLabels[season] || season };
+            })
+        );
+
+        function filterPublications(data, filters) {
+            var normalizedQuery = normalizeText(filters.query);
+            var hasQuery = normalizedQuery.length > 0;
+            var selectedTopic = filters.topic;
+            var selectedSeason = normalizeText(filters.season);
+
+            return data.reduce(function (results, item) {
+                var season = getSeason(item.info.term);
+                if (selectedSeason !== "all" && season !== selectedSeason) {
+                    return results;
+                }
+
+                var contents = item.info.contents || [];
+                var filteredContents = contents.filter(function (content) {
+                    var title = normalizeText(content.title);
+                    var matchesQuery = !hasQuery || title.indexOf(normalizedQuery) !== -1;
+                    var contentTopic = topicByLink[content.link];
+                    var matchesTopic = selectedTopic === "All" || contentTopic === selectedTopic;
+
+                    return matchesQuery && matchesTopic;
+                });
+
+                if (filteredContents.length) {
+                    results.push({
+                        info: item.info,
+                        publicationPage: item.publicationPage,
+                        publicationSrc: item.publicationSrc,
+                        publicationPdf: item.publicationPdf,
+                        contents: filteredContents,
+                    });
+                }
+
+                return results;
+            }, []);
+        }
+
         var ContentArticles = {
             view: function (vnode) {
                 const contents = vnode.attrs.contents || [];
@@ -654,33 +812,99 @@
 
         var Publication = {
             view: function (vnode) {
-                const { info, article, cover, pdf } = vnode.attrs;
+                const { info, article, cover, pdf, contents } = vnode.attrs;
 
                 return m("div", { class: "publication-item row" }, [
                     m("div", { class: "publication-cover" }, [
                         m("a", { href: article }, [m("img", { src: cover })])
                     ]),
                     m("div", { class: "publication-info" }, [
-                        m(PublicationContent, { term: info.term, contents: info.contents, path: article, pdf: pdf })
+                        m(PublicationContent, { term: info.term, contents: contents, path: article, pdf: pdf })
                     ])
+                ]);
+            },
+        };
+
+        var PublicationFilters = {
+            view: function () {
+                return m("div", { class: "publication-filters" }, [
+                    m("div", { class: "publication-search" }, [
+                        m("label", { for: "publication-search" }, "Search by article name"),
+                        m("input", {
+                            id: "publication-search",
+                            type: "search",
+                            placeholder: "Search articles",
+                            value: filterState.query,
+                            oninput: function (event) {
+                                filterState.query = event.target.value;
+                                m.redraw();
+                            },
+                        }),
+                    ]),
+                    m("div", { class: "publication-filter-row" }, [
+                        m("div", { class: "publication-filter" }, [
+                            m("label", { for: "publication-topic" }, "Filter by topic"),
+                            m("select", {
+                                id: "publication-topic",
+                                class: "publication-select",
+                                value: filterState.topic,
+                                onchange: function (event) {
+                                    filterState.topic = event.target.value;
+                                    m.redraw();
+                                },
+                            }, topicOptions.map(function (topic) {
+                                return m("option", { value: topic }, topic === "All" ? "All topics" : topic);
+                            })),
+                        ]),
+                        m("div", { class: "publication-filter" }, [
+                            m("label", { for: "publication-season" }, "Filter by season"),
+                            m("select", {
+                                id: "publication-season",
+                                class: "publication-select",
+                                value: filterState.season,
+                                onchange: function (event) {
+                                    filterState.season = event.target.value;
+                                    m.redraw();
+                                },
+                            }, seasonOptions.map(function (season) {
+                                return m("option", { value: season.value }, season.label);
+                            })),
+                        ]),
+                    ]),
                 ]);
             },
         };
 
         var publicationList = {
             view: function () {
-                return publicationData.map(function (item) {
+                var filteredPublications = filterPublications(publicationData, filterState);
+
+                if (!filteredPublications.length) {
+                    return m("div", { class: "publication-empty" }, "No articles match your filters.");
+                }
+
+                return filteredPublications.map(function (item) {
                     return m(Publication, {
                         info: item.info,
                         article: item.publicationPage,
                         cover: item.publicationSrc,
-                        pdf: item.publicationPdf
-                    })
+                        pdf: item.publicationPdf,
+                        contents: item.contents,
+                    });
                 });
             },
         };
 
-        m.mount(document.getElementById("publication-list"), publicationList);
+        var PublicationPage = {
+            view: function () {
+                return [
+                    m(PublicationFilters),
+                    m(publicationList),
+                ];
+            },
+        };
+
+        m.mount(document.getElementById("publication-root"), PublicationPage);
 
     </script>
 

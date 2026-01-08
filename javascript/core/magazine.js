@@ -158,13 +158,25 @@ function loadLargePage(page, pageElement) {
 function loadSmallPage(page, pageElement, folderName) {
 	
 	var img = pageElement.find('img');
+	var basePath = 'images/medium/' + folderName + '/' + page;
+	var jpgPath = basePath + '.jpg';
+	var pngPath = basePath + '.png';
 
 	img.css({width: '100%', height: '100%'});
 
 	img.unbind('load');
 	// Loadnew page
 
-	img.attr('src', 'images/medium/' + folderName + '/' +  page + '.jpg');
+	$.ajax({
+		url: jpgPath,
+		type: 'HEAD',
+		success: function() {
+			img.attr('src', jpgPath);
+		},
+		error: function() {
+			img.attr('src', pngPath);
+		}
+	});
 }
 
 // http://code.google.com/p/chromium/issues/detail?id=128488
@@ -297,5 +309,4 @@ function calculateBound(d) {
 		
 	return bound;
 }
-
 
