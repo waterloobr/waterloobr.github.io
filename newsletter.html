@@ -1,0 +1,672 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Waterloo Business Review</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+  <!-- CSS here -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="assets/css/slicknav.css">
+  <link rel="stylesheet" href="assets/css/flaticon.css">
+  <link rel="stylesheet" href="assets/css/progressbar_barfiller.css">
+  <link rel="stylesheet" href="assets/css/gijgo.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/animated-headline.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="assets/css/themify-icons.css">
+  <link rel="stylesheet" href="assets/css/slick.css">
+  <link rel="stylesheet" href="assets/css/nice-select.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .newsletter-shell {
+      padding: 40px 0 80px;
+    }
+
+    .newsletter-shell .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .newsletter-shell .feature-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 20px 45px rgba(20, 12, 64, 0.12);
+      overflow: hidden;
+    }
+
+    .newsletter-shell .feature-media {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, rgba(20, 12, 64, 0.85), rgba(220, 167, 58, 0.6));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .newsletter-shell .feature-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .newsletter-shell .feature-body {
+      padding: 24px 28px 30px;
+      text-align: center;
+    }
+
+    .newsletter-shell .feature-body h1 {
+      font-size: 24px;
+      margin: 8px 0 8px;
+      color: #140C40;
+      font-weight: 600;
+    }
+
+    .newsletter-shell .feature-body p {
+      margin: 6px 0 0;
+      color: #3B4855;
+      font-size: 14px;
+    }
+
+    .newsletter-shell .side-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .newsletter-shell .side-rail {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .newsletter-shell .side-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 86px;
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #eceff8;
+    }
+
+    .newsletter-shell .side-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .newsletter-shell .side-item h3 {
+      font-size: 14px;
+      margin: 0 0 6px;
+      color: #1d1d1f;
+      font-weight: 600;
+    }
+
+    .newsletter-shell .side-item p {
+      margin: 0;
+      font-size: 12px;
+      color: #3B4855;
+      line-height: 20px;
+    }
+
+    .newsletter-shell .side-thumb {
+      width: 86px;
+      height: 64px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #dde2f0;
+    }
+
+    .newsletter-shell .side-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .newsletter-shell .quote-card {
+      background: #fff7e6;
+      border: 1px solid rgba(220, 167, 58, 0.35);
+      border-radius: 16px;
+      padding: 18px 20px;
+      box-shadow: 0 14px 28px rgba(20, 12, 64, 0.08);
+    }
+
+    .newsletter-shell .quote-card span {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #845c00;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-shell .quote-card blockquote {
+      margin: 0;
+      font-size: 14px;
+      color: #1d1d1f;
+      font-style: italic;
+      line-height: 22px;
+    }
+
+    .newsletter-shell .quote-card cite {
+      display: block;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #3B4855;
+      font-style: normal;
+    }
+
+    .newsletter-shell .section-header {
+      margin: 42px 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #eceff8;
+      padding-top: 24px;
+    }
+
+    .newsletter-shell .section-header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #140C40;
+      font-weight: 600;
+    }
+
+    .newsletter-shell .section-header span {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #3B4855;
+    }
+
+    .newsletter-shell .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .newsletter-shell .story-card {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #eceff8;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .newsletter-shell .story-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(20, 12, 64, 0.1);
+    }
+
+    .newsletter-shell .story-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .newsletter-shell .story-card-body {
+      padding: 12px 14px 16px;
+    }
+
+    .newsletter-shell .story-card-body h4 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      color: #1d1d1f;
+      font-weight: 600;
+    }
+
+    .newsletter-shell .story-card-body p {
+      margin: 0;
+      font-size: 12px;
+      color: #3B4855;
+      line-height: 20px;
+    }
+
+    .newsletter-shell .tracker-shell {
+      margin-top: 52px;
+      background: #fff;
+      border-radius: 18px;
+      padding: 24px;
+      border: 1px solid #eceff8;
+      box-shadow: 0 18px 36px rgba(20, 12, 64, 0.08);
+    }
+
+    .newsletter-shell .tracker-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .newsletter-shell .tracker-header h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #140C40;
+      font-weight: 600;
+    }
+
+    .newsletter-shell .tracker-search {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      width: min(480px, 100%);
+    }
+
+    .newsletter-shell .tracker-search input {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #eceff8;
+      font-size: 14px;
+    }
+
+    .newsletter-shell .tracker-search button {
+      background: #140C40;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .newsletter-shell .tracker-frame {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      min-height: 420px;
+      background: #f2f3f7;
+    }
+
+    .newsletter-shell .ticker-help {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #3B4855;
+    }
+
+    @media (max-width: 1024px) {
+      .newsletter-shell .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-shell .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .newsletter-shell .tracker-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .newsletter-shell .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-shell .tracker-search {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ? Preloader Start -->
+  <div id="preloader-active">
+      <div class="preloader d-flex align-items-center justify-content-center">
+          <div class="preloader-inner position-relative">
+              <div class="preloader-circle"></div>
+              <div class="preloader-img pere-text">
+                  <img src="assets/img/logo/wbr-logo.svg" alt="">
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Preloader Start-->
+  <header>
+      <!-- Header Start -->
+     <div class="header-area">
+          <div class="main-header ">
+              <div class="header-top ">
+                 <div class="container-fluid">
+                     <div class="col-xl-12">
+                          <div class="row d-flex justify-content-lg-between align-items-center">
+                              <div class="header-info-left">
+                                  <div class="logo">
+                                      <a href="index.html"><img src="assets/img/logo/wbr-logo-small.svg" alt=""></a>
+                                  </div>
+                              </div>
+                              <div class="header-info-right d-flex align-items-center">
+                                <ul id="top_navigation">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                     <li><a href="team.html">Team</a></li>
+                                     <li><a href="contact.html">Contact</a></li>
+                                     <li><a href="publications.html">Publications</a></li>
+                                     <li><a href="newsletter.html">Newsletter</a></li>
+                                 </ul>
+                                 <!-- Social -->
+                                 <div class="header-social">
+                                      <a href="https://www.facebook.com/waterloobr/"><i class="fab fa-facebook-f"></i></a>
+                                      <a href="https://twitter.com/uwaterloobr/"><i class="fab fa-twitter"></i></a>
+                                      <a href="https://www.linkedin.com/company/waterloo-business-review/about"><i class="fab fa-linkedin"></i></a>
+                                      <a href="https://www.instagram.com/uwaterloobr/"><i class="fab fa-instagram"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+                     </div>
+                 </div>
+              </div>
+             <div class="header-bottom  header-sticky">
+                  <div class="container-fluid">
+                      <div class="row align-items-center">
+                          <div class="col-12">
+                              <!-- Main-menu -->
+                              <div class="main-menu text-center d-none d-lg-block">
+                                  <nav>
+                                      <ul id="navigation">
+                                          <li><a href="topics/alumni_insights.html">Alumni Insights</a></li>
+                                          <li><a href="topics/business_strategy.html">Business Strategy</a></li>
+                                          <li><a href="topics/entrepreneurship.html">Entrepeneurship</a></li>
+                                          <li><a href="topics/technology.html">Technology</a></li>
+                                      </ul>
+                                  </nav>
+                              </div>
+                          </div>
+                          <!-- Mobile Menu -->
+                          <div class="col-12">
+                              <div class="mobile_menu d-block d-lg-none"></div>
+                          </div>
+                      </div>
+                  </div>
+             </div>
+          </div>
+     </div>
+      <!-- Header End -->
+  </header>
+  <main>
+      <!-- breadcrumb Start-->
+      <div class="page-notification">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <nav aria-label="breadcrumb">
+                          <ol class="breadcrumb justify-content-center">
+                              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                              <li class="breadcrumb-item"><a href="newsletter.html">Newsletter</a></li>
+                          </ol>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- breadcrumb End -->
+
+      <section class="newsletter-shell">
+        <div class="container">
+          <div class="hero-grid">
+            <article class="feature-card">
+              <div class="feature-media">
+                <img src="assets/img/spring-2025/covers/1-Cover (R).png" alt="Featured newsletter">
+              </div>
+              <div class="feature-body">
+                <p>WBR Newsletter</p>
+                <h1>AI Needs a Steve Jobs</h1>
+                <p>Happy Friday. The current thing is... 11 hrs ago • WBR Editorial</p>
+              </div>
+            </article>
+
+            <aside class="side-rail">
+              <div class="side-list">
+                <div class="side-item">
+                  <div>
+                    <h3>Investor Brief: The Apple Card playbook</h3>
+                    <p>Quick takes on fintech tailwinds. Jan 8 • WBR Editorial</p>
+                  </div>
+                  <div class="side-thumb">
+                    <img src="assets/img/spring-2025/covers/6-A&R Cover.png" alt="Apple card">
+                  </div>
+                </div>
+                <div class="side-item">
+                  <div>
+                    <h3>Signals: XAI's most entertaining outcome</h3>
+                    <p>What the latest AI headlines could mean. Jan 7 • WBR Editorial</p>
+                  </div>
+                  <div class="side-thumb">
+                    <img src="assets/img/spring-2025/covers/14 - IPL Cover.png" alt="XAI outcome">
+                  </div>
+                </div>
+                <div class="side-item">
+                  <div>
+                    <h3>Industry Watch: The future of tech conferences</h3>
+                    <p>What's changing in the circuit. Jan 6 • WBR Editorial</p>
+                  </div>
+                  <div class="side-thumb">
+                    <img src="assets/img/spring-2025/covers/19 - Fire Cover Page.png" alt="Tech conference">
+                  </div>
+                </div>
+                <div class="side-item">
+                  <div>
+                    <h3>Energy outlook: The year ahead</h3>
+                    <p>What to watch in energy production. Jan 5 • WBR Editorial</p>
+                  </div>
+                  <div class="side-thumb">
+                    <img src="assets/img/spring-2025/covers/27 - Cover Retail.png" alt="Energy production">
+                  </div>
+                </div>
+              </div>
+              <div class="quote-card">
+                <span>Quote of the day</span>
+                <blockquote>
+                  "The world is changing very fast. Big will not beat small anymore. It will be the fast beating the slow."
+                </blockquote>
+                <cite>Rupert Murdoch</cite>
+              </div>
+            </aside>
+          </div>
+
+          <div class="section-header">
+            <h2>Newsletter Highlights</h2>
+            <span>View All</span>
+          </div>
+
+          <div class="cards-grid">
+            <article class="story-card">
+              <img src="assets/img/spring-2025/covers/1-Cover (R).png" alt="Story cover">
+              <div class="story-card-body">
+                <h4>AI Needs a Steve Jobs</h4>
+                <p>Happy Friday. The current thing is...</p>
+              </div>
+            </article>
+            <article class="story-card">
+              <img src="assets/img/spring-2025/covers/6-A&R Cover.png" alt="Story cover">
+              <div class="story-card-body">
+                <h4>Apple Card, Jamie Dimon edition</h4>
+                <p>Happy Thursday. The current thing is...</p>
+              </div>
+            </article>
+            <article class="story-card">
+              <img src="assets/img/spring-2025/covers/14 - IPL Cover.png" alt="Story cover">
+              <div class="story-card-body">
+                <h4>XAI's most entertaining outcome</h4>
+                <p>Happy Wednesday. The current thing is...</p>
+              </div>
+            </article>
+            <article class="story-card">
+              <img src="assets/img/spring-2025/covers/19 - Fire Cover Page.png" alt="Story cover">
+              <div class="story-card-body">
+                <h4>The future of tech conferences</h4>
+                <p>Happy Tuesday. The current thing is...</p>
+              </div>
+            </article>
+            <article class="story-card">
+              <img src="assets/img/spring-2025/covers/27 - Cover Retail.png" alt="Story cover">
+              <div class="story-card-body">
+                <h4>The year of energy production</h4>
+                <p>Happy Monday. The current thing is...</p>
+              </div>
+            </article>
+            <article class="story-card">
+              <img src="assets/img/spring-2025/covers/24 - Boring Jobs Cover Page.png" alt="Story cover">
+              <div class="story-card-body">
+                <h4>Thanks for an amazing year</h4>
+                <p>Happy Friday. The current thing is...</p>
+              </div>
+            </article>
+            <article class="story-card">
+              <img src="assets/img/spring-2025/covers/35-End Page.png" alt="Story cover">
+              <div class="story-card-body">
+                <h4>OpenAI in talks at $750B</h4>
+                <p>Happy Thursday. The current thing is...</p>
+              </div>
+            </article>
+            <article class="story-card">
+              <img src="assets/img/spring-2025/covers/14 - IPL Cover.png" alt="Story cover">
+              <div class="story-card-body">
+                <h4>December 17th</h4>
+                <p>Happy Wednesday. The current thing is...</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="tracker-shell">
+            <div class="tracker-header">
+              <h3>Stock Tracker</h3>
+              <form class="tracker-search" id="stock-search">
+                <input type="text" id="stock-symbol" name="symbol" placeholder="Search ticker (e.g., NASDAQ:AAPL or TSLA)" autocomplete="off">
+                <button type="submit">Search</button>
+              </form>
+            </div>
+            <iframe
+              id="tradingview-frame"
+              class="tracker-frame"
+              title="TradingView chart"
+              src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview&symbol=NASDAQ%3AAAPL&interval=D&hidesidetoolbar=1&symboledit=1&saveimage=0&toolbarbg=F1F3F6&studies=%5B%5D&hideideas=1&theme=light&style=1&timezone=Etc%2FUTC&withdateranges=1&locale=en"
+              loading="lazy">
+            </iframe>
+            <div class="ticker-help">Tip: Include an exchange prefix like NASDAQ:MSFT or NYSE:DIS for best results.</div>
+          </div>
+        </div>
+      </section>
+  </main>
+  <footer class="wbr-footer">
+    <div class="container">
+      <div class="wbr-footer__inner">
+        <div class="wbr-footer__brand">
+          <a class="wbr-footer__logo" href="index.html">
+            <img src="assets/img/logo/wbr-logo-small.svg" alt="Waterloo Business Review">
+          </a>
+          <div class="wbr-footer__social">
+            <a href="https://www.facebook.com/waterloobr/" aria-label="WBR on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/uwaterloobr/" aria-label="WBR on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/waterloo-business-review/about" aria-label="WBR on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/uwaterloobr/" aria-label="WBR on Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="wbr-footer__columns">
+          <div class="wbr-footer__column">
+            <h4>Who We Are</h4>
+            <ul>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="topics/alumni_insights.html">Alumni Insights</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+          <div class="wbr-footer__column">
+            <h4>What We Do</h4>
+            <ul>
+              <li><a href="publications.html">Publications</a></li>
+              <li><a href="newsletter.html">Newsletter</a></li>
+            </ul>
+          </div>
+          <div class="wbr-footer__column">
+            <h4>Keep in Touch</h4>
+            <ul>
+              <li><a href="contact.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="wbr-footer__bottom">
+        <p>Waterloo Business Review © 2026</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Scroll Up -->
+  <div id="back-top">
+      <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+  </div>
+
+  <!-- JS here -->
+
+  <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+  <!-- Jquery, Popper, Bootstrap -->
+  <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <!-- Jquery Mobile Menu -->
+  <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+  <!-- Jquery Slick , Owl-Carousel Plugins -->
+  <script src="./assets/js/owl.carousel.min.js"></script>
+  <script src="./assets/js/slick.min.js"></script>
+  <!-- One Page, Animated-HeadLin -->
+  <script src="./assets/js/wow.min.js"></script>
+  <script src="./assets/js/animated.headline.js"></script>
+  <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+  <!-- Date Picker -->
+  <script src="./assets/js/gijgo.min.js"></script>
+  <!-- Nice-select, sticky -->
+  <script src="./assets/js/jquery.nice-select.min.js"></script>
+  <script src="./assets/js/jquery.sticky.js"></script>
+  <!-- Progress -->
+  <script src="./assets/js/jquery.barfiller.js"></script>
+
+  <!-- counter , waypoint,Hover Direction -->
+  <script src="./assets/js/jquery.counterup.min.js"></script>
+  <script src="./assets/js/waypoints.min.js"></script>
+  <script src="./assets/js/jquery.countdown.min.js"></script>
+  <script src="./assets/js/hover-direction-snake.min.js"></script>
+
+  <!-- contact js -->
+  <script src="./assets/js/contact.js"></script>
+  <script src="./assets/js/jquery.form.js"></script>
+  <script src="./assets/js/jquery.validate.min.js"></script>
+  <script src="./assets/js/mail-script.js"></script>
+  <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+
+  <!-- Jquery Plugins, main Jquery -->
+  <script src="./assets/js/plugins.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script>
+    const newsletterForm = document.getElementById("stock-search");
+    const newsletterInput = document.getElementById("stock-symbol");
+    const newsletterFrame = document.getElementById("tradingview-frame");
+
+    if (newsletterForm && newsletterInput && newsletterFrame) {
+      newsletterForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const raw = newsletterInput.value.trim();
+        if (!raw) {
+          return;
+        }
+        const symbol = encodeURIComponent(
+          raw.includes(":") ? raw.toUpperCase() : `NASDAQ:${raw.toUpperCase()}`
+        );
+        newsletterFrame.src = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview&symbol=${symbol}&interval=D&hidesidetoolbar=1&symboledit=1&saveimage=0&toolbarbg=F1F3F6&studies=%5B%5D&hideideas=1&theme=light&style=1&timezone=Etc%2FUTC&withdateranges=1&locale=en`;
+      });
+    }
+  </script>
+</body>
+</html>
