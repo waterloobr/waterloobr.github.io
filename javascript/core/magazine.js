@@ -2,6 +2,12 @@
  * Magazine sample
 */
 
+function getMagazineAssetPath(path) {
+	var pathname = window.location.pathname || '';
+	var isPublicationPage = pathname.indexOf('/publications/') !== -1 || pathname.indexOf('publications/') !== -1;
+	return (isPublicationPage ? '../' : '') + path;
+}
+
 function addPage(page, book, folderName) {
 
 	var id, pages = book.turn('pages');
@@ -24,7 +30,7 @@ function addPage(page, book, folderName) {
 
 function loadPage(page, pageElement, folderName) {
     // Try loading .jpg first, then .png if not found
-    const basePath = 'images/medium/' + folderName + '/' + page;
+    const basePath = getMagazineAssetPath('images/medium/' + folderName + '/' + page);
     const jpgPath = basePath + '.jpg';
     const pngPath = basePath + '.png';
 
@@ -61,7 +67,7 @@ function loadPage(page, pageElement, folderName) {
 
 function loadRegions(page, element) {
 
-	$.getJSON('regions/'+page+'-regions.json').
+	$.getJSON(getMagazineAssetPath('regions/'+page+'-regions.json')).
 		done(function(data) {
 
 			$.each(data, function(key, region) {
@@ -150,7 +156,7 @@ function loadLargePage(page, pageElement) {
 
 	// Loadnew page
 	
-	img.attr('src', 'images/large/' +  page + '.jpg');
+	img.attr('src', getMagazineAssetPath('images/large/' +  page + '.jpg'));
 }
 
 // Load small page
@@ -158,7 +164,7 @@ function loadLargePage(page, pageElement) {
 function loadSmallPage(page, pageElement, folderName) {
 	
 	var img = pageElement.find('img');
-	var basePath = 'images/medium/' + folderName + '/' + page;
+	var basePath = getMagazineAssetPath('images/medium/' + folderName + '/' + page);
 	var jpgPath = basePath + '.jpg';
 	var pngPath = basePath + '.png';
 
@@ -309,4 +315,3 @@ function calculateBound(d) {
 		
 	return bound;
 }
-

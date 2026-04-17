@@ -89,7 +89,7 @@
                                         <ul id="navigation">
                                             <li><a href="topics/alumni_insights.html">Alumni Insights</a></li>
                                             <li><a href="topics/business_strategy.html">Business Strategy</a></li>
-                                            <li><a href="topics/entrepreneurship.html">Entrepeneurship</a></li>
+                                            <li><a href="topics/entrepreneurship.html">Entrepreneurship</a></li>
                                             <li><a href="topics/technology.html">Technology</a></li>
                                         </ul>
                                     </nav>
@@ -166,7 +166,6 @@
               <h4>What We Do</h4>
               <ul>
                 <li><a href="publications.html">Publications</a></li>
-                <li><a href="newsletter.html">Newsletter</a></li>
               </ul>
             </div>
             <div class="wbr-footer__column">
@@ -230,6 +229,31 @@
         */
         
         var publicationData = [
+            {
+                info: {
+                    term: "Fall 2025",
+                    contents: [{
+                        title: "Rejected By Your Bank? Welcome to Canada's Alternative Lending Trap",
+                        link: "articles/fall-2025/rejected_by_your_bank.html",
+                    },
+                    {
+                        title: "Decline of the Luxury Clothing Industry",
+                        link: "articles/fall-2025/decline_of_luxury.html",
+                    },
+                    {
+                        title: "Neurotech in the Future",
+                        link: "articles/fall-2025/neurotech_in_the_future.html",
+                    },
+                    {
+                        title: "AI and Nuclear, a Symbiotic System",
+                        link: "articles/fall-2025/ai_and_nuclear.html",
+                    },
+                    ],
+                },
+                publicationPage: "publications/fall-2025.html",
+                publicationSrc: "images/medium/Fall 2025/1-Cover (R).png",
+                publicationPdf: "publications/pdfs/Fall_2025.pdf",
+            },
             // CASCADE CREATED: Spring 2025 Issue
             {
                 info: {
@@ -387,31 +411,6 @@
                 publicationPage: "publications/fall-2023.html",
                 publicationSrc: "images/medium/Fall 2023/1.jpg",
                 publicationPdf: "publications/pdfs/Fall_2023.pdf",
-            },
-            {
-                info: {
-                    term: "Fall 2025",
-                    contents: [{
-                        title: "Rejected By Your Bank? Welcome to Canada's Alternative Lending Trap",
-                        link: "/articles/fall-2025/rejected_by_your_bank.html",
-                    },
-                    {
-                        title: "Decline of the Luxury Clothing Industry",
-                        link: "/articles/fall-2025/decline_of_luxury.html",
-                    },
-                    {
-                        title: "Neurotech in the Future",
-                        link: "/articles/fall-2025/neurotech_in_the_future.html",
-                    },
-                    {
-                        title: "AI and Nuclear, a Symbiotic System",
-                        link: "/articles/fall-2025/ai_and_nuclear.html",
-                    },
-                    ],
-                },
-                publicationPage: "publications/fall-2025.html",
-                publicationSrc: "images/medium/Fall 2025/1-Cover (R).png",
-                publicationPdf: "publications/pdfs/Fall_2025.pdf",
             },
             {
                 info: {
@@ -843,7 +842,10 @@
                 const contents = vnode.attrs.contents || [];
 
                 return contents.map(function (content) {
-                    return [m("hr", { class: "no-margin" }), m("li", { class: "table-of-contents" }, [m("a", { href: content.link }, content.title)]),
+                    var articleLink = content.link && content.link.trim();
+                    return [m("hr", { class: "no-margin" }), m("li", { class: "table-of-contents" }, [
+                        articleLink ? m("a", { href: articleLink }, content.title) : m("span", content.title)
+                    ]),
                     ]
                 });
             },
