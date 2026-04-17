@@ -143,16 +143,7 @@
 		<script type="text/javascript">
 
 			function loadApp() {
-				if (initializeMobileMagazineFallback({
-					folderName: 'Fall 2022',
-					title: 'Fall 2022',
-					pages: 44,
-					pdfPath: '../publications/pdfs/Fall_2022.pdf'
-				})) {
-					$('#all').show();
-					return;
-				}
-
+				
 				$('#all').fadeIn(1000);
 				
 				// Create the flipbook

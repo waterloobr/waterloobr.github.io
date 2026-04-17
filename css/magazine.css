@@ -1,6 +1,5 @@
 body{
-	overflow-x:hidden;
-	overflow-y:auto;
+	overflow:hidden;
 	background-color:#fcfcfc;
 	margin:0;
 	padding:0;
@@ -258,83 +257,6 @@ body{
 	-o-transform:none;
 	-ms-transform:none;
 	transform:none;
-}
-
-.mobile-magazine-fallback {
-	max-width: 100%;
-	padding: 0 0 32px;
-}
-
-.mobile-magazine-fallback__header {
-	padding: 0 16px 20px;
-}
-
-.mobile-magazine-fallback__title {
-	font-size: 1.75rem;
-	font-weight: 700;
-	color: #140C40;
-	margin-bottom: 8px;
-}
-
-.mobile-magazine-fallback__summary {
-	margin: 0 0 12px;
-	color: #3B4855;
-	line-height: 1.5;
-}
-
-.mobile-magazine-fallback__download {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding: 10px 16px;
-	border-radius: 999px;
-	background: #140C40;
-	color: #fff;
-	font-weight: 700;
-}
-
-.mobile-magazine-fallback__page {
-	margin: 0 0 16px;
-	padding: 0 12px;
-}
-
-.mobile-magazine-fallback__page img {
-	display: block;
-	width: 100%;
-	height: auto;
-	border-radius: 12px;
-	box-shadow: 0 12px 32px rgba(20, 12, 64, 0.16);
-	background: #fff;
-}
-
-@media screen and (max-width: 767px) {
-	.magazine-viewport {
-		height: auto !important;
-		min-height: 0 !important;
-		padding: 0 0 24px;
-	}
-
-	.magazine-viewport .container {
-		position: relative !important;
-		top: auto !important;
-		left: auto !important;
-		width: 100% !important;
-		height: auto !important;
-		margin: 0 auto !important;
-	}
-
-	.magazine-viewport .magazine {
-		left: 0 !important;
-		top: 0 !important;
-		margin: 0 auto;
-	}
-
-	.magazine-viewport--mobile .magazine,
-	.magazine-viewport--mobile .loader,
-	.magazine-viewport--mobile .gradient,
-	.magazine-viewport--mobile .region {
-		display: none !important;
-	}
 }
 
 .thumbnails-hover ul{
