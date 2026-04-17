@@ -1,6 +1,9 @@
 (function ($) {
   "use strict";
 
+  var oldLinkedInUrl = "https://www.linkedin.com/company/waterloo-business-review/about";
+  var newLinkedInUrl = "https://www.linkedin.com/company/waterloobusinessreview/";
+
   function getRootRelativePath(target) {
     var pathname = window.location.pathname || "";
     if (pathname.indexOf("/articles/") !== -1 || pathname.indexOf("articles/") !== -1) {
@@ -49,6 +52,8 @@
     );
     return false;
   });
+
+  $('a[href="' + oldLinkedInUrl + '"]').attr("href", newLinkedInUrl);
 
   /* 3. slick Nav */
   // mobile_menu
