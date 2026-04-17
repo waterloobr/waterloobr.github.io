@@ -1,6 +1,17 @@
 (function ($) {
   "use strict";
 
+  function getRootRelativePath(target) {
+    var pathname = window.location.pathname || "";
+    if (pathname.indexOf("/articles/") !== -1 || pathname.indexOf("articles/") !== -1) {
+      return "../../" + target;
+    }
+    if (pathname.indexOf("/topics/") !== -1 || pathname.indexOf("topics/") !== -1 || pathname.indexOf("/publications/") !== -1 || pathname.indexOf("publications/") !== -1) {
+      return "../" + target;
+    }
+    return target;
+  }
+
   /* 1. Proloder */
   $(window).on("load", function () {
 		$("#preloader-active").delay(450).fadeOut("slow")
@@ -41,6 +52,15 @@
 
   /* 3. slick Nav */
   // mobile_menu
+  var topNav = $("ul#top_navigation").first();
+  if (topNav.length && !topNav.find(".wbr-subscribe-nav-item").length) {
+    topNav.append(
+      '<li class="wbr-subscribe-nav-item"><a class="wbr-subscribe-link" href="' +
+        getRootRelativePath("subscribe.html") +
+        '">Subscribe</a></li>'
+    );
+  }
+
   var menu = $("ul#navigation").clone();
   var top_menu = $("ul#top_navigation").clone();
 
