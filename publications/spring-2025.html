@@ -149,6 +149,15 @@
 		<script type="text/javascript">
 
 			function loadApp() {
+				if (initializeMobileMagazineFallback({
+					folderName: 'Spring 2025',
+					title: 'Spring 2025',
+					pages: 35,
+					pdfPath: '../publications/pdfs/Spring_2025.pdf'
+				})) {
+					$('#all').show();
+					return;
+				}
 
 				$('#all').fadeIn(1000);
 

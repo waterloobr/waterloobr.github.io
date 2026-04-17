@@ -1,19 +1,18 @@
 (function ($) {
   "use strict";
 
+  function isMagazinePage() {
+    return $(".magazine-viewport").length > 0;
+  }
+
   /* 1. Proloder */
   $(window).on("load", function () {
 		$("#preloader-active").delay(450).fadeOut("slow")
 
-		// check if the url contains publications
-		if (!(window.location.href.indexOf("publications") > -1)) {
-			$("body").delay(450).css({
-				overflow: "visible",
-			})
-		} else{ 
-      // if it does only make vertical overflow visible
-      $("body").delay(450).css("overflow-y", "visible")
-    }
+		$("body").delay(450).css({
+      "overflow-y": "visible",
+      "overflow-x": isMagazinePage() ? "hidden" : "clip",
+		});
 	});
 
   /* 2. sticky And Scroll UP */
@@ -41,17 +40,44 @@
 
   /* 3. slick Nav */
   // mobile_menu
-  var menu = $("ul#navigation").clone();
-  var top_menu = $("ul#top_navigation").clone();
+  var menu = $("ul#navigation").first().clone();
+  var top_menu = $("ul#top_navigation").first().clone();
 
   // ensures the second added menu is at the same level
   menu.append(top_menu.find("li"));
 
   if (menu.length) {
+    menu.find("ul").removeAttr("id");
+    menu.removeAttr("id");
+    menu.find("a").each(function () {
+      var $link = $(this);
+      var href = ($link.attr("href") || "").replace(/\/+$/, "");
+      if (!href) {
+        return;
+      }
+
+      if (window.location.pathname.replace(/\/+$/, "").endsWith(href.replace(/^\.\.\//, "").replace(/^\.\//, ""))) {
+        $link.addClass("is-current");
+      }
+    });
+
     menu.slicknav({
       prependTo: ".mobile_menu",
       closedSymbol: "+",
       openedSymbol: "-",
+      label: "",
+      allowParentLinks: true,
+      closeOnClick: true,
+    });
+
+    $(".slicknav_btn").attr({
+      "aria-label": "Toggle navigation menu",
+      "aria-expanded": "false",
+    });
+
+    $(document).on("click", ".slicknav_btn", function () {
+      var isOpen = $(this).hasClass("slicknav_open");
+      $(this).attr("aria-expanded", isOpen ? "true" : "false");
     });
   }
 

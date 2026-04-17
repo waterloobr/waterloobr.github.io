@@ -141,7 +141,16 @@
 		<script type="text/javascript">
 
 			function loadApp() {
-				
+				if (initializeMobileMagazineFallback({
+					folderName: 'Spring 2020',
+					title: 'Spring 2020',
+					pages: 66,
+					pdfPath: '../publications/pdfs/Spring_2020.pdf'
+				})) {
+					$('#all').show();
+					return;
+				}
+
 				$('#all').fadeIn(1000);
 				
 				// Create the flipbook

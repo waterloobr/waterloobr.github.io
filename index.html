@@ -251,6 +251,15 @@
 		<script type="text/javascript">
 
 			function loadApp() {
+				if (initializeMobileMagazineFallback({
+					folderName: 'Fall 2025',
+					title: 'Fall 2025 Issue',
+					pages: 40,
+					pdfPath: 'publications/pdfs/Fall_2025.pdf'
+				})) {
+					$('#all').show();
+					return;
+				}
 				
 				$('#all').fadeIn(1000);
 				

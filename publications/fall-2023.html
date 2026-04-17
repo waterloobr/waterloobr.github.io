@@ -143,7 +143,16 @@
 		<script type="text/javascript">
 
 			function loadApp() {
-				
+				if (initializeMobileMagazineFallback({
+					folderName: 'Fall 2023',
+					title: 'Fall 2023',
+					pages: 63,
+					pdfPath: '../publications/pdfs/Fall_2023.pdf'
+				})) {
+					$('#all').show();
+					return;
+				}
+
 				$('#all').fadeIn(1000);
 				
 				// Create the flipbook
