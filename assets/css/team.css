@@ -14,8 +14,8 @@
     max-width: 100%;
     height: auto;
     width: auto;
-    vertical-align: middle; /* Align the image vertically in the middle */
-    display: inline-block; /* Make the image an inline block */
+    vertical-align: middle;
+    display: inline-block;
 }
 
 /* Additional styling for layout responsiveness */
@@ -25,11 +25,11 @@
     box-sizing: border-box;
 }
 
-.headshot-name{
+.headshot-name {
     margin: auto;
 }
 
-.margin-bottom{
+.margin-bottom {
     margin-bottom: 6rem;
 }
 
@@ -41,6 +41,8 @@
 .past-leadership h3 {
     text-align: center;
     margin-bottom: 2.5rem;
+    color: #0d1b4d;
+    font-weight: 700;
 }
 
 .past-leadership__table {

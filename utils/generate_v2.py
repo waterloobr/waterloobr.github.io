@@ -68,7 +68,7 @@ def generate_body():
                     f.write(f'<p class="mb-30"><b>{line.replace("[s]", "")}</b></p>\n')
                 elif '[i]' in line:
                     f.write(f'<div class="details-img">\n')
-                    f.write(f'<img class="img-fluid mb-15" src="assets/img/{edition}/articles/{img_dir}/{sh}-{img_count}.svg" alt="" style="vertical-align:top;margin:10px 0px; max-height: 500px">\n')
+                    f.write(f'<img class="img-fluid mb-15" src="/assets/img/{edition}/articles/{img_dir}/{sh}-{img_count}.svg" alt="" style="vertical-align:top;margin:10px 0px; max-height: 500px">\n')
                     f.write(f'</div>\n')
 
                     img_count += 1
