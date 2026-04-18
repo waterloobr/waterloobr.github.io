@@ -58,6 +58,39 @@
   /* 3. slick Nav */
   // mobile_menu
   var topNav = $("ul#top_navigation").first();
+  if (topNav.length) {
+    var publicationsLink = topNav.find('a[href$="publications.html"]').first();
+    if (publicationsLink.length && !publicationsLink.parent().hasClass("wbr-publications-nav")) {
+      var publicationsItem = publicationsLink.parent();
+      var publicationsHref = publicationsLink.attr("href");
+
+      publicationsItem.addClass("wbr-publications-nav");
+      publicationsLink.attr({
+        "aria-haspopup": "true",
+        "aria-expanded": "false"
+      });
+
+      publicationsItem.append(
+        '<ul class="wbr-publications-dropdown">' +
+          '<li><a href="' + publicationsHref + '#articles">Articles</a></li>' +
+          '<li><a href="' + publicationsHref + '#issues">Full Issues</a></li>' +
+        '</ul>'
+      );
+
+      publicationsItem
+        .on("mouseenter focusin", function () {
+          $(this).addClass("is-open").find("> a").attr("aria-expanded", "true");
+        })
+        .on("mouseleave focusout", function (event) {
+          var relatedTarget = event.relatedTarget;
+          if (relatedTarget && this.contains(relatedTarget)) {
+            return;
+          }
+          $(this).removeClass("is-open").find("> a").attr("aria-expanded", "false");
+        });
+    }
+  }
+
   if (topNav.length && !topNav.find(".wbr-subscribe-nav-item").length) {
     topNav.append(
       '<li class="wbr-subscribe-nav-item"><a class="wbr-subscribe-link" href="' +

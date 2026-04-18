@@ -130,7 +130,7 @@
         <section class="publications-section">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-lg-10">
+                    <div class="col-12 col-lg-12">
                         <div id="publication-root"></div>
                     </div>
                 </div>
@@ -228,6 +228,17 @@
         - Update publicationPdf path when you add the actual PDF
         */
         
+        /*
+        FUTURE ARTICLE/PUBLICATION CHECKLIST
+        1. Add the new article to the correct issue inside publicationData below.
+        2. Add the article link to topicLinks under the correct topic.
+           If you skip this, the article will NOT appear in Publications > Articles.
+        3. Add an entry to articleAssets with the article's cover image and summary.
+           Use the same cover image/summary already shown on the topic page when possible.
+        4. Add the matching card to the relevant topic page
+           (topics/business_strategy.html or topics/technology.html etc.)
+           using the existing single-job-items block format so spacing stays consistent.
+        */
         var publicationData = [
             {
                 info: {
@@ -674,8 +685,15 @@
             },
         ];
 
+        /*
+        topicLinks controls which topic an article belongs to in Publications > Articles.
+        Every article added to publicationData that should appear in the Articles view
+        must also be listed here under exactly one topic.
+        */
         var topicLinks = {
             "Business Strategy": [
+                "articles/fall-2025/rejected_by_your_bank.html",
+                "articles/fall-2025/decline_of_luxury.html",
                 "articles/fall-2020/business_model.html",
                 "articles/fall-2020/gig_economy.html",
                 "articles/fall-2020/tik_tok.html",
@@ -719,6 +737,8 @@
                 "articles/winter-2025/sports.html",
             ],
             "Technology": [
+                "articles/fall-2025/neurotech_in_the_future.html",
+                "articles/fall-2025/ai_and_nuclear.html",
                 "articles/fall-2020/artificial_intelligence.html",
                 "articles/fall-2021/lab_grown_meat.html",
                 "articles/fall-2021/machine_learning.html",
@@ -762,22 +782,33 @@
             return (value || "").toLowerCase().trim();
         }
 
-        function getSeason(term) {
-            var normalized = normalizeText(term);
-            var parts = normalized.split(/\s+/);
-            return parts[0] || "";
+        function getInitialView() {
+            return window.location.hash === "#issues" ? "issues" : "articles";
         }
 
         var filterState = {
+            view: getInitialView(),
             query: "",
             topic: "All",
             season: "all",
         };
 
+        window.addEventListener("hashchange", function () {
+            var nextView = getInitialView();
+            if (nextView !== filterState.view) {
+                filterState.view = nextView;
+                m.redraw();
+            }
+        });
+
         var topicOrder = ["Business Strategy", "Technology", "Entrepreneurship", "Alumni Insights"];
         var topicOptions = ["All"].concat(topicOrder.filter(function (topic) {
             return topicLinks[topic];
         }));
+
+        function getSeason(term) {
+            return normalizeText((term || "").split(/\s+/)[0]);
+        }
 
         var seasonLabels = {
             spring: "Spring",
@@ -801,83 +832,336 @@
             })
         );
 
-        function filterPublications(data, filters) {
+        /*
+        articleAssets controls the card image + summary used in Publications > Articles.
+        Keep the link key exactly identical to the article path in publicationData/topicLinks.
+        */
+        var articleAssets = {
+            "articles/fall-2025/rejected_by_your_bank.html": {
+                image: "assets/img/fall-2025/6 - Trap Cover.png",
+                summary: "Federal stress tests designed to protect Canadians are quietly pushing creditworthy self-employed borrowers into a $401 billion shadow lending market — where rates hit 12% and escape is nearly impossible."
+            },
+            "articles/fall-2025/decline_of_luxury.html": {
+                image: "assets/img/fall-2025/17 - Luxury.png",
+                summary: "From Gucci's price hikes to Dior's labour scandals, explore how decades of greed, oversaturation, and mass marketing have eroded the very exclusivity that made luxury worth buying in the first place."
+            },
+            "articles/fall-2025/neurotech_in_the_future.html": {
+                image: "assets/img/fall-2025/25 - Neurotech Cover Page.png",
+                summary: "Employers can now monitor your brainwaves at work. As neurotechnology moves from hospitals into offices, we examine where productivity optimization ends and cognitive privacy begins."
+            },
+            "articles/fall-2025/ai_and_nuclear.html": {
+                image: "assets/img/fall-2025/32 - AI.png",
+                summary: "AI's insatiable energy appetite is resurrecting a dormant industry. From Microsoft's $1.6 billion bet on Three Mile Island to AI-powered regulatory tools, explore how silicon and steel are forging an unlikely alliance."
+            },
+            "articles/spring-2025/a_and_r_playbook.html": {
+                image: "assets/img/spring-2025/covers/6-A&R Cover.png",
+                summary: "From Taylor Swift's master recordings battle to Lil Nas X's bedroom breakthrough, explore how algorithms have replaced A&R executives as the new gatekeepers of musical success, prioritizing virality over vision in today's music industry."
+            },
+            "articles/spring-2025/ipl.html": {
+                image: "assets/img/spring-2025/ipl_cover.png",
+                summary: "The Indian Premier League's explosive growth from 8 teams to 10 teams and 74 matches has created a paradox: the very success that made it a global phenomenon now threatens its long-term sustainability through viewer fatigue and talent drain."
+            },
+            "articles/spring-2025/fire.html": {
+                image: "assets/img/spring-2025/fire_cover.png",
+                summary: "From childhood dream job to Canada's most effective public service, explore how firefighting maintains its dignity while other institutions crumble, powered by volunteerism, cutting-edge technology, and economic incentives."
+            },
+            "articles/spring-2025/boringjobs.html": {
+                image: "assets/img/spring-2025/boringjobs_cover.png",
+                summary: "While AI companies trade at 30x revenue multiples, \"boring\" businesses like HVAC and plumbing offer defensible yields at single-digit multiples. Discover why the most contrarian tech play of 2025 might not be tech at all."
+            },
+            "articles/spring-2025/cover_retail.html": {
+                image: "assets/img/spring-2025/covers/27 - Cover Retail.png",
+                summary: "Canada's mid-tier retail sector is being reshaped by retail oversaturation, evolving consumer demands, and limited international brand presence. From Hudson's Bay closures to the rise of convenience-focused formats, explore how polarization is forcing retailers to innovate or fade away."
+            },
+            "articles/winter-2025/sports.html": {
+                image: "assets/img/winter-2025/covers/betting-cover.png",
+                summary: "The article explores how sports betting advertisements mirror the manipulative marketing strategies once used by the tobacco industry, exploring psychological triggers like identity, social bonding and FOMO to normalize risky behavior."
+            },
+            "articles/winter-2025/disney.html": {
+                image: "assets/img/winter-2025/covers/disney-cover.png",
+                summary: "Once the gold standard for original storytelling, Disney now finds itself caught in a cycle of reboots and rehashes. This article explores the studio’s shift from creative risk-taking to nostalgia-driven strategy."
+            },
+            "articles/winter-2025/vr.html": {
+                image: "assets/img/winter-2025/covers/vr-cover.png",
+                summary: "Once positioned as the next big thing, virtual reality promised to transform how we work, play, and connect. This article explores why VR’s future looks far more limited than once imagined."
+            },
+            "articles/winter-2025/openai.html": {
+                image: "assets/img/winter-2025/covers/openai-cover.png",
+                summary: "Once the poster child for altruistic AI, OpenAI now sits at the center of Silicon Valley’s profit machine. This article unpacks the company's evolution from nonprofit idealism to billion-dollar valuations."
+            },
+            "articles/winter-2025/apac.html": {
+                image: "assets/img/winter-2025/covers/apac-cover.png",
+                summary: "This article explores how Agtech has the potential to reshape agriculture in the Asia-Pacific region, where rising food demands create opportunities for innovation but scaling and adoption challenges persist."
+            },
+            "articles/spring-2024/digital-economy.html": {
+                image: "assets/img/spring-2024/covers/de-cover.jpg",
+                summary: "With over 5.35 billion internet users globally as of 2024, the proliferation of digital devices and platforms continues to rise, making the digital economy a defining force of modern life."
+            },
+            "articles/spring-2024/mcdonalds-fall.html": {
+                image: "assets/img/spring-2024/covers/md-cover.jpg",
+                summary: "McDonald’s Golden Arches once represented a family-owned chain serving high-quality products at affordable prices. Today, they represent a low-quality last resort meal."
+            },
+            "articles/spring-2024/celebrity-vc-pipeline.html": {
+                image: "assets/img/spring-2024/covers/cvp-cover.jpg",
+                summary: "Celebrities wear many hats—actors, singers, directors, entrepreneurs, and now, rising stars in the VC world. This article dives into what truly sets celebrity-led VC firms apart."
+            },
+            "articles/spring-2024/ai-journalism.html": {
+                image: "assets/img/spring-2024/covers/aj-cover.jpg",
+                summary: "The distribution of information is experiencing a seismic shift with the integration of artificial intelligence, fundamentally transforming how news is produced and consumed."
+            },
+            "articles/spring-2024/esports-future.html": {
+                image: "assets/img/spring-2024/covers/ef-cover.jpg",
+                summary: "When the COVID-19 pandemic struck, industries like sports and entertainment faced difficult downturns. Despite the struggle, esports was one industry that performed beyond expectations."
+            },
+            "articles/winter-2024/us-dependency.html": {
+                image: "assets/img/winter-2024/covers/us-cover.jpg",
+                summary: "Despite the increasing appeal of nearshoring from countries like Mexico and Bangladesh, these countries face inherent limitations that prevent them from fully replacing China."
+            },
+            "articles/winter-2024/f1.html": {
+                image: "assets/img/winter-2024/covers/f1-cover.jpg",
+                summary: "Despite its global reverence for speed, technology, and prestige, Formula 1 has struggled to gain a firm foothold in the American market."
+            },
+            "articles/winter-2024/budget-airlines.html": {
+                image: "assets/img/winter-2024/covers/ba-cover.jpg",
+                summary: "In an era of mega-airlines, budget airlines are working hard to stay operational through challenges with rising costs, greater regulations and less developed infrastructure."
+            },
+            "articles/winter-2024/bnpl.html": {
+                image: "assets/img/winter-2024/covers/bnpl-cover.jpg",
+                summary: "BNPL has become a significant part of everyday spending, and the industry's growth has been nothing short of remarkable. This article explores the slow pace of regulation within the BNPL space."
+            },
+            "articles/winter-2024/digital-banking.html": {
+                image: "assets/img/winter-2024/covers/db-cover.jpg",
+                summary: "Digital banking surged in relevance in recent years, propelled by the pandemic and heightened consumer demand for efficiency."
+            },
+            "articles/winter-2024/european-energy.html": {
+                image: "assets/img/winter-2024/covers/ee-cover.jpg",
+                summary: "Nearly two years have passed since the European energy crisis tormented Europe’s markets, with ripple effects throughout the global economy."
+            },
+            "articles/fall-2023/pegasus.html": {
+                image: "assets/img/fall-2023/covers/pegasus-cover.jpg",
+                summary: "Today, our smartphones know more about us than many of our closest friends and family. This article explores the silent threat spyware poses to digital democracy."
+            },
+            "articles/fall-2023/tech-gap.html": {
+                image: "assets/img/fall-2023/covers/tech-cover.jpg",
+                summary: "For many Canadians, the COVID-19 pandemic represented a brutal start to the 2020s. Yet Canada’s tech ecosystem reached its pinnacle in 2021 before that momentum came under pressure."
+            },
+            "articles/fall-2023/foreign.html": {
+                image: "assets/img/fall-2023/covers/foreign-cover.jpg",
+                summary: "In the grand narrative of rebuilding distressed or developing economies, foreign investment often takes center stage as a beacon of hope and progress."
+            },
+            "articles/fall-2023/japan.html": {
+                image: "assets/img/fall-2023/covers/japan-cover.jpg",
+                summary: "From the lost decades to the present era, delve into the pivotal role of corporations in Japan and how they might bring about the changes necessary for Japan’s prosperity."
+            },
+            "articles/fall-2023/cashless.html": {
+                image: "assets/img/fall-2023/covers/cashless-cover.jpg",
+                summary: "The landscape of financial transactions has undergone a profound transformation that steers developed societies towards a future less reliant on cash."
+            },
+            "articles/fall-2023/novo-nordisk.html": {
+                image: "assets/img/fall-2023/covers/novo-cover.jpg",
+                summary: "With the rise in popularity of GLP-1 injections for fast and easy weight loss, Novo Nordisk has had massive economic success, but the growth comes with broader risks."
+            },
+            "articles/fall-2023/space.html": {
+                image: "assets/img/fall-2023/covers/space-cover.jpg",
+                summary: "In the 1950s, the space race kicked off to a frantic start. This article explores the misguided promise of privatization in the modern space industry."
+            },
+            "articles/fall-2022/crisis.html": {
+                image: "assets/img/fall-2022/covers/crisis-cover.png",
+                summary: "Nearly everyone is familiar with the Russian-Ukrainian war that exploded at the beginning of 2022, but why did it start and who continues to profit from it?"
+            },
+            "articles/fall-2022/dd.html": {
+                image: "assets/img/fall-2022/covers/dd-cover.png",
+                summary: "In 1959, around 1700 billion cubic meters of natural gas were found in Holland’s Groningen region. This article explores dependency and diversification for single export nations."
+            },
+            "articles/fall-2022/dr.html": {
+                image: "assets/img/fall-2022/covers/dr-cover.png",
+                summary: "In an increasingly digitalized society, malicious bots and spam have become a pervasive poison to accurate information on the web, reshaping economies and institutions."
+            },
+            "articles/fall-2022/meta.html": {
+                image: "assets/img/fall-2022/covers/meta-cover.png",
+                summary: "Facebook restructured itself around the Metaverse, only to find that what once looked like its most promising venture became an expensive burden."
+            },
+            "articles/fall-2022/tesla.html": {
+                image: "assets/img/fall-2022/covers/tesla-cover.png",
+                summary: "Tesla is considered one of the key leaders in the EV market, but can it remain a leader as competition intensifies and expectations rise?"
+            },
+            "articles/fall-2021/lab_grown_meat.html": {
+                image: "assets/img/fall-2021/covers/lab-cover.png",
+                summary: "Science has discovered a way to produce meat in laboratories. Will lab-grown meat render factory farms obsolete?"
+            },
+            "articles/fall-2021/private_equity.html": {
+                image: "assets/img/fall-2021/covers/private-equity-cover.png",
+                summary: "Dry powder in private equity has swelled to almost $3 trillion. Firms are eyeing alternative assets like sports franchises to capture uncorrelated returns."
+            },
+            "articles/fall-2021/roblox.html": {
+                image: "assets/img/fall-2021/covers/roblox-cover.png",
+                summary: "With nearly 50 million users active daily, Roblox has evolved far beyond a simple video game into one of the most successful platforms in the world."
+            },
+            "articles/fall-2021/machine_learning.html": {
+                image: "assets/img/fall-2021/covers/machine-learning-cover.png",
+                summary: "Artificial intelligence may be a massive part of the future of tech, but the internet’s relationship with machine learning is more dangerous than it first appears."
+            },
+            "articles/spring-2021/esg.html": {
+                image: "assets/img/spring-2021/covers/esg-cover.png",
+                summary: "With rising ESG standards in the recent decade, the oil and gas industry has been pushed under the spotlight."
+            },
+            "articles/spring-2021/india.html": {
+                image: "assets/img/spring-2021/covers/india-cover.png",
+                summary: "With a worsening climate situation worldwide, India is one of the most vulnerable nations to drought-linked disaster."
+            },
+            "articles/spring-2021/walmart.html": {
+                image: "assets/img/spring-2021/covers/walmart-cover.png",
+                summary: "Amazon’s rise threatens Walmart and has made them a worthy challenger for the merchandising giant’s title as the king of retail."
+            },
+            "articles/spring-2021/bigtech.html": {
+                image: "assets/img/spring-2021/covers/bigtech-cover.png",
+                summary: "As an era of rapid monopolization spurred by Big Tech begins to boom, antitrust efforts grow more aggressive."
+            },
+            "articles/spring-2021/nft.html": {
+                image: "assets/img/spring-2021/covers/nft-cover.png",
+                summary: "NFTs and social tokens exploded in popularity in March 2021. This article explores whether they provide substantial value to society."
+            },
+            "articles/spring-2021/hacking.html": {
+                image: "assets/img/spring-2021/covers/hacking-cover.png",
+                summary: "With the proliferation of new technical bugs, computer viruses and ransomware, demand for more comprehensive security plans has never been greater."
+            },
+            "articles/spring-2021/mike_hejmej.html": {
+                image: "assets/img/spring-2021/covers/alumni-hejmej-cover.png",
+                summary: ""
+            },
+            "articles/spring-2021/stephanie_han.html": {
+                image: "assets/img/spring-2021/covers/alumni-han-cover.png",
+                summary: ""
+            },
+            "articles/winter-2021/psychedelics.html": {
+                image: "assets/img/winter-2021/covers/psychedelics-cover.jpg",
+                summary: "Psychedelics have the potential to revolutionize the pharmaceutical industry. However, can regular people take advantage of this investment opportunity?"
+            },
+            "articles/winter-2021/SPAC.html": {
+                image: "assets/img/winter-2021/covers/spac-cover.jpg",
+                summary: "With clear guidelines, stronger leadership and huge potential, the rise of SPACs poses a threat to IPOs."
+            },
+            "articles/winter-2021/starter_hacks.html": {
+                image: "assets/img/winter-2021/covers/starter-hacks-cover.jpg",
+                summary: ""
+            },
+            "articles/winter-2021/business_value.html": {
+                image: "assets/img/winter-2021/covers/business-value-cover.jpg",
+                summary: "Data is an integral part of our everyday lives. This article explores how businesses can work toward accurately valuing data."
+            },
+            "articles/winter-2021/african_renaissance.html": {
+                image: "assets/img/winter-2021/covers/african-renaissance-cover.jpg",
+                summary: "When hearing the phrase energy conflicts, the mind immediately races towards fossil fuels. This article explores the dark side of the green revolution."
+            },
+            "articles/winter-2021/blackberry.html": {
+                image: "assets/img/winter-2021/covers/blackberry-cover.jpg",
+                summary: "After BlackBerry’s iconic rise and fall, many thought the company’s best years were behind them. This article explores how its strategy shift changed that."
+            },
+            "articles/fall-2020/artificial_intelligence.html": {
+                image: "assets/img/logo/6-AI - Cover Page.png",
+                summary: "With recent advancements in machine learning, has computational hardware infrastructure neared fundamental speed limits?"
+            },
+            "articles/fall-2020/tik_tok.html": {
+                image: "assets/img/logo/32-TikTok Cover.png",
+                summary: "TikTok’s had a viral run over the past year, but rising concerns and a forced divestiture of its American operations may change the app as we know it."
+            },
+            "articles/fall-2020/nitish_sharma.html": {
+                image: "assets/img/logo/46-Alum 1 Cover.png",
+                summary: "Waterloo Business Review sits down with alumnus Nitish Sharma to learn about his story, growth, and development."
+            },
+            "articles/fall-2020/aaron_paul.html": {
+                image: "assets/img/logo/52-Alum 2 Cover.png",
+                summary: "Waterloo Business Review sits down with Aaron Paul to learn about his story and experiences launching TYLTGO."
+            },
+            "articles/fall-2020/business_model.html": {
+                image: "assets/img/logo/14-Space Cover.png",
+                summary: "Explore the challenges that companies in the space industry face, and how the business decisions they make could impact their success now and in the future."
+            },
+            "articles/fall-2020/lumaki_labs.html": {
+                image: "assets/img/logo/40-Lumaki Cover.png",
+                summary: "Go behind the scenes with Mylene Tu as we uncover her path to student entrepreneurship and the importance of selecting the right team."
+            },
+            "articles/fall-2020/gig_economy.html": {
+                image: "assets/img/logo/26-Gig Cover.png",
+                summary: "The gig economy saw rapid growth since the Great Recession. This article asks whether that growth will continue."
+            },
+            "articles/spring-2020/the_streaming_wars.html": {
+                image: "assets/img/logo/Covers-02.png",
+                summary: "As a myriad of new players enter the market, competition is heating up and your favourite shows are increasingly scattered across platforms."
+            },
+            "articles/spring-2020/alternative_credit_analytics.html": {
+                image: "assets/img/logo/Covers-03.png",
+                summary: "Alternative credit analytics may help put inclusivity back into banking by changing how financial institutions measure risk."
+            },
+            "articles/spring-2020/kuba_soltysiak.html": {
+                image: "assets/img/logo/Covers-04.png",
+                summary: "Go behind the scenes with Kuba as we uncover how entrepreneurship through acquisition differs from conventional start-ups."
+            },
+            "articles/spring-2020/tesla.html": {
+                image: "assets/img/logo/Covers-05.png",
+                summary: "As Tesla continues to grow at unprecedented levels, this article explores how smooth the ride may really be."
+            },
+            "articles/spring-2020/esports.html": {
+                image: "assets/img/logo/Covers-06.png",
+                summary: "This article explores how the esports industry has been able to mitigate the ongoing threat of the COVID-19 pandemic."
+            },
+            "articles/spring-2020/bitcoin.html": {
+                image: "assets/img/logo/Covers-07.png",
+                summary: "Bitcoin remains a cryptocurrency shrouded in mystery. This article explores how it can be used as a tool to facilitate money laundering."
+            },
+            "articles/spring-2020/ismail_mian.html": {
+                image: "assets/img/logo/Covers-09.png",
+                summary: "WBR sits down with alumnus Ismail Mian to learn about his story and experiences through his time at the School of Accounting and industry."
+            },
+            "articles/spring-2020/talha_siddiqui.html": {
+                image: "assets/img/logo/Covers-10.png",
+                summary: "WBR sits down with alumnus Talha Siddiqui to gain insights on his time at the School of Accounting and Finance and his perspective on investment banking."
+            }
+        };
+
+        var articleData = publicationData.reduce(function (results, publication) {
+            (publication.info.contents || []).forEach(function (content) {
+                var link = content.link || content.links || "";
+                var asset = articleAssets[link] || {};
+                var topic = topicByLink[content.link];
+
+                if (!topic) {
+                    return;
+                }
+
+                results.push({
+                    title: content.title,
+                    link: link,
+                    topic: topic,
+                    term: publication.info.term,
+                    season: getSeason(publication.info.term),
+                    cover: asset.image || publication.publicationSrc,
+                    issuePage: publication.publicationPage,
+                    pdf: publication.publicationPdf,
+                    summary: asset.summary || "",
+                });
+            });
+
+            return results;
+        }, []);
+
+        function filterArticles(data, filters) {
             var normalizedQuery = normalizeText(filters.query);
             var hasQuery = normalizedQuery.length > 0;
-            var selectedTopic = filters.topic;
-            var selectedSeason = normalizeText(filters.season);
 
-            return data.reduce(function (results, item) {
-                var season = getSeason(item.info.term);
-                if (selectedSeason !== "all" && season !== selectedSeason) {
-                    return results;
-                }
-
-                var contents = item.info.contents || [];
-                var filteredContents = contents.filter(function (content) {
-                    var title = normalizeText(content.title);
-                    var matchesQuery = !hasQuery || title.indexOf(normalizedQuery) !== -1;
-                    var contentTopic = topicByLink[content.link];
-                    var matchesTopic = selectedTopic === "All" || contentTopic === selectedTopic;
-
-                    return matchesQuery && matchesTopic;
-                });
-
-                if (filteredContents.length) {
-                    results.push({
-                        info: item.info,
-                        publicationPage: item.publicationPage,
-                        publicationSrc: item.publicationSrc,
-                        publicationPdf: item.publicationPdf,
-                        contents: filteredContents,
-                    });
-                }
-
-                return results;
-            }, []);
+            return data.filter(function (item) {
+                var haystack = normalizeText(item.title);
+                var matchesQuery = !hasQuery || haystack.indexOf(normalizedQuery) !== -1;
+                var matchesTopic = filters.topic === "All" || item.topic === filters.topic;
+                var matchesSeason = filters.season === "all" || item.season === filters.season;
+                return matchesQuery && matchesTopic && matchesSeason;
+            });
         }
 
-        var ContentArticles = {
-            view: function (vnode) {
-                const contents = vnode.attrs.contents || [];
-
-                return contents.map(function (content) {
-                    var articleLink = content.link && content.link.trim();
-                    return [m("hr", { class: "no-margin" }), m("li", { class: "table-of-contents" }, [
-                        articleLink ? m("a", { href: articleLink }, content.title) : m("span", content.title)
-                    ]),
-                    ]
-                });
-            },
-        };
-
-        var PublicationContent = {
-            view: function (vnode) {
-                return m("div", { class: "publication-info" }, [
-                    m("div", { class: "subtitle" }, [
-                        m("a", { href: vnode.attrs.path }, vnode.attrs.term), // str
-                        vnode.attrs.pdf != "" ? m("a", { href: vnode.attrs.pdf, download: vnode.attrs.term },
-                            m('.download-icon', m.trust(download))) : ""
-                    ]),
-                    m("ul", m(ContentArticles, { contents: vnode.attrs.contents }))
-                ]);
-            },
-        };
-
-        var Publication = {
-            view: function (vnode) {
-                const { info, article, cover, pdf, contents } = vnode.attrs;
-
-                return m("div", { class: "publication-item row" }, [
-                    m("div", { class: "publication-cover" }, [
-                        m("a", { href: article }, [m("img", { src: cover })])
-                    ]),
-                    m("div", { class: "publication-info" }, [
-                        m(PublicationContent, { term: info.term, contents: contents, path: article, pdf: pdf })
-                    ])
-                ]);
-            },
-        };
+        function setView(nextView) {
+            filterState.view = nextView;
+            history.replaceState(null, "", nextView === "issues" ? "#issues" : "#articles");
+        }
 
         var PublicationFilters = {
             view: function () {
@@ -887,11 +1171,10 @@
                         m("input", {
                             id: "publication-search",
                             type: "search",
-                            placeholder: "Search articles",
+                            placeholder: "Search Articles",
                             value: filterState.query,
                             oninput: function (event) {
                                 filterState.query = event.target.value;
-                                m.redraw();
                             },
                         }),
                     ]),
@@ -904,7 +1187,6 @@
                                 value: filterState.topic,
                                 onchange: function (event) {
                                     filterState.topic = event.target.value;
-                                    m.redraw();
                                 },
                             }, topicOptions.map(function (topic) {
                                 return m("option", { value: topic }, topic === "All" ? "All topics" : topic);
@@ -918,7 +1200,6 @@
                                 value: filterState.season,
                                 onchange: function (event) {
                                     filterState.season = event.target.value;
-                                    m.redraw();
                                 },
                             }, seasonOptions.map(function (season) {
                                 return m("option", { value: season.value }, season.label);
@@ -929,32 +1210,85 @@
             },
         };
 
-        var publicationList = {
+        var ArticleCard = {
+            view: function (vnode) {
+                var article = vnode.attrs.article;
+                var hasLink = !!(article.link && article.link.trim());
+
+                return m("div", { class: "single-job-items mb-30" }, [
+                    m("div", { class: "job-items" }, [
+                        m("div", { class: "company-img" }, [
+                            hasLink ? m("a", { href: article.link }, [
+                                m("img", { src: article.cover, alt: article.title, width: "200" })
+                            ]) : m("img", { src: article.cover, alt: article.title, width: "200" })
+                        ]),
+                        m("div", { class: "job-tittle" }, [
+                            m("span", article.topic),
+                            hasLink ? m("a", { href: article.link }, [
+                                m("h4", article.title)
+                            ]) : m("h4", article.title),
+                            article.summary ? m("p", article.summary) : m("p")
+                        ])
+                    ])
+                ]);
+            }
+        };
+
+        var ArticlesView = {
             view: function () {
-                var filteredPublications = filterPublications(publicationData, filterState);
+                var filteredArticles = filterArticles(articleData, filterState);
 
-                if (!filteredPublications.length) {
-                    return m("div", { class: "publication-empty" }, "No articles match your filters.");
-                }
+                return m("div", [
+                    !filteredArticles.length
+                        ? m("div", { class: "publication-empty" }, "No articles match your filters.")
+                        : m("div", { class: "top-post-area publications-articles" }, [
+                            m("div", { class: "row" }, [
+                                filteredArticles.map(function (article) {
+                                    return m("div", { class: "col-lg-6 col-md-6" }, [
+                                        m(ArticleCard, { article: article })
+                                    ]);
+                                })
+                            ])
+                        ])
+                ]);
+            }
+        };
 
-                return filteredPublications.map(function (item) {
-                    return m(Publication, {
-                        info: item.info,
-                        article: item.publicationPage,
-                        cover: item.publicationSrc,
-                        pdf: item.publicationPdf,
-                        contents: item.contents,
-                    });
-                });
-            },
+        var IssueCard = {
+            view: function (vnode) {
+                var issue = vnode.attrs.issue;
+                return m("article", { class: "publication-issue-card" }, [
+                    m("a", { href: issue.publicationPage }, [
+                        m("div", { class: "publication-issue-cover" }, [
+                            m("img", { src: issue.publicationSrc, alt: issue.info.term + " cover" })
+                        ]),
+                        m("h3", issue.info.term)
+                    ])
+                ]);
+            }
+        };
+
+        var IssuesView = {
+            view: function () {
+                return [
+                    m("div", { class: "publication-issues-grid" },
+                        publicationData.map(function (issue) {
+                            return m(IssueCard, { issue: issue });
+                        })
+                    )
+                ];
+            }
         };
 
         var PublicationPage = {
             view: function () {
-                return [
-                    m(PublicationFilters),
-                    m(publicationList),
-                ];
+                return m("div", { class: "publications-shell" }, [
+                    m("div", { class: "wbr-page-title wbr-page-title--publications" }, [
+                        m("h1", filterState.view === "articles" ? "Articles" : "Full Issues")
+                    ]),
+                    filterState.view === "articles" ? m(PublicationFilters) : null,
+                    filterState.view === "articles" ? m(ArticlesView) : m(IssuesView)
+                ]);
             },
         };
 
