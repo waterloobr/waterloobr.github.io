@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="wbr-publications-page">
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -62,18 +62,7 @@
                                         <li><a href="team.html">Team</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                         <li><a href="publications.html">Publications</a></li>
-                                    </ul>
-                                    <!-- Social -->
-                                    <div class="header-social">
-                                        <a href="https://www.facebook.com/waterloobr/"><i
-                                                class="fab fa-facebook-f"></i></a>
-                                        <a href="https://twitter.com/uwaterloobr/"><i class="fab fa-twitter"></i></a>
-                                        <a href="https://www.linkedin.com/company/waterloo-business-review/about"><i
-                                                class="fab fa-linkedin"></i></a>
-                                        <a href="https://www.instagram.com/uwaterloobr/"><i
-                                                class="fab fa-instagram"></i></a>
-                                    </div>
-                                </div>
+                                    </ul></div>
                             </div>
                         </div>
                     </div>
@@ -158,7 +147,6 @@
               <h4>Who We Are</h4>
               <ul>
                 <li><a href="team.html">Team</a></li>
-                <li><a href="topics/alumni_insights.html">Alumni Insights</a></li>
                 <li><a href="about.html">About</a></li>
               </ul>
             </div>
@@ -1163,6 +1151,12 @@
             history.replaceState(null, "", nextView === "issues" ? "#issues" : "#articles");
         }
 
+        function resolveSitePath(path) {
+            var pathname = window.location.pathname || "/";
+            var basePath = pathname.slice(0, pathname.lastIndexOf("/") + 1);
+            return new URL(path, window.location.origin + basePath).pathname;
+        }
+
         var PublicationFilters = {
             view: function () {
                 return m("div", { class: "publication-filters" }, [
@@ -1218,13 +1212,13 @@
                 return m("div", { class: "single-job-items mb-30" }, [
                     m("div", { class: "job-items" }, [
                         m("div", { class: "company-img" }, [
-                            hasLink ? m("a", { href: article.link }, [
+                            hasLink ? m("a", { href: resolveSitePath(article.link) }, [
                                 m("img", { src: article.cover, alt: article.title, width: "200" })
                             ]) : m("img", { src: article.cover, alt: article.title, width: "200" })
                         ]),
                         m("div", { class: "job-tittle" }, [
                             m("span", article.topic),
-                            hasLink ? m("a", { href: article.link }, [
+                            hasLink ? m("a", { href: resolveSitePath(article.link) }, [
                                 m("h4", article.title)
                             ]) : m("h4", article.title),
                             article.summary ? m("p", article.summary) : m("p")
@@ -1258,7 +1252,7 @@
             view: function (vnode) {
                 var issue = vnode.attrs.issue;
                 return m("article", { class: "publication-issue-card" }, [
-                    m("a", { href: issue.publicationPage }, [
+                    m("a", { href: resolveSitePath(issue.publicationPage) }, [
                         m("div", { class: "publication-issue-cover" }, [
                             m("img", { src: issue.publicationSrc, alt: issue.info.term + " cover" })
                         ]),
@@ -1280,7 +1274,41 @@
             }
         };
 
+        function initPublicationArticleReveal() {
+            var cards = document.querySelectorAll(".publications-articles .single-job-items");
+            if (!cards.length) return;
+
+            if (!("IntersectionObserver" in window)) {
+                cards.forEach(function (card) {
+                    card.classList.add("is-visible");
+                });
+                return;
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                });
+            }, {
+                threshold: 0.08,
+                rootMargin: "0px 0px -6% 0px"
+            });
+
+            cards.forEach(function (card, index) {
+                card.style.transitionDelay = Math.min(index * 28, 140) + "ms";
+                observer.observe(card);
+            });
+        }
+
         var PublicationPage = {
+            oncreate: function () {
+                requestAnimationFrame(initPublicationArticleReveal);
+            },
+            onupdate: function () {
+                requestAnimationFrame(initPublicationArticleReveal);
+            },
             view: function () {
                 return m("div", { class: "publications-shell" }, [
                     m("div", { class: "wbr-page-title wbr-page-title--publications" }, [

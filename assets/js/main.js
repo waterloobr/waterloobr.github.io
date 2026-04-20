@@ -15,6 +15,34 @@
     return target;
   }
 
+  function initCardReveal(selector) {
+    var cards = document.querySelectorAll(selector);
+    if (!cards.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      cards.forEach(function (card) {
+        card.classList.add("is-visible");
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: "0px 0px -6% 0px"
+    });
+
+    cards.forEach(function (card, index) {
+      card.style.transitionDelay = Math.min(index * 28, 140) + "ms";
+      observer.observe(card);
+    });
+  }
+
   /* 1. Proloder */
   $(window).on("load", function () {
 		$("#preloader-active").delay(450).fadeOut("slow")
@@ -97,6 +125,116 @@
         getRootRelativePath("subscribe.html") +
         '">Subscribe</a></li>'
     );
+  }
+
+  function getActiveNavKey(pathname) {
+    var path = (pathname || "").toLowerCase();
+
+    if (!path || path === "/" || /\/index\.html$/.test(path)) {
+      return "home";
+    }
+    if (/\/about\.html$/.test(path)) {
+      return "about";
+    }
+    if (/\/contact\.html$/.test(path)) {
+      return "contact";
+    }
+    if (/\/subscribe\.html$/.test(path)) {
+      return "subscribe";
+    }
+    if (/\/team(?:[-_]\d+)?\.html$/.test(path)) {
+      return "team";
+    }
+    if (
+      /\/publications(?:\/|\.html|$)/.test(path) ||
+      /\/articles\//.test(path) ||
+      /\/topics\//.test(path) ||
+      /\/newsletter\.html$/.test(path)
+    ) {
+      return "publications";
+    }
+
+    return "";
+  }
+
+  function getActivePublicationsSubKey(pathname, hash) {
+    var path = (pathname || "").toLowerCase();
+    var currentHash = (hash || "").toLowerCase();
+
+    if (/\/articles\//.test(path)) {
+      return "articles";
+    }
+    if (/\/publications\/.+\.html$/.test(path)) {
+      return "issues";
+    }
+    if (/\/publications\.html$/.test(path)) {
+      if (currentHash === "#issues") {
+        return "issues";
+      }
+      if (currentHash === "#articles") {
+        return "articles";
+      }
+    }
+
+    return "";
+  }
+
+  function markActiveTopNav(nav) {
+    if (!nav.length) return;
+
+    var activeKey = getActiveNavKey(window.location.pathname || "");
+    var activePublicationsSubKey = getActivePublicationsSubKey(
+      window.location.pathname || "",
+      window.location.hash || ""
+    );
+    if (!activeKey) return;
+
+    nav.find("a").removeClass("is-current").removeAttr("aria-current");
+
+    nav.find("a").each(function () {
+      var link = $(this);
+      var href = (link.attr("href") || "").toLowerCase();
+      var match = "";
+      var subMatch = "";
+
+      if (/index\.html$/.test(href)) {
+        match = "home";
+      } else if (/about\.html$/.test(href)) {
+        match = "about";
+      } else if (/contact\.html$/.test(href)) {
+        match = "contact";
+      } else if (/subscribe\.html$/.test(href)) {
+        match = "subscribe";
+      } else if (/team(?:[-_]\d+)?\.html$/.test(href) || /team\.html$/.test(href)) {
+        match = "team";
+      } else if (/publications\.html(?:#.*)?$/.test(href)) {
+        match = "publications";
+        if (/#articles$/.test(href)) {
+          subMatch = "articles";
+        } else if (/#issues$/.test(href)) {
+          subMatch = "issues";
+        }
+      }
+
+      if (subMatch) {
+        if (activeKey === "publications" && subMatch === activePublicationsSubKey) {
+          link.addClass("is-current").attr("aria-current", "page");
+        }
+      } else if (match === activeKey) {
+        link.addClass("is-current").attr("aria-current", "page");
+      }
+    });
+  }
+
+  markActiveTopNav(topNav);
+
+  var pathname = window.location.pathname || "";
+  if (/\/topics\/(business_strategy|entrepreneurship|technology|alumni_insights)\.html$/i.test(pathname)) {
+    document.body.classList.add("wbr-topic-list-page");
+    var topicArticleShell = document.querySelector(".top-post-area");
+    if (topicArticleShell) {
+      topicArticleShell.classList.add("topic-articles");
+    }
   }
 
   var menu = $("ul#navigation").clone();
@@ -462,4 +600,6 @@
       $("#search-input").val("");
     });
   });
+
+  initCardReveal(".wbr-topic-list-page .topic-articles .single-job-items");
 })(jQuery);

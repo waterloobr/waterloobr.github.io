@@ -8,6 +8,36 @@ function getMagazineAssetPath(path) {
 	return (isPublicationPage ? '../' : '') + path;
 }
 
+function buildMediumPageCandidates(folderName, page) {
+	var basePath = getMagazineAssetPath('images/medium/' + folderName + '/' + page);
+	return [basePath + '.jpg', basePath + '.png'];
+}
+
+function setImageWithFallback(img, paths, onLoadComplete) {
+	var nextIndex = 0;
+
+	function tryNextPath() {
+		if (nextIndex >= paths.length) {
+			return;
+		}
+
+		var currentPath = paths[nextIndex++];
+		img.attr('src', encodeURI(currentPath));
+	}
+
+	img.off('load error');
+	img.on('load', function() {
+		if (onLoadComplete) {
+			onLoadComplete.call(this);
+		}
+	});
+	img.on('error', function() {
+		tryNextPath();
+	});
+
+	tryNextPath();
+}
+
 function addPage(page, book, folderName) {
 
 	var id, pages = book.turn('pages');
@@ -29,37 +59,19 @@ function addPage(page, book, folderName) {
 }
 
 function loadPage(page, pageElement, folderName) {
-    // Try loading .jpg first, then .png if not found
-    const basePath = getMagazineAssetPath('images/medium/' + folderName + '/' + page);
-    const jpgPath = basePath + '.jpg';
-    const pngPath = basePath + '.png';
+	var img = $('<img />');
 
-    const img = $('<img />');
+	img.mousedown(function(e) {
+		e.preventDefault();
+	});
 
-    img.mousedown(function(e) {
-        e.preventDefault();
-    });
+	setImageWithFallback(img, buildMediumPageCandidates(folderName, page), function() {
+		$(this).css({width: '100%', height: '100%'});
+		$(this).appendTo(pageElement);
+		pageElement.find('.loader').remove();
+	});
 
-    img.load(function() {
-        $(this).css({width: '100%', height: '100%'});
-        $(this).appendTo(pageElement);
-        pageElement.find('.loader').remove();
-    });
-
-    // First, try loading the JPG
-    $.ajax({
-        url: jpgPath,
-        type: 'HEAD',
-        success: function() {
-            img.attr('src', jpgPath);
-        },
-        error: function() {
-            // If JPG doesn't exist, try PNG
-            img.attr('src', pngPath);
-        }
-    });
-
-    loadRegions(page, pageElement);
+	loadRegions(page, pageElement);
 }
 
 
@@ -164,25 +176,10 @@ function loadLargePage(page, pageElement) {
 function loadSmallPage(page, pageElement, folderName) {
 	
 	var img = pageElement.find('img');
-	var basePath = getMagazineAssetPath('images/medium/' + folderName + '/' + page);
-	var jpgPath = basePath + '.jpg';
-	var pngPath = basePath + '.png';
 
 	img.css({width: '100%', height: '100%'});
 
-	img.unbind('load');
-	// Loadnew page
-
-	$.ajax({
-		url: jpgPath,
-		type: 'HEAD',
-		success: function() {
-			img.attr('src', jpgPath);
-		},
-		error: function() {
-			img.attr('src', pngPath);
-		}
-	});
+	setImageWithFallback(img, buildMediumPageCandidates(folderName, page));
 }
 
 // http://code.google.com/p/chromium/issues/detail?id=128488

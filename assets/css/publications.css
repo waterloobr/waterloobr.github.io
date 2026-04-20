@@ -198,6 +198,18 @@
   color: #140c40;
 }
 
+.publications-articles .single-job-items {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.32s ease, transform 0.32s ease;
+  will-change: opacity, transform;
+}
+
+.publications-articles .single-job-items.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 991px) {
   .publication-article-inner {
     grid-template-columns: 180px minmax(0, 1fr);

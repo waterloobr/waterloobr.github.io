@@ -58,15 +58,7 @@
                                        <li><a href="team.html">Team</a></li>
                                        <li><a href="contact.html">Contact</a></li>
                                        <li><a href="publications.html">Publications</a></li>
-                                   </ul>
-                                   <!-- Social -->
-                                   <div class="header-social">
-                                        <a href="https://www.facebook.com/waterloobr/"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://twitter.com/uwaterloobr/"><i class="fab fa-twitter"></i></a>
-                                        <a href="https://www.linkedin.com/company/waterloo-business-review/about"><i class="fab fa-linkedin"></i></a>
-                                        <a href="https://www.instagram.com/uwaterloobr/"><i class="fab fa-instagram"></i></a>
-                                    </div>
-                                </div>
+                                   </ul></div>
                             </div>
                        </div>
                    </div>
@@ -207,7 +199,6 @@
               <h4>Who We Are</h4>
               <ul>
                 <li><a href="team.html">Team</a></li>
-                <li><a href="topics/alumni_insights.html">Alumni Insights</a></li>
                 <li><a href="about.html">About</a></li>
               </ul>
             </div>
@@ -277,6 +268,35 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script>
+      (function () {
+        var logos = document.querySelectorAll(".alumni-placements__logo");
+        if (!logos.length) return;
+
+        if (!("IntersectionObserver" in window)) {
+          logos.forEach(function (logo) {
+            logo.classList.add("is-visible");
+          });
+          return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: "0px 0px -8% 0px"
+        });
+
+        logos.forEach(function (logo, index) {
+          logo.style.transitionDelay = Math.min(index * 35, 280) + "ms";
+          observer.observe(logo);
+        });
+      })();
+    </script>
     
     </body>
 </html>
