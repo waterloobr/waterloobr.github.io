@@ -216,25 +216,25 @@
                     <span>Topic Desks</span>
                 </div>
                 <div class="wbr-topic-hubs__grid">
-                    <a class="wbr-topic-hub" href="topics/business_strategy.html">
+                    <a class="wbr-topic-hub" href="topics/alumni_insights.html">
                         <span>01</span>
+                        <h3>Alumni Insights</h3>
+                        <p>Conversations with WBR alumni on careers, decision-making, and how university experience translates into industry.</p>
+                    </a>
+                    <a class="wbr-topic-hub" href="topics/business_strategy.html">
+                        <span>02</span>
                         <h3>Business Strategy</h3>
                         <p>Competitive moves, company positioning, industry structure, and how firms actually win.</p>
                     </a>
                     <a class="wbr-topic-hub" href="topics/entrepreneurship.html">
-                        <span>02</span>
+                        <span>03</span>
                         <h3>Entrepreneurship</h3>
                         <p>Founders, startups, operators, and the systems that shape how ventures scale.</p>
                     </a>
                     <a class="wbr-topic-hub" href="topics/technology.html">
-                        <span>03</span>
+                        <span>04</span>
                         <h3>Technology</h3>
                         <p>AI, platforms, infrastructure, and the business consequences of technical change.</p>
-                    </a>
-                    <a class="wbr-topic-hub" href="publications.html#articles">
-                        <span>04</span>
-                        <h3>All Articles</h3>
-                        <p>A searchable gateway into the full article library across issues, topics, and publication years.</p>
                     </a>
                 </div>
             </div>
@@ -275,28 +275,137 @@
                 <div class="wbr-editor-picks__header">
                     <span>From The Archive</span>
                 </div>
-                <div class="wbr-editor-picks__grid">
-                    <article class="wbr-editor-pick">
-                        <span>Winter 2024</span>
-                        <h3><a href="articles/winter-2024/digital-banking.html">The Growth of Digital Banking and the Fight for the Consumer Relationship</a></h3>
-                        <a class="wbr-editor-pick__cta" href="publications.html#articles">Browse More</a>
-                    </article>
-                    <article class="wbr-editor-pick">
-                        <span>Fall 2023</span>
-                        <h3><a href="articles/fall-2023/novo-nordisk.html">Novo Nordisk: The Company Reshaping Global Healthcare Economics</a></h3>
-                    </article>
-                    <article class="wbr-editor-pick">
-                        <span>Spring 2024</span>
-                        <h3><a href="articles/spring-2024/ai-journalism.html">AI Journalism and the Future of Media</a></h3>
-                    </article>
-                    <article class="wbr-editor-pick">
-                        <span>Winter 2025</span>
-                        <h3><a href="articles/winter-2025/openai.html">OpenAI, Competition, and the Economics of Generative AI</a></h3>
-                    </article>
-                </div>
+                <div id="archive-rotator" class="wbr-editor-picks__grid"></div>
             </div>
         </section>
 		<script type="text/javascript">
+
+            var archiveRotationPool = [
+                {
+                    term: "Winter 2024",
+                    title: "The Growth of Digital Banking and the Fight for the Consumer Relationship",
+                    href: "articles/winter-2024/digital-banking.html"
+                },
+                {
+                    term: "Fall 2023",
+                    title: "Novo Nordisk: The Company Reshaping Global Healthcare Economics",
+                    href: "articles/fall-2023/novo-nordisk.html"
+                },
+                {
+                    term: "Spring 2024",
+                    title: "AI Journalism and the Future of Media",
+                    href: "articles/spring-2024/ai-journalism.html"
+                },
+                {
+                    term: "Winter 2025",
+                    title: "OpenAI, Competition, and the Economics of Generative AI",
+                    href: "articles/winter-2025/openai.html"
+                },
+                {
+                    term: "Fall 2025",
+                    title: "Rejected By Your Bank? Welcome to Canada's Alternative Lending Trap",
+                    href: "articles/fall-2025/rejected_by_your_bank.html"
+                },
+                {
+                    term: "Fall 2025",
+                    title: "Decline of the Luxury Clothing Industry",
+                    href: "articles/fall-2025/decline_of_luxury.html"
+                },
+                {
+                    term: "Fall 2025",
+                    title: "Neurotech in the Future",
+                    href: "articles/fall-2025/neurotech_in_the_future.html"
+                },
+                {
+                    term: "Fall 2025",
+                    title: "AI and Nuclear, a Symbiotic System",
+                    href: "articles/fall-2025/ai_and_nuclear.html"
+                },
+                {
+                    term: "Spring 2025",
+                    title: "The New A&R Playbook: Algorithm Signs The Artist",
+                    href: "articles/spring-2025/a_and_r_playbook.html"
+                },
+                {
+                    term: "Spring 2025",
+                    title: "Has IPL Reached Its Inflection Point?",
+                    href: "articles/spring-2025/ipl.html"
+                },
+                {
+                    term: "Spring 2025",
+                    title: "Canada's Unsung Safety Net: How Firefighting Became the Nation's Most Effective Public Service",
+                    href: "articles/spring-2025/fire.html"
+                },
+                {
+                    term: "Spring 2025",
+                    title: "Beyond AI Multiples: The Overlooked Value in Boring Businesses",
+                    href: "articles/spring-2025/boringjobs.html"
+                },
+                {
+                    term: "Spring 2024",
+                    title: "Digital Economy and the Evolution of Payments",
+                    href: "articles/spring-2024/digital-economy.html"
+                },
+                {
+                    term: "Spring 2024",
+                    title: "From Screens to Stadiums: The Business of Esports",
+                    href: "articles/spring-2024/esports-future.html"
+                },
+                {
+                    term: "Fall 2023",
+                    title: "Japan's Economy at a Crossroads",
+                    href: "articles/fall-2023/japan.html"
+                },
+                {
+                    term: "Fall 2023",
+                    title: "The Foreign Investment Race in Critical Minerals",
+                    href: "articles/fall-2023/foreign.html"
+                }
+            ];
+
+            function getArchiveRotationIndex() {
+                var now = new Date();
+                var startOfYear = new Date(now.getFullYear(), 0, 1);
+                var dayOfYear = Math.floor((now - startOfYear) / 86400000);
+                return Math.floor((dayOfYear + startOfYear.getDay()) / 7);
+            }
+
+            function renderArchiveRotator() {
+                var root = document.getElementById('archive-rotator');
+                if (!root || archiveRotationPool.length < 4) {
+                    return;
+                }
+
+                var rotationIndex = getArchiveRotationIndex();
+                var start = (rotationIndex * 4) % archiveRotationPool.length;
+                var selected = [];
+
+                for (var i = 0; i < 4; i++) {
+                    selected.push(archiveRotationPool[(start + i) % archiveRotationPool.length]);
+                }
+
+                root.innerHTML = selected.map(function(item, index) {
+                    var card = [
+                        '<article class="wbr-editor-pick">',
+                        '<span>' + item.term + '</span>',
+                        '<h3><a href="' + item.href + '">' + item.title + '</a></h3>',
+                        '</article>'
+                    ].join('');
+
+                    if (index === 0) {
+                        return [
+                            '<div class="wbr-editor-pick-with-cta">',
+                            card,
+                            '<a class="wbr-editor-pick__cta" href="publications.html#articles">Browse More</a>',
+                            '</div>'
+                        ].join('');
+                    }
+
+                    return card;
+                }).join('');
+            }
+
+            renderArchiveRotator();
 
 			function loadApp() {
 				

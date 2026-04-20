@@ -9993,6 +9993,14 @@ del {
   font-size: 18px;
 }
 
+.wbr-aboutpage .about-hero .about-hero__content h2 {
+  color: #ffffff !important;
+}
+
+.wbr-aboutpage .about-hero .about-hero__content p {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
 @media (max-width: 991px) {
   .about-hero {
     min-height: 78vh;
@@ -10469,6 +10477,12 @@ del {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.wbr-editor-pick-with-cta {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 .wbr-start-here__card,
 .wbr-topic-hub,
 .wbr-editor-pick {
@@ -10487,9 +10501,15 @@ del {
 }
 
 .wbr-start-here__card:hover,
-.wbr-topic-hub:hover {
+.wbr-topic-hub:hover,
+.wbr-editor-pick:hover {
   transform: translateY(-4px);
   border-color: #140C40;
+}
+
+.wbr-editor-pick:has(.wbr-editor-pick__cta:hover) {
+  transform: none;
+  border-color: #e0d9c9;
 }
 
 .wbr-start-here__card span,
@@ -10536,7 +10556,8 @@ del {
 
 .wbr-start-here__card a:hover,
 .wbr-editor-pick h3 a:hover,
-.wbr-topic-hub:hover h3 {
+.wbr-topic-hub:hover h3,
+.wbr-editor-pick:hover h3 a {
   color: #dca73a;
 }
 
@@ -10547,8 +10568,7 @@ del {
 .wbr-editor-pick__cta {
   display: inline-block;
   align-self: flex-start;
-  margin-top: auto;
-  padding-top: 16px;
+  margin-top: 16px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -10890,6 +10910,38 @@ body:not(.wbr-homepage) .header-area .header-top .header-info-right ul li a:hove
   transition: box-shadow 0.3s ease;
 }
 
+.publications-articles .single-job-items .job-tittle span {
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8d8a9f;
+  font-family: "Open Sans", sans-serif;
+}
+
+.publications-articles .single-job-items .job-tittle a h4,
+.publications-articles .single-job-items .job-tittle h4 {
+  color: #111111;
+  font-size: 32px;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 14px;
+}
+
+.publications-articles .single-job-items .job-tittle a h4:hover {
+  color: #dca73a;
+}
+
+.publications-articles .single-job-items .job-tittle p {
+  font-size: 16px;
+  line-height: 1.72;
+  color: #454545;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .publications-articles .single-job-items,
   .publications-articles .single-job-items.is-visible {
@@ -11189,6 +11241,239 @@ body:not(.wbr-homepage):not(.wbr-aboutpage) .wbr-subscribe-link:hover {
   font-weight: 600;
 }
 
+.wbr-contact-page .wbr-page-title {
+  padding-bottom: 10px;
+}
+
+.wbr-contact-page .wbr-page-title h1 {
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-transform: none;
+  color: #111111;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wbr-contact-shell {
+  padding: 18px 0 72px;
+}
+
+.wbr-contact-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: end;
+  margin-bottom: 24px;
+}
+
+.wbr-contact-panel__header span,
+.wbr-contact-notes__intro span {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8d8a9f;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wbr-contact-hero__copy h2,
+.wbr-contact-panel__header h3,
+.wbr-contact-notes__intro h3 {
+  margin: 0;
+  color: #111111;
+  font-weight: 400;
+}
+
+.wbr-contact-hero__copy h2 {
+  max-width: 900px;
+  font-size: 42px;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.wbr-contact-hero__logo {
+  justify-self: end;
+}
+
+.wbr-contact-hero__logo img {
+  display: block;
+  width: 220px;
+  height: auto;
+}
+
+.wbr-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.78fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.wbr-contact-sidebar {
+  display: grid;
+  gap: 24px;
+}
+
+.wbr-contact-panel {
+  padding: 28px 28px 30px;
+  border-top: 3px solid #e0d9c9;
+  background: #fff;
+}
+
+.wbr-contact-panel__header {
+  margin-bottom: 20px;
+}
+
+.wbr-contact-panel__header h3 {
+  font-size: 28px;
+  line-height: 1.08;
+}
+
+.wbr-contact-map {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  background: #f3f1ea;
+}
+
+.wbr-contact-map iframe {
+  display: block;
+  width: 100%;
+  height: 520px;
+  border: 0;
+}
+
+.wbr-contact-map__overlay {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: rgba(17, 17, 17, 0.78);
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+.wbr-contact-map__overlay strong,
+.wbr-contact-route strong,
+.wbr-contact-note strong,
+.wbr-contact-linkcard strong {
+  font-size: 17px;
+  line-height: 1.3;
+  color: inherit;
+  font-weight: 600;
+}
+
+.wbr-contact-map__overlay span {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.wbr-contact-linkcard {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  color: inherit;
+  text-decoration: none;
+}
+
+.wbr-contact-linkcard__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #140C40;
+  color: #fff;
+  font-size: 18px;
+}
+
+.wbr-contact-linkcard p,
+.wbr-contact-route p,
+.wbr-contact-note p {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b4b4b;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.wbr-contact-linkcard:hover strong {
+  color: #dca73a;
+}
+
+.wbr-contact-route + .wbr-contact-route {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e6e0d1;
+}
+
+.wbr-contact-notes {
+  margin-top: 36px;
+  padding-top: 8px;
+}
+
+.wbr-contact-notes__intro {
+  margin-bottom: 20px;
+}
+
+.wbr-contact-notes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.wbr-contact-note {
+  padding-top: 20px;
+  border-top: 3px solid #e0d9c9;
+}
+
+.wbr-aboutpage main .about-details-cap h2,
+.wbr-team-page main .about-details-cap h2,
+.wbr-team-page main .subteam h3,
+.wbr-publications-page main .wbr-page-title h1,
+.wbr-publications-page main .wbr-page-title--publications h1,
+.wbr-aboutpage main .wbr-page-title h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #111111;
+}
+
+.wbr-aboutpage main .about-details-cap h2,
+.wbr-team-page main .about-details-cap h2,
+.wbr-publications-page main .wbr-page-title h1,
+.wbr-publications-page main .wbr-page-title--publications h1,
+.wbr-aboutpage main .wbr-page-title h1 {
+  line-height: 1.02;
+}
+
+.wbr-aboutpage main .about-details-cap h3,
+.wbr-team-page main .subteam h3,
+.wbr-team-page main .Creative h3,
+.wbr-team-page main .past-leadership h3,
+.wbr-publications-page main .section-tittle h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: #111111;
+}
+
+.wbr-aboutpage main p,
+.wbr-team-page main .about-details-cap p,
+.wbr-publications-page main .publication-empty,
+.wbr-publications-page main .job-tittle p,
+.wbr-publications-page main .section-tittle p {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #454545;
+}
+
 @media (max-width: 767px) {
   .subscribe-shell {
     padding: 36px 0 56px;
@@ -11214,6 +11499,47 @@ body:not(.wbr-homepage):not(.wbr-aboutpage) .wbr-subscribe-link:hover {
     height: 62px;
     font-size: 16px;
   }
+
+  .wbr-contact-shell {
+    padding: 8px 0 56px;
+  }
+
+  .wbr-contact-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .wbr-contact-hero__copy h2 {
+    font-size: 30px;
+  }
+
+  .wbr-contact-hero__logo {
+    justify-self: start;
+  }
+
+  .wbr-contact-hero__logo img {
+    width: 170px;
+  }
+
+  .wbr-contact-grid,
+  .wbr-contact-notes__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wbr-contact-panel {
+    padding: 22px 20px 24px;
+  }
+
+  .wbr-contact-panel__header h3 {
+    font-size: 24px;
+  }
+
+  .wbr-contact-map,
+  .wbr-contact-map iframe {
+    min-height: 420px;
+    height: 420px;
+  }
 }
 
 .wbr-footer {
@@ -11235,7 +11561,8 @@ body:not(.wbr-homepage):not(.wbr-aboutpage) .wbr-subscribe-link:hover {
 
 .wbr-footer__column a,
 .wbr-footer__bottom p {
-  color: #fff;
+  color: #fff !important;
+  font-family: "Open Sans", sans-serif;
 }
 
 .wbr-footer__column a:hover {
