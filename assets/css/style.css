@@ -10357,6 +10357,8 @@ del {
 }
 
 .wbr-home-rail__block {
+  display: flex;
+  flex-direction: column;
   padding: 28px 28px 30px;
   border-bottom: 1px solid #ddd7ca;
   background: transparent;
@@ -10384,6 +10386,57 @@ del {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #111111;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wbr-home-rail__editors {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 18px 0 18px;
+}
+
+.wbr-home-rail__editors img {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid rgba(20, 12, 64, 0.08);
+}
+
+.wbr-home-rail__button {
+  display: inline-block;
+  padding: 0;
+  min-height: 0;
+  background: transparent;
+  color: #111111 !important;
+  text-decoration: none;
+}
+
+.wbr-home-rail__button:hover {
+  color: #dca73a !important;
+}
+
+.wbr-home-rail__quote {
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.wbr-home-rail__quote p {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #454545;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.wbr-home-rail__quote span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #6a6876;
   font-family: "Open Sans", sans-serif;
 }
 

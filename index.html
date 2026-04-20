@@ -199,6 +199,12 @@
                             <h3>Fall 2025</h3>
                             <p>Four new pieces across business strategy and technology, plus the full issue experience.</p>
                             <a href="publications/fall-2025.html">Open Full Issue</a>
+                            <div class="wbr-home-rail__editors" aria-label="Editors in Chief">
+                                <img src="assets/img/team/fall2025/Ishan_page-0001.jpg" alt="Ishan Vakharia">
+                                <img src="assets/img/team/fall2025/Sara_page-0001.jpg" alt="Sara Etedali">
+                            </div>
+                            <a class="wbr-home-rail__button" href="publications/fall-2025.html#page/2">Read This Edition's Letter From the Editors</a>
+                            <div id="wbr-daily-quote" class="wbr-home-rail__quote"></div>
                         </div>
                         <div class="wbr-home-rail__block">
                             <span>Newsletter</span>
@@ -406,6 +412,72 @@
             }
 
             renderArchiveRotator();
+
+            var dailyQuotePool = [
+                {
+                    quote: "Price is what you pay. Value is what you get.",
+                    author: "Warren Buffett"
+                },
+                {
+                    quote: "Risk comes from not knowing what you're doing.",
+                    author: "Warren Buffett"
+                },
+                {
+                    quote: "The way to get started is to quit talking and begin doing.",
+                    author: "Walt Disney"
+                },
+                {
+                    quote: "Innovation distinguishes between a leader and a follower.",
+                    author: "Steve Jobs"
+                },
+                {
+                    quote: "Stay hungry, stay foolish.",
+                    author: "Steve Jobs"
+                },
+                {
+                    quote: "In the middle of difficulty lies opportunity.",
+                    author: "Albert Einstein"
+                },
+                {
+                    quote: "The important thing is not to stop questioning.",
+                    author: "Albert Einstein"
+                },
+                {
+                    quote: "Done is better than perfect.",
+                    author: "Sheryl Sandberg"
+                },
+                {
+                    quote: "Fortune sides with him who dares.",
+                    author: "Virgil"
+                },
+                {
+                    quote: "Simplicity is the ultimate sophistication.",
+                    author: "Leonardo da Vinci"
+                },
+                {
+                    quote: "The best way to predict the future is to invent it.",
+                    author: "Alan Kay"
+                },
+                {
+                    quote: "When something is important enough, you do it even if the odds are not in your favor.",
+                    author: "Elon Musk"
+                }
+            ];
+
+            function renderDailyQuote() {
+                var root = document.getElementById('wbr-daily-quote');
+                if (!root || !dailyQuotePool.length) {
+                    return;
+                }
+
+                var item = dailyQuotePool[Math.floor(Math.random() * dailyQuotePool.length)];
+                root.innerHTML = [
+                    '<p>"' + item.quote + '"</p>',
+                    '<span>- ' + item.author + '</span>'
+                ].join('');
+            }
+
+            renderDailyQuote();
 
 			function loadApp() {
 				
