@@ -211,12 +211,22 @@
 }
 
 @media (max-width: 991px) {
+  .publication-filter {
+    min-width: 0;
+  }
+
   .publication-article-inner {
     grid-template-columns: 180px minmax(0, 1fr);
   }
 
   .publication-article-copy h3 {
     font-size: 30px;
+    overflow-wrap: anywhere;
+  }
+
+  .publication-article-copy p,
+  .publication-issue-card h3 {
+    overflow-wrap: anywhere;
   }
 
   .publication-issues-grid {
@@ -230,6 +240,10 @@
     padding-bottom: 60px;
   }
 
+  .publication-article-list {
+    gap: 26px;
+  }
+
   .publication-filter-row,
   .publication-article-inner,
   .publication-issues-grid {
@@ -240,12 +254,56 @@
     padding: 22px 18px;
   }
 
+  .publication-article-copy h3 {
+    font-size: 26px;
+  }
+
+  .publication-article-copy p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .publication-article-meta {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+
   .publication-issues-header {
     gap: 18px;
     margin-bottom: 26px;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .publication-issues-header h2 {
     font-size: 24px;
+  }
+
+  .publication-issues-header::after {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .publication-filters {
+    gap: 14px;
+    padding: 18px 14px;
+  }
+
+  .publication-filters input,
+  .publication-filters select {
+    min-height: 48px;
+  }
+
+  .publication-article-card {
+    padding-bottom: 26px;
+  }
+
+  .publication-article-copy h3 {
+    font-size: 22px;
+  }
+
+  .publication-issue-card h3 {
+    font-size: 20px;
   }
 }
