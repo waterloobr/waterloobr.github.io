@@ -151,6 +151,7 @@
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/The_Blackstone_Group_logo_(2).svg.png" alt="Blackstone"></span></div>
                                 <div class="alumni-placements__logo alumni-placements__logo--1-25x"><span class="image-wrap"><img src="assets/img/alumni/Bloomberg-Logo.png" alt="Bloomberg"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/BMO_Logo.svg.png" alt="BMO"></span></div>
+                                <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/carta.png" alt="Carta"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/CIBC.png" alt="CIBC"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/Logo_of_Deloitte.svg.png" alt="Deloitte"></span></div>
                                 <div class="alumni-placements__logo alumni-placements__logo--1-15x"><span class="image-wrap"><img src="assets/img/alumni/EY_logo_2019.svg.png" alt="EY"></span></div>
@@ -159,16 +160,21 @@
                                 <div class="alumni-placements__logo alumni-placements__logo--1-2x"><span class="image-wrap"><img src="assets/img/alumni/georgian.png" alt="Georgian"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/jp-morgan-1.svg" alt="J.P. Morgan"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/Jane_Street_Capital_Logo.svg.png" alt="Jane Street"></span></div>
+                                <div class="alumni-placements__logo alumni-placements__logo--1-2x"><span class="image-wrap"><img src="assets/img/alumni/kinterracapital_logo.jpeg" alt="Kinterra Capital"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/KPMG_blue_logo.svg.png" alt="KPMG"></span></div>
                                 <div class="alumni-placements__logo alumni-placements__logo--1-5x"><span class="image-wrap"><img src="assets/img/alumni/Moelis_Logo.png" alt="Moelis"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/nationalbank.png" alt="National Bank"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/Onex_Corporation.svg.png" alt="Onex"></span></div>
+                                <div class="alumni-placements__logo alumni-placements__logo--1-15x"><span class="image-wrap"><img src="assets/img/alumni/OMERS_RGB_Primary_Blue.png" alt="OMERS"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/Ontario_Teachers'_Pension_Plan_logo_2021.svg (1).png" alt="Ontario Teachers' Pension Plan"></span></div>
+                                <div class="alumni-placements__logo alumni-placements__logo--md"><span class="image-wrap"><img src="assets/img/alumni/logo-paradigm-dark.png" alt="Paradigm Capital"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/PJT_Logo_Blue.png" alt="PJT Partners"></span></div>
                                 <div class="alumni-placements__logo alumni-placements__logo--1-2x"><span class="image-wrap"><img src="assets/img/alumni/propellor growth.png" alt="Propellor Growth"></span></div>
                                 <div class="alumni-placements__logo alumni-placements__logo--0-83x"><span class="image-wrap"><img src="assets/img/alumni/PSPLogo_1718369476532-HR.png" alt="PSP Investments"></span></div>
                                 <div class="alumni-placements__logo"><span class="image-wrap"><img src="assets/img/alumni/PwC_Company_Logo.svg.png" alt="PwC"></span></div>
                                 <div class="alumni-placements__logo alumni-placements__logo--1-2x"><span class="image-wrap"><img src="assets/img/alumni/RBC.jpeg" alt="RBC"></span></div>
+                                <div class="alumni-placements__logo alumni-placements__logo--md"><span class="image-wrap"><img src="assets/img/alumni/Raymond_James_Ltd__Raymond_James_Canada_Launches_Sustainability.jpg" alt="Raymond James"></span></div>
+                                <div class="alumni-placements__logo alumni-placements__logo--md"><span class="image-wrap"><img src="assets/img/alumni/RSMStandardLogoRGB.png" alt="RSM"></span></div>
                                 <div class="alumni-placements__logo alumni-placements__logo--1-15x"><span class="image-wrap"><img src="assets/img/alumni/Sagard.png" alt="Sagard"></span></div>
                                 <div class="alumni-placements__logo alumni-placements__logo--1-2x"><span class="image-wrap"><img src="assets/img/alumni/TD.png" alt="TD"></span></div>
                                 <div class="alumni-placements__logo alumni-placements__logo--0-8x"><span class="image-wrap"><img src="assets/img/alumni/Uber_logo_2018.png" alt="Uber"></span></div>
@@ -271,6 +277,14 @@
     <script>
       (function () {
         var logos = document.querySelectorAll(".alumni-placements__logo");
+        // Hide any logo container if its image fails to load (prevents broken image icons)
+        var imgs = document.querySelectorAll('.alumni-placements__logo img');
+        imgs.forEach(function (img) {
+          img.addEventListener('error', function () {
+            var p = img.closest('.alumni-placements__logo');
+            if (p) p.style.display = 'none';
+          });
+        });
         if (!logos.length) return;
 
         if (!("IntersectionObserver" in window)) {
