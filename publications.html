@@ -231,6 +231,31 @@
         var publicationData = [
             {
                 info: {
+                    term: "Winter 2026",
+                    contents: [{
+                        title: "Tomorrow Golf League: The Future of the Sporting Industry",
+                        link: "articles/winter-2026/tomorrow_golf_league.html",
+                    },
+                    {
+                        title: "Who Regulates the Future? The Legal Dilemma of Prediction Markets",
+                        link: "articles/winter-2026/prediction_markets.html",
+                    },
+                    {
+                        title: "\"Free Trades\" Aren't Free, You're the Product",
+                        link: "articles/winter-2026/free_trades_arent_free.html",
+                    },
+                    {
+                        title: "Pokémon TCG Market",
+                        link: "articles/winter-2026/pokemon_tcg_market.html",
+                    },
+                    ],
+                },
+                publicationPage: "publications/winter-2026.html",
+                publicationSrc: "images/medium/Winter 2026/1-issue-cover-20260729b.png",
+                publicationPdf: "publications/pdfs/Winter_2026.pdf",
+            },
+            {
+                info: {
                     term: "Fall 2025",
                     contents: [{
                         title: "Rejected By Your Bank? Welcome to Canada's Alternative Lending Trap",
@@ -690,6 +715,10 @@
         */
         var topicLinks = {
             "Business Strategy": [
+                "articles/winter-2026/tomorrow_golf_league.html",
+                "articles/winter-2026/prediction_markets.html",
+                "articles/winter-2026/free_trades_arent_free.html",
+                "articles/winter-2026/pokemon_tcg_market.html",
                 "articles/fall-2025/rejected_by_your_bank.html",
                 "articles/fall-2025/decline_of_luxury.html",
                 "articles/fall-2020/business_model.html",
@@ -835,6 +864,22 @@
         Keep the link key exactly identical to the article path in publicationData/topicLinks.
         */
         var articleAssets = {
+            "articles/winter-2026/tomorrow_golf_league.html": {
+                image: "assets/img/winter-2026/6-golf-cover-20260729b.png",
+                summary: "Backed by Tiger Woods and Rory McIlroy, TGL modernizes golf with simulator arenas, team play, and a shot clock — a case study in whether traditional sports can stay culturally relevant."
+            },
+            "articles/winter-2026/prediction_markets.html": {
+                image: "assets/img/winter-2026/12-prediction-cover-20260729b.png",
+                summary: "As Kalshi and Polymarket turn forecasting into a tradable asset class, states and the CFTC collide over whether prediction markets are finance, gambling, or something entirely new."
+            },
+            "articles/winter-2026/free_trades_arent_free.html": {
+                image: "assets/img/winter-2026/23-freetrade-cover-20260729b.png",
+                summary: "Zero-commission trading didn't eliminate costs — it hid them. Payment for order flow turns retail investors into the product, extracting billions while regulators struggle to catch up."
+            },
+            "articles/winter-2026/pokemon_tcg_market.html": {
+                image: "assets/img/winter-2026/30-pokemon-cover-20260729b.png",
+                summary: "From childhood collectibles to alternative assets: how rare Pokémon cards have delivered outsized returns — and what scarcity, grading, and nostalgia mean for investors."
+            },
             "articles/fall-2025/rejected_by_your_bank.html": {
                 image: "assets/img/fall-2025/6 - Trap Cover.png",
                 summary: "Federal stress tests designed to protect Canadians are quietly pushing creditworthy self-employed borrowers into a $401 billion shadow lending market — where rates hit 12% and escape is nearly impossible."

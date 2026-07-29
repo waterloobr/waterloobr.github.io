@@ -10413,6 +10413,8 @@ del {
   border-top: 3px solid #140C40;
   border-bottom: 1px solid #d8d8df;
   background: #fff;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .wbr-home-lead + .wbr-home-lead {
@@ -10442,11 +10444,12 @@ del {
 .wbr-home-lead h3 {
   margin: 0 0 14px;
   max-width: 920px;
-  font-size: 36px;
-  line-height: 1;
+  font-size: clamp(22px, 2.4vw, 36px);
+  line-height: 1.1;
   letter-spacing: -0.03em;
   color: #111111;
   font-weight: 400;
+  overflow-wrap: anywhere;
 }
 
 .wbr-home-lead h3 a {
@@ -10636,8 +10639,13 @@ del {
 }
 
 .top-post-area + .wbr-editor-picks {
-  padding-top: 0;
-  margin-top: -64px;
+  padding-top: 48px;
+  margin-top: 0;
+}
+
+.wbr-homepage .top-post-area {
+  overflow: hidden;
+  padding-bottom: 32px;
 }
 
 .wbr-start-here__grid {
@@ -11259,24 +11267,28 @@ body:not(.wbr-homepage) .header-area .header-top .header-info-right ul li a:hove
 
 .home-issue-layout {
   display: grid;
-  grid-template-columns: 922px minmax(320px, 1fr);
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+  gap: 36px;
   align-items: start;
   justify-content: start;
   margin-left: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .home-issue-layout__main {
   min-width: 0;
+  max-width: 100%;
   position: relative;
   z-index: 1;
 }
 
 .home-issue-heading {
-  margin-bottom: 28px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
   border-bottom: 1px solid #cfe0ee;
-  width: min(1280px, calc(100vw - 48px));
+  width: 100%;
+  max-width: 100%;
 }
 
 .home-issue-heading::before {
@@ -11289,42 +11301,57 @@ body:not(.wbr-homepage) .header-area .header-top .header-info-right ul li a:hove
 
 .home-issue-book-frame {
   position: relative;
-  min-height: 620px;
-  width: 922px;
-  margin-top: 72px;
-  overflow: visible;
+  width: 100%;
+  max-width: 842px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  aspect-ratio: 842 / 595;
+  min-height: 0;
+  isolation: isolate;
+  background: transparent;
 }
 
 .home-issue-book-frame .magazine-viewport {
-  position: relative !important;
-  width: 100%;
-  height: 620px;
-  overflow: visible;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
 }
 
 .home-issue-book-frame .magazine-viewport .container {
-  position: relative !important;
+  position: absolute !important;
+  inset: 0 !important;
   top: 0 !important;
   left: 0 !important;
-  width: 922px;
-  height: 600px;
+  width: 100% !important;
+  height: 100% !important;
   margin: 0 !important;
   transform: none !important;
 }
 
 .home-issue-book-frame .magazine-viewport .magazine {
-  position: relative !important;
+  position: absolute !important;
   left: 0 !important;
   top: 0 !important;
   margin: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+.home-issue-book-frame .magazine .page,
+.home-issue-book-frame .magazine .page img {
+  max-width: none;
 }
 
 .home-issue-feature__snapshot {
   position: relative;
   z-index: 3;
-  padding-top: 150px;
+  padding-top: 72px;
   justify-self: start;
-  max-width: 520px;
+  max-width: 340px;
+  width: 100%;
 }
 
 .home-issue-feature__eyebrow {
@@ -11365,31 +11392,48 @@ body:not(.wbr-homepage) .header-area .header-top .header-info-right ul li a:hove
   text-decoration: underline;
 }
 
+@media (max-width: 1199px) {
+  .home-issue-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+    gap: 28px;
+  }
+
+  .home-issue-book-frame {
+    margin-top: 8px;
+    max-width: 100%;
+  }
+
+  .home-issue-feature__snapshot {
+    padding-top: 56px;
+    max-width: 100%;
+  }
+
+  .home-issue-feature__snapshot h3 {
+    font-size: clamp(28px, 3.2vw, 40px);
+  }
+}
+
 @media (max-width: 991px) {
   .home-issue-layout {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
     margin-left: 0;
   }
 
   .home-issue-book-frame {
-    min-height: 520px;
     width: 100%;
-    margin-top: 12px;
-  }
-
-  .home-issue-book-frame .magazine-viewport {
-    height: 520px;
+    max-width: 100%;
+    margin-top: 8px;
   }
 
   .home-issue-feature__snapshot h3 {
-    font-size: 34px;
+    font-size: clamp(28px, 6vw, 34px);
   }
 
   .home-issue-feature__snapshot {
-    padding-top: 12px;
+    padding-top: 8px;
     max-width: 100%;
-    padding-bottom: 18px;
+    padding-bottom: 8px;
   }
 
   .home-issue-feature__snapshot p {
@@ -11401,6 +11445,10 @@ body:not(.wbr-homepage) .header-area .header-top .header-info-right ul li a:hove
   .home-issue-feature__button {
     max-width: 100%;
     white-space: normal;
+  }
+
+  .wbr-homepage .top-post-area + .wbr-editor-picks {
+    padding-top: 32px;
   }
 }
 
