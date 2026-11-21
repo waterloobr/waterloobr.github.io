@@ -231,6 +231,27 @@
         var publicationData = [
             {
                 info: {
+                    term: "Spring 2026",
+                    contents: [{
+                        title: "The One-Aisle Store",
+                        link: "articles/spring-2026/one_aisle_store.html",
+                    },
+                    {
+                        title: "Protecting Money In A Tokenized World",
+                        link: "articles/spring-2026/tokenized_world.html",
+                    },
+                    {
+                        title: "Nobody Shares A Golden Goose",
+                        link: "articles/spring-2026/golden_goose.html",
+                    },
+                    ],
+                },
+                publicationPage: "publications/spring-2026.html",
+                publicationSrc: "images/medium/Spring 2026/1.jpg",
+                publicationPdf: "publications/pdfs/Spring_2026.pdf",
+            },
+            {
+                info: {
                     term: "Winter 2026",
                     contents: [{
                         title: "Tomorrow Golf League: The Future of the Sporting Industry",
@@ -715,6 +736,9 @@
         */
         var topicLinks = {
             "Business Strategy": [
+                "articles/spring-2026/one_aisle_store.html",
+                "articles/spring-2026/tokenized_world.html",
+                "articles/spring-2026/golden_goose.html",
                 "articles/winter-2026/tomorrow_golf_league.html",
                 "articles/winter-2026/prediction_markets.html",
                 "articles/winter-2026/free_trades_arent_free.html",
@@ -864,6 +888,18 @@
         Keep the link key exactly identical to the article path in publicationData/topicLinks.
         */
         var articleAssets = {
+            "articles/spring-2026/one_aisle_store.html": {
+                image: "assets/img/spring-2026/6-one-aisle-cover.png",
+                summary: "North American car dependency wasn't inevitable — it was built by policy choices. Why frequency, not built form, culture, or geography, decides whether people ride transit, and why the fix is to run buses more often."
+            },
+            "articles/spring-2026/tokenized_world.html": {
+                image: "assets/img/spring-2026/14-tokenized-world-cover.png",
+                summary: "Stablecoins look and act like dollars, but they are privately issued money-like claims created outside insured banking — the same shadow-banking logic that helped turn a funding panic into the 2008 financial crisis."
+            },
+            "articles/spring-2026/golden_goose.html": {
+                image: "assets/img/spring-2026/19-golden-goose-cover.png",
+                summary: "After four decades of serving institutions, private equity is courting retail investors. But retail products aren't the funds institutions own — with stacked fees, gated liquidity, and stability that is really delayed volatility."
+            },
             "articles/winter-2026/tomorrow_golf_league.html": {
                 image: "assets/img/winter-2026/6-golf-cover-20260729b.png",
                 summary: "Backed by Tiger Woods and Rory McIlroy, TGL modernizes golf with simulator arenas, team play, and a shot clock — a case study in whether traditional sports can stay culturally relevant."
